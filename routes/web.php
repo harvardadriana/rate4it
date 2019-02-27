@@ -1,23 +1,53 @@
 <?php
 
+
+Route::get('/rate', function () {
+    return view('courses.rate');
+});
+
+Route::get('/search', function () {
+    return view('courses.search');
+});
+
+
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| RESTRICTING MULTIPLE ROUTES
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::group(['middleware' => 'auth'], function () {
+//
+//    # Rate a course
+//    Route::get('/courses/rate', 'CourseController@rate');
+//    Route::post('/courses', 'CourseController@store');
+//
+//});
 
 /*
- *  DELETE AFTER TESTING
- */
+|--------------------------------------------------------------------------
+| Homepage
+|--------------------------------------------------------------------------
+|
+*/
+Route::get('/','HomeController');
+
+/*
+|--------------------------------------------------------------------------
+| Authentification
+|--------------------------------------------------------------------------
+|
+*/
+Auth::routes();
+
+
+/*
+|--------------------------------------------------------------------------
+| DELETE AFTER TESTING
+|--------------------------------------------------------------------------
+|
+*/
 Route::get('/debug', function () {
 
     $debug = [
@@ -44,4 +74,3 @@ Route::get('/debug', function () {
     dump($debug);
 });
 
-Auth::routes();
