@@ -12,6 +12,18 @@
 
 namespace App{
 /**
+ * App\Instructor
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Course[] $courses
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Instructor newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Instructor newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Instructor query()
+ */
+	class Instructor extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\User
  *
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
@@ -20,5 +32,30 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User query()
  */
 	class User extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\Course
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Instructor[] $instructors
+ * @property-read \App\Subject $subject
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Course newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Course newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Course query()
+ */
+	class Course extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\Subject
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Course[] $courses
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Subject newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Subject newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Subject query()
+ */
+	class Subject extends \Eloquent {}
 }
 
