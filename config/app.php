@@ -10,13 +10,10 @@ return [
     */
 
     'nav' => [
+        '/' => 'Search',
+        '/rate' => 'Rate',
         '/login' => 'Login',
         '/register' => 'Register',
-        '/courses' => 'Courses',
-        '/search' => 'Search courses',
-        '/rate' => 'Rate courses',
-        '/about' => 'About',
-        '/contact' => 'Contact',
     ],
 
     /*
@@ -27,11 +24,8 @@ return [
     */
 
     'nav1' => [
-        '/courses' => 'Courses',
-        '/search' => 'Search courses',
-        '/rate' => 'Rate courses',
-        '/about' => 'About',
-        '/contact' => 'Contact',
+        '/' => 'Search',
+        '/rate' => 'Rate',
     ],
 
     /*

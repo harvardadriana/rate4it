@@ -3,31 +3,17 @@
 use Illuminate\Support\Facades\Mail;
 
 Route::get('/rate', function () {
-    return view('courses.rate');
+    return view('reviews.rate');
 })->middleware('verified');
+
 
 Route::get('/search', function () {
     return view('courses.search');
 });
 
-
-Route::get('/mail', function () {
-
-    $data = [
-        'title' => 'hi',
-        'content' => 'content here'
-    ];
-
-
-    Mail::send('emails.test', $data, function($message) {
-
-    $message->to('adriana_sugihara@mac.com', 'AdrianaMac')->subject('hello');
-
-    });
-
-
+Route::get('/show', function () {
+    return view('courses.show');
 });
-
 
 /*
 |--------------------------------------------------------------------------
@@ -54,11 +40,32 @@ Route::get('/','HomeController');
 
 /*
 |--------------------------------------------------------------------------
-| Authentification
+| Authentication
 |--------------------------------------------------------------------------
 |
 */
 Auth::routes(['verify' => true]);
+
+
+
+
+Route::get('/mail', function () {
+
+    $data = [
+        'title' => 'hi',
+        'content' => 'content here'
+    ];
+
+
+    Mail::send('emails.test', $data, function($message) {
+
+        $message->to('adriana_sugihara@mac.com', 'AdrianaMac')->subject('hello');
+
+    });
+
+
+});
+
 
 
 /*

@@ -13,3 +13,6 @@ https://github.com/barryvdh/laravel-ide-helper
 
 3. Laravel Debugbar
 https://github.com/barryvdh/laravel-debugbar
+
+4. guzzle, PHP HTTP client
+https://github.com/guzzle/guzzle

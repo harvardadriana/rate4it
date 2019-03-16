@@ -26,7 +26,7 @@ class CreateCoursesTable extends Migration
             $table->mediumInteger('crn_as_int');
             $table->string('college_code', 2);
             $table->mediumInteger('number_of_reviews');
-            $table->float('overall_rating', 1, 1);
+            $table->float('overall_rating', 2, 1);
         });
     }
 
