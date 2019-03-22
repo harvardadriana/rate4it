@@ -1,0 +1,96 @@
+/* search.css */
+
+/********************
+ *	SEARCH
+ *******************/
+.outer-search {
+    margin: 100px 0;
+}
+
+.search-box {
+    text-align: left;
+}
+
+.search-box h1 {
+    margin: 10px 0;
+    font-size: 2.0rem;
+    color: #555e6a;
+}
+
+.search-box p {
+    margin: 35px 0;
+    font-size: 1.6rem;
+    color: #579BEA;
+}
+
+input.form-control {
+    width: 550px;
+    margin-top: 50px;
+}
+
+button.btn.btn-default {
+    margin-top: 30px;
+    color: #fff;
+    font-size: 1.4rem;
+    border-radius: 10px;
+    background-color: #FA7308;
+}
+
+button.btn.btn-default:hover {
+    background-color: #5c68bd;
+}
+
+/********************
+ *	RESULTS
+ *******************/
+
+.results {
+    margin-top: 30px;
+}
+
+.results h2 {
+    margin: 15px 0;
+    font-size: 1.8rem;
+    color: #555e6a;
+}
+
+.list-group {
+    padding: 20px;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.subject-course-code {
+    margin-right: 25px;
+}
+
+.course-details {
+    margin-bottom: 10px;
+}
+
+.course-details.left p.course a {
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.professor {
+    margin-top: 15px;
+}
+
+.subject-course-code p, .course a,
+.course-details p {
+    color: #29313e;
+}
+
+.instructor {
+    margin: 5px 0;
+}
+
+.review {
+    margin-top: 15px;
+}
+
+.noResults {
+    padding: 20px;
+    font-size: 1.4rem;
+}

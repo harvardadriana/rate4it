@@ -1,59 +1,71 @@
 @extends('layouts.master')
 
+@push('styles')
+    <link rel='stylesheet' type='text/css' href='/css/nav-blue.css'>
+    <link rel='stylesheet' type='text/css' href='/css/courses/showlist.css'>
+@endpush
+
+@push('logo')
+    <img id='logo' src='/images/logo-blue.jpg' alt='Rate4it Logo'>
+@endpush
+
 @section('content')
 
-    <div class='results'>
+    @if(count($searchResults) != 0)
 
-        @if(count($searchResults) != 0)
+        <div class='content'>
 
-            <h2>List of courses found:</h2>
+            <div class='list'>
 
-            <ul class='list-group list-group-flush'>
+                <h2>List of courses found:</h2>
 
-                {{-- Loop through all courses found --}}
-                @foreach($searchResults as $course)
+                <ul class='list-group list-group-flush'>
 
-                    <li class='list-group-item'>
+                    {{-- LOOP THROUGH ALL COURSES FOUND --}}
+                    @foreach($searchResults as $course)
 
-                        {{-- LOGO  --}}
-                        <div class='left left-side-course'>
-                            <p>{{ $course->subject_and_course_code }}</p>
-                        </div>
+                        <li class='list-group-item'>
 
-                        {{-- COURSE DETAILS --}}
-                        <div class='right right-side-course'>
-                            <h3 class='course'><a href='/courses/{{ $course->id }}'>{{ $course->title }}</a></h3>
-                            <p>Professor(s): </p>
+                            {{-- LOGO  --}}
+                            <div class='left subject-course-code'>
+                                <p>{{ $course->subject_and_course_code }}</p>
+                            </div>
 
-                            {{-- Loop through all instructors of this course --}}
-                            @foreach($course->instructors as $instructor)
-                                <p class='instructor'>{{ $instructor->first_name . ' ' . $instructor->last_name }}</p>
-                            @endforeach
+                            {{-- COURSE DETAILS --}}
+                            <div class='left course-details'>
+                                <p class='course'><a href='/courses/{{ $course->id }}'>{{ $course->title }}</a></p>
+                                <p>Professor(s): </p>
 
-                            {{-- Display only if there are reviews --}}
-                            @if($course->number_of_reviews != 0)
+                                {{-- LOOP THROUGH ALL INSTRUCTORS OF THE COURSE --}}
+                                @foreach($course->instructors as $instructor)
+                                    <p class='instructor'>{{ $instructor->first_name . ' ' . $instructor->last_name }}</p>
+                                @endforeach
 
-                                <p class='review'>***** Rating: {{ $course->overall_rating }} -
-                                    <span class='badge badge-primary badge-pill'>{{ $course->number_of_reviews }} reviews</span>
-                                </p>
+                                {{-- DISPLAY ONLY IF THERE ARE REVIEWS --}}
+                                @if($course->number_of_reviews != 0)
 
-                            @else
-                                <p class='review'>
-                                    <small>
-                                        <a href='/reviews/create-review/{{ $course->id }}'>Be the first one to review this course</a>
-                                    </small>
-                                </p>
-                            @endif
-                        </div>
+                                    <p class='review'>***** Rating: {{ $course->overall_rating }} -
+                                        <span class='badge badge-primary badge-pill'>{{ $course->number_of_reviews }} reviews</span>
+                                    </p>
 
-                    </li>
+                                @else
+                                    <p class='review'>
+                                        <small>
+                                            <a href='/reviews/create-review/{{ $course->id }}'>Be the first one to review this course</a>
+                                        </small>
+                                    </p>
+                                @endif
+                            </div>
+                        </li>
+                    @endforeach
 
-                @endforeach
-            </ul>
-        @else
-            <p>No reviews found.</p>
-        @endif
+                    {{-- PAGINATION --}}
+                    {!! $searchResults->appends(['courses/list'])->links() !!}
 
-    </div>
-
+                </ul>
+            </div>
+        </div>
+    {{--@else--}}
+        {{--<p>No reviews found.</p>--}}
+    @endif
 @endsection

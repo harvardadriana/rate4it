@@ -10,7 +10,7 @@ use App\Subject;
 class CourseController extends Controller
 {
     /**
-     *  GET  '/'
+     *  GET  '/search'
      */
     public function search(Request $request)
     {
@@ -18,11 +18,14 @@ class CourseController extends Controller
         $coursesArray = [];         // course->id + course->title
         $instructorsArray = [];     // course->id + f.name + l.name
 
+        # Get all course titles
         foreach($coursesList as $course) {
+
             # Avoid duplicated course titles
             if (!in_array($course->title, $coursesArray)) {
                 $coursesArray[$course->id] = $course->title;
             }
+
             # Get all instructors
             foreach ($course['instructors'] as $eachInstructor) {
                 $instructorsArray[$course->id] = [$eachInstructor->last_name, $eachInstructor->first_name];
@@ -34,50 +37,37 @@ class CourseController extends Controller
             'instructorsArray' => $instructorsArray,
             'searchTerm' => $request->session()->get('searchTerm', ''),
             'searchResults' => $request->session()->get('searchResults', []),
+            'alert' => null,
+            'numberCourses' => $request->session()->get('numberCourses', ''),
         ]);
     }
 
-
-    /**
-     *  GET  '/courses/search-process'
-     */
     public function searchProcess(Request $request)
     {
         # Extract the search term
         $searchTerm = $request->input('searchTerm', null);
         $searchResults = [];
-        $course = null;
+        $numberCourses = null;
 
         # Search for all courses that matches the search term
         if ($searchTerm) {
+
             $searchResults = Course::with('instructors')->where('title', '=', $searchTerm)->get();
+            $numberCourses = count($searchResults);
         }
 
-        $numberCoursesFound = count($searchResults);
-
-        if($numberCoursesFound == 1) {
-            foreach ($searchResults as $courses) {
-                $course = $courses->id;
-            }
-        } elseif($numberCoursesFound >= 2) {
-            $course = 'list';
-        }
-
-        if($course) {
-            return redirect('/courses/'.$course)->with([
-                'searchResults' => $searchResults
-            ]);
-        }
-
-        return redirect('/')->with([
-            'alert' => 'Course ' . $searchTerm . ' not found.'
+        return redirect('/search')->with([
+            'searchResults' => $searchResults,
+            'searchTerm' => $searchTerm,
+            'alert' => 'Course ' . $searchTerm . ' not found.',
+            'numberCourses' => $numberCourses
         ]);
     }
 
     /**
-     *  GET  /courses/{id}
+     *  GET  '/courses/{id}'
      */
-    public function show($id)
+    public function showCourse($id)
     {
         $course = Course::with('instructors')->where('id', '=', $id)->first();
 
@@ -87,13 +77,13 @@ class CourseController extends Controller
             ]);
         }
 
-        return view('courses.show')->with([
+        return view('courses.showcourse')->with([
             'course' => $course
         ]);
     }
 
     /**
-     *  GET  /courses/list
+     *  GET  '/courses/list'
      */
     public function showList(Request $request)
     {

@@ -1,0 +1,67 @@
+/* showcourse.css */
+
+.results {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+p.subject-course-code {
+    margin: 15px 0;
+    font-size: 1.5rem;
+    color: #555e6a;
+    font-weight: bold;
+}
+
+.course-details h1 {
+    margin: 15px 0;
+    font-size: 2.4rem;
+    color: #555e6a;
+}
+
+.professor {
+    margin: 20px 0;
+    font-size: 1.6rem;
+}
+
+.instructor {
+    margin: 5px 0;
+    font-size: 1.4rem;
+}
+
+.first-review {
+    margin: 20px 0;
+    font-size: 1.4rem;
+}
+
+.reviews h2 {
+    margin: 15px 0;
+    font-size: 1.6rem;
+    color: #555e6a;
+}
+
+/********************
+ *	REVIEWS
+ *******************/
+.reviews {
+    margin-top: 10px;
+    margin-bottom: 60px;
+}
+
+
+
+/*.list-group {*/
+    /*padding: 20px;*/
+    /*text-align: left;*/
+    /*font-size: 1.2rem;*/
+/*}*/
+
+
+/*.subject-course-code p, .course a,*/
+/*.course-details p {*/
+    /*color: #29313e;*/
+/*}*/
+
+/*.noResults {*/
+    /*padding: 20px;*/
+    /*font-size: 1.4rem;*/
+/*}*/

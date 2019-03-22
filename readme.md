@@ -3,7 +3,7 @@
 + Production URL: <http://rate4it.com>
 
 
-Packages intalled in Production:
+Packages installed in Production:
 
 1. Ondrej Sury
 https://launchpad.net/~ondrej/+archive/ubuntu/php
@@ -16,3 +16,11 @@ https://github.com/barryvdh/laravel-debugbar
 
 4. guzzle, PHP HTTP client
 https://github.com/guzzle/guzzle
+
+5. CSS Reset
+http://meyerweb.com/eric/tools/css/reset/
+
+6. script for IE
+https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js
+
+7. Google Fonts

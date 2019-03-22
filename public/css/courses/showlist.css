@@ -1,0 +1,52 @@
+/* showlist.css */
+
+/********************
+ * LIST
+ *******************/
+.list {
+    width: 950px;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 70px;
+    z-index: 2;
+}
+
+.list h2 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: #555e6a;
+}
+
+.list-group {
+    width: 950px;
+    padding: 20px;
+    text-align: left;
+    z-index: 1;
+    font-size: 1.2rem;
+}
+
+.subject-course-code {
+    margin-right: 25px;
+}
+
+.course-details {
+    margin-bottom: 10px;
+}
+
+.course-details p.course a {
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.subject-course-code p, .course a,
+.course-details p {
+    color: #29313e;
+}
+
+.instructor {
+    margin: 5px 0;
+}
+
+.review {
+    margin-top: 15px;
+}

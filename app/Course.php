@@ -15,4 +15,9 @@ class Course extends Model
     {
         return $this->belongsToMany('App\Instructor')->withTimestamps();
     }
+
+    public function reviews()
+    {
+        return $this->hasMany('App\Review');
+    }
 }

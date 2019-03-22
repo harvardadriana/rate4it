@@ -10,10 +10,11 @@ return [
     */
 
     'nav' => [
-        '/' => 'Search',
-        '/rate' => 'Rate',
-        '/login' => 'Login',
-        '/register' => 'Register',
+        '/' => 'home',
+        '/search' => 'search',
+        '/rate' => 'rate',
+        '/login' => 'login',
+        '/register' => 'register',
     ],
 
     /*
@@ -24,8 +25,9 @@ return [
     */
 
     'nav1' => [
-        '/' => 'Search',
-        '/rate' => 'Rate',
+        '/' => 'home',
+        '/search' => 'search',
+        '/rate' => 'rate',
     ],
 
     /*

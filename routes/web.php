@@ -2,18 +2,45 @@
 
 use Illuminate\Support\Facades\Mail;
 
-Route::get('/rate', function () {
-    return view('reviews.rate');
-})->middleware('verified');
+/*
+|--------------------------------------------------------------------------
+| Homepage
+|--------------------------------------------------------------------------
+*/
+Route::get('/','HomeController');
+
+Route::get('/search','CourseController@search');
+Route::get('/search-process', 'CourseController@searchProcess');
+
+//Route::get('/courses/list', 'CourseController@showList');
+Route::get('/courses/{id}', 'CourseController@showCourse');
+
+//Route::get('/show', 'CourseController@show');
+
+Route::get('/rate', 'ReviewController@rate')->middleware('verified');
+
+/*
+|--------------------------------------------------------------------------
+| Authentication
+|--------------------------------------------------------------------------
+|
+*/
+Auth::routes(['verify' => true]);
 
 
-Route::get('/search', function () {
-    return view('courses.search');
-});
 
-Route::get('/show', function () {
-    return view('courses.show');
-});
+/*
+|--------------------------------------------------------------------------
+| CLEAN UP
+|--------------------------------------------------------------------------
+|
+*/
+
+
+
+//Route::view('/about', 'about');
+//Route::view('/contact', 'contact');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,25 +57,13 @@ Route::get('/show', function () {
 //
 //});
 
-/*
-|--------------------------------------------------------------------------
-| Homepage
-|--------------------------------------------------------------------------
-|
-*/
-Route::get('/','HomeController');
 
 /*
 |--------------------------------------------------------------------------
-| Authentication
+| TESTING - MAIL
 |--------------------------------------------------------------------------
 |
 */
-Auth::routes(['verify' => true]);
-
-
-
-
 Route::get('/mail', function () {
 
     $data = [
@@ -57,15 +72,14 @@ Route::get('/mail', function () {
     ];
 
 
-    Mail::send('emails.test', $data, function($message) {
+    Mail::send('emails.test', $data, function ($message) {
 
-        $message->to('adriana_sugihara@mac.com', 'AdrianaMac')->subject('hello');
+        $message->to('lin_nrt@hotmail.com', 'Adriana')->subject('hello');
 
     });
 
 
 });
-
 
 
 /*

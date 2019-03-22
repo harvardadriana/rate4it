@@ -1,0 +1,82 @@
+/* homepage.css */
+
+/********************
+ *	HEADER
+ *******************/
+#header {
+    background-color: #fff;
+}
+
+/********************
+ *	MAIN
+ *******************/
+main, .content {
+    background-color: #3B4691;
+}
+
+.content-box {
+    margin-top: 130px;
+    margin-bottom: 110px;
+}
+
+.box {
+    margin: 0 auto;
+    width: 1090px;
+    height: 400px;
+}
+
+.left-column {
+    text-align: left;
+    width: 550px;
+    height: 100%;
+    padding: 20px;
+    margin-right: 50px;
+    color: #fff;
+}
+
+.left-column h1 {
+    margin: 5px 0;
+    font-size: 3rem;
+    text-shadow: 3px 2px rgba(0, 0, 0, .5);
+}
+
+.left-column p {
+    margin: 35px 0 40px;
+    font-size: 1.6rem;
+    color: #d2d2d2;
+}
+
+#search-course {
+    padding: 20px;
+    width: 250px;
+    background-color: #FA7308;
+    font-size: 1.4rem;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.left-column #search-course a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+#search-course:hover,
+#search-course a#search:hover {
+    background-color: #5c68bd;
+}
+
+.illustration {
+    width: 490px;
+    height: 400px;
+    text-align: center;
+    padding: 190px 0;
+    color: #fff;
+    background-color: #5c68bd;
+    border-radius: 10px;
+}
+
+.middle {
+    width: 100%;
+    height: 500px;
+    background-color: #fff;
+}
