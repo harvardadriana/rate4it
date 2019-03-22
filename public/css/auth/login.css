@@ -1,0 +1,64 @@
+/* login.css */
+
+main {
+    background-color: #3B4691;
+}
+
+.container {
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 350px;
+    height: 600px;
+    background-color: lightgrey;
+    border-radius: 30px;
+}
+
+.user-photo {
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    background-color: #fff;
+
+}
+
+#user-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+
+input#email.form-control,
+input#password.form-control {
+    background-color: lightgrey;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid #fff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.form-group.row {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+div .form-group.row {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+input#remember.form-check-input,
+label.form-check-label {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button.btn.btn-primary {
+    margin: 15px 0;
+    width: 160px;
+    background-color: #3B4691;
+    border-radius: 30px;
+}

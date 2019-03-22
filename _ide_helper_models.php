@@ -24,9 +24,23 @@ namespace App{
 
 namespace App{
 /**
+ * App\Review
+ *
+ * @property-read \App\Course $course
+ * @property-read \App\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Review newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Review newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Review query()
+ */
+	class Review extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\User
  *
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Review[] $reviews
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User query()
@@ -39,6 +53,7 @@ namespace App{
  * App\Course
  *
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Instructor[] $instructors
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Review[] $reviews
  * @property-read \App\Subject $subject
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Course newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Course newQuery()

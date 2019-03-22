@@ -74,7 +74,7 @@ Route::get('/mail', function () {
 
     Mail::send('emails.test', $data, function ($message) {
 
-        $message->to('lin_nrt@hotmail.com', 'Adriana')->subject('hello');
+        $message->to('adrianarossettisugih@g.harvard.edu', 'Adriana')->subject('hello');
 
     });
 
