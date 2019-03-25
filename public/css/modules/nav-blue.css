@@ -16,7 +16,6 @@
     color: #fff;
 }
 
-.navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:active {
     color: orange;
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Course;
 use App\Instructor;
 use App\Subject;
+use App\Degree;
 
 class CourseController extends Controller
 {

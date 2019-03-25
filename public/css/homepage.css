@@ -65,13 +65,15 @@ main, .content {
     background-color: #5c68bd;
 }
 
-.illustration {
+.gif {
     width: 490px;
     height: 400px;
-    text-align: center;
-    padding: 190px 0;
-    color: #fff;
-    background-color: #5c68bd;
+    border-radius: 10px;
+}
+
+img.illustration {
+    width: 490px;
+    height: 400px;
     border-radius: 10px;
 }
 

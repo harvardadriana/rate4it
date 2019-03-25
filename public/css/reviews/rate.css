@@ -1,0 +1,11 @@
+.blue {
+    height: 1500px;
+    background: #3B4691;
+    border: 1px solid black;
+}
+
+.gradient {
+    height: 2500px;
+    background: linear-gradient(#3B4691, #4e589c, #fff);
+    border: 1px solid black;
+}

@@ -6,30 +6,25 @@ main {
 
 .container {
     margin: 0 auto;
-    margin-top: 40px;
-    width: 350px;
-    height: 600px;
+    margin-top: 80px;
+    width: 700px;
+    height: 450px;
     background-color: lightgrey;
     border-radius: 30px;
 }
 
-.user-photo,
-#user-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 100%;
+.container h1 {
+    margin: 55px 0 35px;
+    text-align: left;
+    font-size: 1.4rem;
+    color: #212529;
+    font-weight: 300;
 }
 
-.user-photo {
-    margin: 0 auto;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    background-color: #fff;
-
-}
-
+input#name.form-control,
 input#email.form-control,
-input#password.form-control {
+input#password.form-control,
+input#password-confirm {
     background-color: lightgrey;
     border: none;
     border-radius: 0;
@@ -38,25 +33,18 @@ input#password.form-control {
     text-align: center;
 }
 
+
+
+
+
 .form-group.row {
     margin-top: 0;
     margin-bottom: 0;
-}
-
-div .form-group.row {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-input#remember.form-check-input,
-label.form-check-label {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    font-size: 1.3rem;
 }
 
 button.btn.btn-primary {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 35px;
     width: 160px;
     background-color: #3B4691;
     border: none;

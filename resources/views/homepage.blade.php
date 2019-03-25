@@ -30,9 +30,8 @@
                 </div>
 
                 {{-- ILLUSTRATION --}}
-                {{--<img class='illustration left' src='/images/3.png' alt='...'>--}}
                 <div class='illustration left'>
-                    [GIF HERE]
+                    <img class='illustration left' src='/images/4.png' alt='Student seating in the computer rating courses'>
                 </div>
 
             </div>
