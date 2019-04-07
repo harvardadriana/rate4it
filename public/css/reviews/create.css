@@ -1,0 +1,96 @@
+/* rate.css */
+
+main {
+    padding: 50px 100px;
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #666666;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #595959;
+}
+
+
+
+.gradient {
+    height: 500px;
+    background: linear-gradient(var(--main-blue), #4e589c, #fff);
+    border: 1px solid black;
+}
+
+
+#r {
+    border: 1px solid red;
+}
+
+/*input[type='radio'] {*/
+    /*display: none;*/
+/*}*/
+
+.starz {
+    display: inline;
+    width: 35px;
+    height: 35px;
+    float: left;
+    margin-right: 5px;
+    /*opacity: 0.5;*/
+    color: #eee;
+    font-size: 2rem;
+}
+
+.back {
+    background-color: var(--main-blue);
+    padding: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.starz:hover {
+    color: #ffff00;
+    text-shadow: 0 0 30px #ffffcc;
+}
+
+.star {
+    /*display: inline;*/
+    width: 35px;
+    height: 35px;
+    float: left;
+    background: lightgrey;
+    margin-right: 5px;
+}
+
+.radio-item {
+display: none;
+}
+
+
+.rate-review {
+    padding: 100px;
+
+}
+
+
+
+
+/*.radio-item:checked + label.star {*/
+    /*opacity: 1;*/
+/*}*/
+
+/*label.star {*/
+    /*cursor: pointer;*/
+/*}*/
+
+
+/*
+--breakpoint-xs: 0;
+--breakpoint-sm: 576px;
+--breakpoint-md: 768px;
+--breakpoint-lg: 992px;
+--breakpoint-xl: 1200px;
+
+*/
