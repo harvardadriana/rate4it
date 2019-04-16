@@ -1,61 +1,163 @@
 /* login.css */
 
-main {
-    background-color: #3B4691;
+html {
+    background-image: url('/images/login-background-blue-2500x1429.jpg');
+    background-color: var(--main-blue);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    min-width: 570px;
 }
 
-.container {
-    margin: 0 auto;
-    margin-top: 80px;
+body, main {
+    background: none;
+}
+
+.login-box {
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 180px;
+    margin-left: 45%;
     width: 700px;
-    height: 450px;
-    background-color: lightgrey;
-    border-radius: 30px;
+    background-color: rgba(196, 199, 222, 0.9);
+    border-radius: 10px;
 }
 
-.container h1 {
-    margin: 55px 0 35px;
-    text-align: left;
-    font-size: 1.4rem;
-    color: #212529;
-    font-weight: 300;
-}
-
-input#name.form-control,
-input#email.form-control,
-input#password.form-control,
-input#password-confirm {
-    background-color: lightgrey;
-    border: none;
-    border-radius: 0;
-    border-bottom: 2px solid #fff;
-    margin-bottom: 10px;
+.login-box h1 {
+    background-color: #2f3874;
+    color: #fff;
+    font-weight: 200;
+    width: auto;
+    line-height: 75px;
+    height: 75px;
+    border: 1px solid #2f3874;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 45px;
     text-align: center;
 }
 
-
-
-
-
-.form-group.row {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 1.3rem;
+/*
+ * FORM
+ */
+form {
+    padding-bottom: 45px;
 }
 
-button.btn.btn-primary {
-    margin-top: 35px;
-    width: 160px;
-    background-color: #3B4691;
+.row.form-group {
+    height: 55px;
+    padding: 0;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+label {
+    text-align: right;
+    color: #2f3874;
+}
+
+input.form-control,
+input.form-control:focus {
+    margin-left: 20px;
+    background-color: transparent;
     border: none;
-    border-radius: 30px;
+    border-radius: 0;
+    border-bottom: 2px solid #fff;
+    color: #2f3874;
+    font-size: 1.1rem;
+}
+
+/*
+ * ERROR MESSAGES
+ */
+span#error-messages {
+    margin-top: 0;
+    font-size: 0.8rem;
+    font-weight: lighter;
+}
+
+/*
+ * BUTTON
+ */
+button.btn.btn-primary {
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 160px;
+    background-color: var(--main-blue);
+    border: none;
+    height: auto;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    font-family: 'Quicksand', sans-serif;
 }
 
 button.btn.btn-primary:hover {
-    background-color: #FA7308;
+    background-color: var(--main-orange);
 }
 
-a.btn.btn-link {
-    color: #3B4691;
-    font-weight: 300;
+/*
+ *  @media queries
+ */
+@media (max-width: 767px) {
+
+    .login-box {
+        margin: 0 auto;
+        margin-top: 115px;
+        width: 500px;
+    }
+
+    .login-box h1 {
+        margin-bottom: 15px;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    label.col-10.col-md-5.col-form-label {
+        margin-top: 25px;
+        padding: 0 15px;
+        display: block;
+        color: #404040;
+        text-align: left;
+    }
+
+    label,
+    input.form-control,
+    input.form-control:focus {
+        padding: 0;
+    }
+
+    input.form-control,
+    input.form-control:focus {
+        margin-left: 15px;
+    }
+
+    .row.form-group {
+        height: 90px;
+    }
+
+    button.btn.btn-primary {
+        margin-top: 35px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1230px) {
+
+    .login-box {
+        margin: 0 auto;
+        margin-top: 180px;
+    }
+
+}
+
+@media (min-width: 1231px) and (max-width: 1350px) {
+
+    .login-box {
+        margin-top: 180px;
+        margin-left: 41%;
+    }
+
 }

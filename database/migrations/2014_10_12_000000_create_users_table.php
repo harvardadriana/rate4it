@@ -15,14 +15,12 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 40)->nullable();
-            $table->string('last_name', 40)->nullable();
-            $table->string('username', 30)->nullable();
+            $table->string('name', 255);
+            $table->string('username', 30)->unique();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at');
             $table->string('password');
             $table->string('admission', 25)->nullable(true);           // Bachelors, Masters, Doctoral-PhD., Non Degree, summer only
-            $table->string('degree', 60)->nullable(true);              // Field of Study: Digital Media, Journalism,...
             $table->string('country', 60)->nullable(true);
             $table->string('last_loggin_at')->nullable(true);
             $table->string('last_loggin_ip')->nullable(true);

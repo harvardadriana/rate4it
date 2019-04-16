@@ -8,16 +8,7 @@ use Illuminate\Support\Facades\Mail;
 |--------------------------------------------------------------------------
 */
 Route::get('/','HomeController');
-
-Route::get('/search','CourseController@search');
-Route::get('/search-process', 'CourseController@searchProcess');
-
-//Route::get('/courses/list', 'CourseController@showList');
-Route::get('/courses/{id}', 'CourseController@showCourse');
-
-//Route::get('/show', 'CourseController@show');
-
-Route::get('/rate', 'ReviewController@rate')->middleware('verified');
+Route::get('/homepage2','ReviewController@homepage2');
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +18,28 @@ Route::get('/rate', 'ReviewController@rate')->middleware('verified');
 */
 Auth::routes(['verify' => true]);
 
+/*
+|--------------------------------------------------------------------------
+| Review courses
+|--------------------------------------------------------------------------
+*/
+Route::group(['middleware' => 'auth'], function () {
 
+    Route::get('/reviews','ReviewController@search');
+    Route::get('/reviews-process', 'ReviewController@searchProcess');
+    Route::post('/reviews','ReviewController@store');
+    Route::get('/reviews/create/{title_for_url}/{crn}', 'ReviewController@create');
+
+});
+
+/*
+|--------------------------------------------------------------------------
+| Search courses
+|--------------------------------------------------------------------------
+*/
+Route::get('/search','CourseController@search');
+Route::get('/search-process', 'CourseController@searchProcess');
+Route::get('/{title_for_url}/{crn}', 'CourseController@show');
 
 /*
 |--------------------------------------------------------------------------
@@ -35,27 +47,28 @@ Auth::routes(['verify' => true]);
 |--------------------------------------------------------------------------
 |
 */
-
+/*
+Route::post('/reviews', 'ReviewController@store');              //reviews.store
+Route::get('/reviews/create', 'ReviewController@create');       //reviews.create
+Route::get('/reviews/{review}', 'ReviewController@show');       //reviews.show
+Route::put('/reviews/{review}', 'ReviewController@update');     //reviews.update
+Route::get('/reviews/{id}/delete', 'ReviewController@delete');
+Route::delete('/reviews/{review}', 'ReviewController@destroy'); //reviews.destroy
+Route::get('/reviews/{review}/edit', 'ReviewController@edit');  //reviews.edit
+*/
 
 
 //Route::view('/about', 'about');
 //Route::view('/contact', 'contact');
 
+//Route::get('/courses/list', 'CourseController@showList');
+//Route::get('/show', 'CourseController@show');
 
-/*
-|--------------------------------------------------------------------------
-| RESTRICTING MULTIPLE ROUTES
-|--------------------------------------------------------------------------
-|
-*/
+Route::get('/courses/search2','TestController@search2');
 
-//Route::group(['middleware' => 'auth'], function () {
-//
-//    # Rate a course
-//    Route::get('/courses/rate', 'CourseController@rate');
-//    Route::post('/courses', 'CourseController@store');
-//
-//});
+
+
+
 
 
 /*

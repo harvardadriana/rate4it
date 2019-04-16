@@ -26,7 +26,7 @@ class DegreesTableSeeder extends Seeder
             $degree->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
             $degree->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
             $degree->title = $degreeData['title'];
-            $degree->hes_id = $degreeData['id'];
+            $degree->hes_degree_id = $degreeData['id'];
             $degree->save();
             $count--;
         }

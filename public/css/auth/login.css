@@ -1,73 +1,160 @@
 /* login.css */
 
-main {
-    background-color: #3B4691;
+html {
+    background-image: url('/images/login-background-blue-2500x1429.jpg');
+    background-color: var(--main-blue);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    min-width: 570px;
 }
 
-.container {
-    margin: 0 auto;
-    margin-top: 40px;
-    width: 350px;
-    height: 600px;
-    background-color: lightgrey;
-    border-radius: 30px;
+body, main {
+    background: none;
 }
 
-.user-photo,
-#user-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 100%;
+.login-box {
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 180px;
+    margin-left: 55%;
+    width: 460px;
 }
 
-.user-photo {
-    margin: 0 auto;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    background-color: #fff;
+.login-wrapper {
+    background-color: rgba(196, 199, 222, 0.9);
+    border-radius: 10px;
+}
 
+h1#login {
+    background-color: #2f3874;
+    color: #fff;
+    font-weight: 200;
+    width: auto;
+    line-height: 75px;
+    height: 75px;
+    border: 1px solid #2f3874;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 55px;
+}
+
+/*
+ * FORM
+ */
+#email-form-group.form-group {
+    height: 70px;
+    margin-bottom: 0;
 }
 
 input#email.form-control,
-input#password.form-control {
-    background-color: lightgrey;
+input#password.form-control,
+input#email.form-control:focus,
+input#password.form-control:focus {
+    margin: 0 auto;
+    width: 70%;
+    background-color: transparent;
     border: none;
     border-radius: 0;
     border-bottom: 2px solid #fff;
-    margin-bottom: 10px;
     text-align: center;
+    color: #2f3874;
+    font-size: 1.1rem;
 }
 
-.form-group.row {
-    margin-top: 0;
-    margin-bottom: 0;
+input#email.form-control:active,
+input#password.form-control:active {
+    background-color: transparent;
 }
 
-div .form-group.row {
-    margin-top: 0;
-    margin-bottom: 0;
+input#email.form-control::placeholder,
+input#password.form-control::placeholder {
+    color: grey;
 }
 
-input#remember.form-check-input,
+/*
+ * ERROR MESSAGES
+ */
+span.invalid-feedback {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    font-weight: lighter;
+}
+
+/*
+ * REMEMBER ME
+ */
 label.form-check-label {
-    margin-top: 10px;
-    margin-bottom: 10px;
+
+    font-size: 0.9rem;
+    color: #2f3874;
 }
 
+/*
+ * BUTTON
+ */
 button.btn.btn-primary {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin: 15px 0 40px;
     width: 160px;
-    background-color: #3B4691;
+    background-color: var(--main-blue);
     border: none;
-    border-radius: 30px;
+    height: auto;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    font-family: 'Quicksand', sans-serif;
 }
 
 button.btn.btn-primary:hover {
-    background-color: #FA7308;
+    background-color: var(--main-orange);
 }
 
-a.btn.btn-link {
-    color: #3B4691;
+/*
+ * FORGOT PASSWORD
+ */
+a.btn.btn-link.forgot-password {
     font-weight: 300;
+    color: #fff;
+}
+
+/*
+ *  @media queries
+ */
+@media (max-width: 991px) {
+
+    .login-box {
+        margin: 0 auto;
+        margin-top: 180px;
+        border-radius: 10px;
+        background-color: rgba(196, 199, 222, 0.9);
+    }
+
+    .login-wrapper {
+        border-radius: 10px 10px 0 0;
+    }
+
+    button.btn.btn-primary {
+        margin: 15px 0 10px;
+    }
+
+    a.btn.btn-link.forgot-password {
+        padding-bottom: 20px;
+        font-weight: 400;
+        color: #2f3874;
+        width: 100%;
+        border-radius: 0 0 10px 10px;
+        background-color: rgba(196, 199, 222, 0.9);
+    }
+
+}
+
+@media (min-width: 992px) and (max-width: 1080px) {
+
+    .login-box {
+        margin-top: 180px;
+        margin-left: 50%;
+    }
+
 }

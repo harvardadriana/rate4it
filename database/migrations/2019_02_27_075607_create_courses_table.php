@@ -18,6 +18,7 @@ class CreateCoursesTable extends Migration
             $table->timestamps();
             $table->string('title_for_sort', 170);
             $table->string('title', 170);
+            $table->string('title_for_url', 180);
             $table->string('subject_and_course_code', 12);
             $table->string('code', 5);
             $table->mediumInteger('code_int');

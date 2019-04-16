@@ -13,20 +13,20 @@
 
     <div class='content'>
 
-        <div class='row layout-hero align-items-center justify-content-center'>
+        <div class='row layout-hero d-flex justify-content-center'>
 
             {{-- GIF --}}
-            <div class='col-sm-10 col-lg-7 gif'>
+            <div id='gif' class='col-sm-10 col-lg-7 order-lg-2 col-xl-6 order-xl-2 gif'>
                 <img class='gif' src='/gif/gif/hero-animation.gif' alt='Student seating with his computer in a yard'>
             </div>
 
             {{-- CONTENT COLUMN --}}
-            <div id='content-column' class='col-10 col-sm-10 col-lg-5'>
+            <div id='content-column' class='col-10 col-sm-10 col-lg-5 order-lg-1 col-xl-6 order-xl-1'>
                 <h1 id='content-heading'>Choosing your next course?</h1>
                 <p id='content-text'>It&#39;s important to choose a course that will help you achieve
                                      your goals. Search for your next course and check other students' reviews.</p>
 
-                <div id='search-course'>
+                <div id='search-course' class='text-right'>
                     <a id='search' href='/search'>Search for courses</a>
                 </div>
             </div>

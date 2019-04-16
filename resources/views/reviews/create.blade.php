@@ -2,8 +2,7 @@
 
 @push('styles')
     <link rel='stylesheet' type='text/css' href='/css/modules/nav-blue.css'>
-    <link rel='stylesheet' type='text/css' href='/css/reviews/rate.css'>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' href='/css/reviews/create.css'>
 @endpush
 
 @push('logo')
@@ -14,307 +13,470 @@
 
     <div class='container'>
         <div class='row justify-content-center'>
-            <div class='col-md-11 col-lg-9 col-xl-8' id='r'>
+            <div class='col-md-11 col-lg-9 col-xl-8'>
 
-                <h1>Rate a course</h1>
+                <h1>Rate: {{ $course->title }}</h1>
 
-                <form method='POST' action='/rate/display'>
-                    {{ csrf_field() }}
+                <form method='POST' action='/reviews'>
+                    @csrf
 
-                    <div class='form-group'>
-                        <h2>* Overall Rating: what do you think about the overall conclusion of the course?</h2>
-
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input form-control' id='overall_rating_1' type='radio' name='overall_rating'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='1'>
-                                <label class='form-check-label' for='overall_rating_1'>1</label>
-                            </div>
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input form-control' id='overall_rating_2' type='radio' name='overall_rating'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='2'>
-                                <label class='form-check-label' for='overall_rating_2'>2</label>
-                            </div>
-                    </div>
+                    <h2>A1. Overall Rating: what do you think about the overall conclusion of the course?</h2>
+                    @include('includes.error', ['errorField' => 'overall_rating'])
 
                     <div class='form-group'>
-
-                        <h2> Test </h2>
-                        <div class='form-check form-check-inline'>
-                            <div class='stars'>
-                                <input class='radio-item' id='1' type='radio' name='overall' value='1'>
-                                <label class='form-check-label' for='1'>
-                                    <img class='starz' src='/images/star-on.png' alt='Rating star'>
+                        @for ($i = 1; $i < 6; $i++)
+                            <div class='form-check form-check-inline stars'>
+                                <input id='overall_rating_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='overall_rating'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='overall_rating_{{ $i }}' class='form-check-label'>
+                                    <span id='a-{{ $i }}' class='star'>★</span>
                                 </label>
                             </div>
-                        </div>
+                        @endfor
+                    </div>
 
-                        <div class='form-check form-check-inline'>
-                            <div class='stars'>
-                                <input class='radio-item' id='2' type='radio' name='overall' value='2'>
-                                <label class='form-check-label' for='2'>
-                                    <span class='starz  back' >★</span>
+                    <h2>A2. Would you take this course again?</h2>
+                    @include('includes.error', ['errorField' => 'take_course_again'])
+
+                    <div class='invalid-feedback'>
+                        Please choose one option
+                    </div>
+                    <div class='btn-group btn-group-toggle' data-toggle='buttons'>
+                        <label class='btn btn-warning'>
+                            <input type='radio'
+                                   name='take_course_again'
+                                   id='take_course_again_yes'
+                                   value='yes'
+                                   autocomplete='off'>Yes
+                        </label>
+                        <label class='btn btn-warning'>
+                            <input type='radio'
+                                   name='take_course_again'
+                                   id='take_course_again_no'
+                                   value='no'
+                                   autocomplete='off'>No
+                        </label>
+                    </div>
+
+                    <h2>A3. Was attendance mandatory?</h2>
+                    @include('includes.error', ['errorField' => 'attendance_mandatory'])
+
+                    <div class='invalid-feedback'>
+                        Please choose one option
+                    </div>
+                    <div class='btn-group btn-group-toggle' data-toggle='buttons'>
+                        <label class='btn btn-warning'>
+                            <input type='radio'
+                                   name='attendance_mandatory'
+                                   id='attendance_mandatory_yes'
+                                   value='yes'
+                                   autocomplete='off'>Yes
+                        </label>
+                        <label class='btn btn-warning'>
+                            <input type='radio'
+                                   name='attendance_mandatory'
+                                   id='attendance_mandatory_no'
+                                   value='no'
+                                   autocomplete='off'>No
+                        </label>
+                    </div>
+
+                    <h2>A4. Was the class taken for credit?</h2>
+                    @include('includes.error', ['errorField' => 'class_taken_for_credit'])
+
+                    <div class='btn-group btn-group-toggle' data-toggle='buttons'>
+                        <label class='btn btn-warning'>
+                            <input type='radio'
+                                   name='class_taken_for_credit'
+                                   id='class_taken_for_credit_yes'
+                                   value='yes'
+                                   autocomplete='off'>Yes
+                        </label>
+                        <label class='btn btn-warning'>
+                            <input type='radio'
+                                   name='class_taken_for_credit'
+                                   id='class_taken_for_credit_no'
+                                   value='no'
+                                   autocomplete='off'>No
+                        </label>
+                    </div>
+
+                    <h2>A5. Level of difficulty of the course?</h2>
+                    @include('includes.error', ['errorField' => 'difficulty'])
+
+                    <div class='form-group'>
+                        @for ($i = 1; $i < 6; $i++)
+                            <div class='form-check form-check-inline stars'>
+                                <input id='difficulty_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='difficulty'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='difficulty_{{ $i }}' class='form-check-label'>
+                                    <span id='b-{{ $i }}' class='star'>★</span>
                                 </label>
                             </div>
-                        </div>
-
+                        @endfor
                     </div>
 
-                    <div>
-                        <img id='s-1' class='star' src='/images/star-on.png' alt='Rating star'>
-                        <img id='s-2' class='star' src='/images/star-on.png' alt='Rating star'>
-                        <img id='s-3' class='star' src='/images/star-on.png' alt='Rating star'>
-                        <img id='s-4' class='star' src='/images/star-on.png' alt='Rating star'>
-                    </div>
-                    <br>
-
-
+                    <h2>A6. The course objectives were clear?</h2>
+                    @include('includes.error', ['errorField' => 'clear_objectives'])
 
                     <div class='form-group'>
-                        <h2>* Would you take this course again?</h2>
-                        <div class='form-check form-check-inline'>
-                            <input class='form-check-input' id='take_course_again_yes' type='radio' name='take_course_again'
-                                   aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='yes'>
-                            <label class='form-check-label' for='take_course_again_yes'>Yes</label>
-                        </div>
-                        <div class='form-check form-check-inline'>
-                            <input class='form-check-input' id='take_course_again_no' type='radio' name='take_course_again'
-                                   aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='no'>
-                            <label class='form-check-label' for='take_course_again_no'>No</label>
-                        </div>
-                    </div>
-
-                    <div class='form-group'>
-                        <h2>Attendance mandatory?</h2>
-                        <div class='form-check form-check-inline'>
-                            <input class='form-check-input' id='attendance_mandatory_yes' type='radio' name='attendance_mandatory'
-                                   aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='yes'>
-                            <label class='form-check-label' for='attendance_mandatory_yes'>Yes</label>
-                        </div>
-                        <div class='form-check form-check-inline'>
-                            <input class='form-check-input' id='attendance_mandatory_no' type='radio' name='attendance_mandatory'
-                                   aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='no'>
-                            <label class='form-check-label' for='attendance_mandatory_no'>No</label>
-                        </div>
-                    </div>
-
-                    <div class='form-group'>
-                        <h2>Was the class taken for credit?</h2>
-                        <div class='form-check form-check-inline'>
-                            <input class='form-check-input' id='class_taken_for_credit_yes' type='radio' name='class_taken_for_credit'
-                                   aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='yes'>
-                            <label class='form-check-label' for='class_taken_for_credit_yes'>Yes</label>
-                        </div>
-                        <div class='form-check form-check-inline'>
-                            <input class='form-check-input' id='class_taken_for_credit_no' type='radio' name='class_taken_for_credit'
-                                   aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='no'>
-                            <label class='form-check-label' for='class_taken_for_credit_no'>No</label>
-                        </div>
-                    </div>
-
-                    <div class='form-group'>
-                        <h2>* Level of difficulty of the course?</h2>
                         @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='difficulty_{{ $i }}' type='radio' name='difficulty'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='difficulty_{{ $i }}'>{{ $i }}</label>
+                            <div class='form-check form-check-inline stars'>
+                                <input id='clear_objectives_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='clear_objectives'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='clear_objectives_{{ $i }}' class='form-check-label'>
+                                    <span id='c-{{ $i }}' class='star'>★</span>
+                                </label>
                             </div>
                         @endfor
                     </div>
 
+                    <h2>A7. The course was organized and arranged in a logical way?</h2>
+                    @include('includes.error', ['errorField' => 'organized'])
+
                     <div class='form-group'>
-                        <h2>The course objectives were clear?</h2>
                         @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='clear_objectives_{{ $i }}' type='radio' name='clear_objectives'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='clear_objectives_{{ $i }}'>{{ $i }}</label>
+                            <div class='form-check form-check-inline stars'>
+                                <input id='organized_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='organized'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='organized_{{ $i }}' class='form-check-label'>
+                                    <span id='d-{{ $i }}' class='star'>★</span>
+                                </label>
                             </div>
                         @endfor
                     </div>
 
-                    <div class='form-group'>
-                        <h2>The course was organized and arranged in a logical way?</h2>
-                        @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='organized_{{ $i }}' type='radio' name='organized'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='organized_{{ $i }}'>{{ $i }}</label>
-                            </div>
-                        @endfor
-                    </div>
-
-                    <div class='form-group'>
-                        <h2>The course helped you gain deeper insight into the topic?
+                    <h2>A8. The course helped you gain deeper insight into the topic?
                         (How confident are you about the subject after taking this course?)</h2>
+                    @include('includes.error', ['errorField' => 'gain_deeper_insight'])
+
+                    <div class='form-group'>
                         @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='gain_deeper_insight_{{ $i }}' type='radio' name='gain_deeper_insight'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='gain_deeper_insight_{{ $i }}'>{{ $i }}</label>
+                            <div class='form-check form-check-inline stars'>
+                                <input id='gain_deeper_insight_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='gain_deeper_insight'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='gain_deeper_insight_{{ $i }}' class='form-check-label'>
+                                    <span id='e-{{ $i }}' class='star'>★</span>
+                                </label>
                             </div>
                         @endfor
                     </div>
 
+                    <h2>A9. How was the workload of the course?</h2>
+                    @include('includes.error', ['errorField' => 'workload'])
+
                     <div class='form-group'>
-                        <h2>How was the workload of the course?</h2>
                         @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='workload_{{ $i }}' type='radio' name='workload'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='workload_{{ $i }}'>{{ $i }}</label>
+                            <div class='form-check form-check-inline stars'>
+                                <input id='workload_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='workload'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='workload_{{ $i }}' class='form-check-label'>
+                                    <span id='f-{{ $i }}' class='star'>★</span>
+                                </label>
                             </div>
                         @endfor
                     </div>
 
+                    <h2>A10. How helpful were the homework assignments to your understanding of the material?</h2>
+                    @include('includes.error', ['errorField' => 'helpful_assignments'])
+
                     <div class='form-group'>
-                        <h2>How helpful were the homework assignments to your understanding of the material?</h2>
                         @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='helpful_assignments_{{ $i }}' type='radio' name='helpful_assignments'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='helpful_assignments_{{ $i }}'>{{ $i }}</label>
+                            <div class='form-check form-check-inline stars'>
+                                <input id='helpful_assignments_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='helpful_assignments'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='helpful_assignments_{{ $i }}' class='form-check-label'>
+                                    <span id='g-{{ $i }}' class='star'>★</span>
+                                </label>
                             </div>
                         @endfor
                     </div>
 
+                    <h2>A11. The course contained clear stated instructions that clarified how assignments were to be completed?</h2>
+                    @include('includes.error', ['errorField' => 'clear_assignment_instructions'])
+
                     <div class='form-group'>
-                        <h2>The course contained clear stated instructions that clarified how assignments were to be completed?</h2>
                         @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='clear_assignments_instructions_{{ $i }}' type='radio' name='clear_assignments_instructions'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='clear_assignments_instructions_{{ $i }}'>{{ $i }}</label>
+                            <div class='form-check form-check-inline stars'>
+                                <input id='clear_assignment_instructions_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='clear_assignment_instructions'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='clear_assignment_instructions_{{ $i }}' class='form-check-label'>
+                                    <span id='h-{{ $i }}' class='star'>★</span>
+                                </label>
                             </div>
                         @endfor
                     </div>
 
+                    <h2>A12. The grading criteria was well defined?</h2>
+                    @include('includes.error', ['errorField' => 'grading'])
+
                     <div class='form-group'>
-                        <h2>The grading criteria was well defined?</h2>
                         @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='grading_{{ $i }}' type='radio' name='grading'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='grading_{{ $i }}'>{{ $i }}</label>
+                            <div class='form-check form-check-inline stars'>
+                                <input id='grading_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='grading'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='grading_{{ $i }}' class='form-check-label'>
+                                    <span id='i-{{ $i }}' class='star'>★</span>
+                                </label>
                             </div>
                         @endfor
                     </div>
 
+                    <h2>A13. The quality of the material provided, readings or reference were valuable or useful?</h2>
+                    @include('includes.error', ['errorField' => 'material'])
+
                     <div class='form-group'>
-                        <h2>The quality of the material provided, readings or reference were valuable or useful?</h2>
                         @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='material_{{ $i }}' type='radio' name='material'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='material_{{ $i }}'>{{ $i }}</label>
+                            <div class='form-check form-check-inline stars'>
+                                <input id='material_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='material'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='material_{{ $i }}' class='form-check-label'>
+                                    <span id='j-{{ $i }}' class='star'>★</span>
+                                </label>
                             </div>
                         @endfor
                     </div>
 
-                    <div class='form-group'>
-                        <h2>The professor presented the course material in a clear manner that facilitated understanding?
+                    <h2>A14. The professor presented the course material in a clear manner that facilitated understanding?
                         (Effective professors can explain complex ideas in simple ways)</h2>
+                    @include('includes.error', ['errorField' => 'clarity'])
+
+                    <div class='form-group'>
                         @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='clarity_{{ $i }}' type='radio' name='clarity'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='clarity_{{ $i }}'>{{ $i }}</label>
+                            <div class='form-check form-check-inline stars'>
+                                <input id='clarity_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='clarity'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='clarity_{{ $i }}' class='form-check-label'>
+                                    <span id='k-{{ $i }}' class='star'>★</span>
+                                </label>
                             </div>
                         @endfor
                     </div>
 
+                    <h2>A15. The professor demonstrated in-depth knowledge of the subject?</h2>
+                    @include('includes.error', ['errorField' => 'knowledge'])
+
                     <div class='form-group'>
-                        <h2>The professor demonstrated in-depth knowledge of the subject?</h2>
                         @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='knowledge_{{ $i }}' type='radio' name='knowledge'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='knowledge_{{ $i }}'>{{ $i }}</label>
+                            <div class='form-check form-check-inline stars'>
+                                <input id='knowledge_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='knowledge'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='knowledge_{{ $i }}' class='form-check-label'>
+                                    <span id='l-{{ $i }}' class='star'>★</span>
+                                </label>
                             </div>
                         @endfor
                     </div>
 
+                    <h2>A16. The professor provided helpful support or feedback?</h2>
+                    @include('includes.error', ['errorField' => 'feedback'])
+
                     <div class='form-group'>
-                        <h2>The professor provided helpful support or feedback?</h2>
                         @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='feedback_{{ $i }}' type='radio' name='feedback'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='feedback_{{ $i }}'>{{ $i }}</label>
+                            <div class='form-check form-check-inline stars'>
+                                <input id='feedback_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='feedback'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='feedback_{{ $i }}' class='form-check-label'>
+                                    <span id='m-{{ $i }}' class='star'>★</span>
+                                </label>
                             </div>
                         @endfor
                     </div>
 
+                    <h2>A17. The TA (Teaching Assistant) provided helpful support or feedback?</h2>
+                    @include('includes.error', ['errorField' => 'helpfulness_TA'])
+
                     <div class='form-group'>
-                        <h2>The TA (Teaching Assistant) provided helpful support or feedback?</h2>
                         @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='helpfulness_TA_{{ $i }}' type='radio' name='helpfulness_TA'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='helpfulness_TA_{{ $i }}'>{{ $i }}</label>
+                            <div class='form-check form-check-inline stars'>
+                                <input id='helpfulness_TA_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='helpfulness_TA'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='helpfulness_TA_{{ $i }}' class='form-check-label'>
+                                    <span id='n-{{ $i }}' class='star'>★</span>
+                                </label>
                             </div>
                         @endfor
                     </div>
 
-                    <div class='form-group'>
-                        <h2>How satisfied were you with your effort in this course?</h2>
-                        @for ($i = 0; $i < 5; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='performance_{{ $i }}' type='radio' name='performance'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='performance_{{ $i }}'>{{ $i }}</label>
-                            </div>
-                        @endfor
-                    </div>
+                    <h2>A18. How satisfied were you with your effort in this course?</h2>
+                    @include('includes.error', ['errorField' => 'performance'])
 
                     <div class='form-group'>
-                        <h2>How many class (or section) sessions did you attend?</h2>
                         @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline'>
-                                <input class='form-check-input' id='attendance_{{ $i }}' type='radio' name='attendance'
-                                       aria-labelledby='rating-input-label' aria-describedby='rating-input-description' value='{{ $i }}'>
-                                <label class='form-check-label' for='attendance_{{ $i }}'>{{ $i }}</label>
+                            <div class='form-check form-check-inline stars'>
+                                <input id='performance_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='performance'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='performance_{{ $i }}' class='form-check-label'>
+                                    <span id='o-{{ $i }}' class='star'>★</span>
+                                </label>
                             </div>
                         @endfor
                     </div>
 
-
-
-
-                    <div class='form-group'>
-                        <label for='hours_studying'>On average, how many hours per week have you spent on this course, including attending classes,
-                                                    doing readings, reviewing notes, assignments?</label>
-                        <input class='form-control' id='hours_studying' type='number' name='hours_studying'
-                               aria-labelledby='rating-input-label' aria-describedby='rating-input-description' min='0' value='{{ old('hours_studying') }}'>
-                    </div>
+                    <h2>A19. How many class (or section) sessions did you attend?</h2>
+                    @include('includes.error', ['errorField' => 'attendance'])
 
                     <div class='form-group'>
-                        <label for='grade'>Your grade?</label>
-                        <input class='form-control' id='grade' type='text' name='grade' aria-labelledby='rating-input-label' aria-describedby='rating-input-description' maxlength='3' value='{{ old('grade') }}'>
+                        @for ($i = 1; $i < 6; $i++)
+                            <div class='form-check form-check-inline stars'>
+                                <input id='attendance_{{ $i }}'
+                                       class='form-check-input form-control radio-item'
+                                       type='radio'
+                                       name='attendance'
+                                       aria-labelledby='rating-input-label'
+                                       aria-describedby='rating-input-description'
+                                       value='{{ $i }}'>
+                                <label for='attendance_{{ $i }}' class='form-check-label'>
+                                    <span id='p-{{ $i }}' class='star'>★</span>
+                                </label>
+                            </div>
+                        @endfor
                     </div>
 
-                    <div class='form-group'>
-                        <label class='form-check-label' for='survival_tips'>Any survival tips?</label>
-                        <textarea class='form-control' id='survival_tips' type='text'
-                               aria-labelledby='rating-input-label' aria-describedby='rating-input-description' maxlength='150' rows='3' value='{{ old('survival_tips') }}'></textarea>
+                    <div class='form-group self-assessment'>
+                        <label for='hours_studying'>A20. On average, how many hours per week have you spent on this course,
+                                                        including attending classes, doing readings, reviewing notes,
+                                                        assignments?</label>
+                        @include('includes.error', ['errorField' => 'hours_studying'])
+
+                        <input id='hours_studying'
+                               class='form-control'
+                               type='number'
+                               name='hours_studying'
+                               aria-labelledby='rating-input-label'
+                               aria-describedby='rating-input-description'
+                               min='0'
+                               value='{{ old('hours_studying') }}'>
                     </div>
 
-                    <div class='form-group'>
-                        <label class='form-check-label' for='comments'>Write your review: (i.e: pros and cons; what could be improved;
-                                                what are the strengths of the course; what have you liked (and disliked)
-                                                about the course; did the course achieve its aims and objectives of the program,...)</label>
-                        <textarea id='comments' class='form-control'
-                                  aria-labelledby='rating-input-label' aria-describedby='rating-input-description' maxlength='300' rows='5' value='{{ old('comments') }}'></textarea>
+                    <div class='form-group self-assessment'>
+                        <label for='grade'>A21. Your grade?</label>
+                        @include('includes.error', ['errorField' => 'grade'])
+
+                        <input id='grade'
+                               class='form-control'
+                               type='text'
+                               name='grade'
+                               maxlength='3'
+                               value='{{ old('grade') }}'>
                     </div>
 
-                    <input class='btn btn-primary' type='submit' value='Submit review'>
+                    <div class='form-group self-assessment'>
+                        <label for='survival_tips'>A22. Any survival tips?</label>
+                        @include('includes.error', ['errorField' => 'survival_tips'])
+
+                        <textarea id='survival_tips'
+                                  class='form-control'
+                                  name='survival_tips'
+                                  maxlength='150'
+                                  rows='3'
+                                  placeholder='{{ old('survival_tips') }}'></textarea>
+                    </div>
+
+                    <div class='form-group self-assessment'>
+                        <label for='comments'>A23. Write your review: (i.e: pros and cons; what could be improved;
+                                              what are the strengths of the course; what have you liked (and disliked) about the
+                                              course; did the course achieve its aims and objectives of the program,...)</label>
+                        @include('includes.error', ['errorField' => 'comments'])
+
+                        <textarea id='comments'
+                                  class='form-control'
+                                  name='comments'
+                                  maxlength='300'
+                                  rows='5'
+                                  placeholder='{{ old('comments') }}'></textarea>
+                    </div>
+
+                    <input type='hidden' name='course_id' value='{{ $course->id }}'>
+                    <input class='btn btn-primary submit-review' type='submit' value='Submit review'>
 
                 </form>
 
+                {{--@if(count($errors) > 0)--}}
+                {{--<ul class='errors'>--}}
+                {{--@foreach ($errors->all() as $error)--}}
+                {{--<li>{{ $error }}</li>--}}
+                {{--@endforeach--}}
+                {{--</ul>--}}
+                {{--@endif--}}
 
             </div> {{-- end col --}}
         </div> {{-- end row --}}
     </div> {{-- end container --}}
-
 
 @endsection

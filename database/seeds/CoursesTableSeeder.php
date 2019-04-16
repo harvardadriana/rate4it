@@ -16,7 +16,6 @@ class CoursesTableSeeder extends Seeder
         $extensionCatalogueJS = file_get_contents(database_path('/extensioncatalogue.js'));
         $extensionCatalogue = json_decode($extensionCatalogueJS, true);
         $allCourses = $extensionCatalogue['courses'];
-
         $count = count($allCourses);
 
         # Loop through all courses, and save each course
@@ -31,6 +30,7 @@ class CoursesTableSeeder extends Seeder
             $course->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
             $course->title_for_sort = $courseData['title_for_sort'];
             $course->title = $courseData['title'];
+            $course->title_for_url = str_replace(' ','-', $courseData['title_for_sort']);
             $course->subject_and_course_code = $courseData['subject_and_course_code'];
             $course->code = $courseData['course_code'];
             $course->code_int = $courseData['course_code_int'];

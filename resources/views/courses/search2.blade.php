@@ -2,7 +2,7 @@
 
 @push('styles')
     <link rel='stylesheet' type='text/css' href='/css/modules/nav.css'>
-    <link rel='stylesheet' type='text/css' href='/css/courses/search.css'>
+    <link rel='stylesheet' type='text/css' href='/css/courses/search2.css'>
 @endpush
 
 @push('logo')
@@ -11,42 +11,46 @@
 
 @section('content')
 
-    <div class='content'>
+    <div class='container-fluid'>
+        <div class='row justify-content-center'>
+            <div class='col-md-6 col-sm-10 align-self-center' id='r'>
 
-        <div class='wrapper'>
 
-            {{-- SEARCH BOX --}}
-            <div class='search-box'>
 
-                <h1>{{ $pageTitle }}:</h1>
+                    <h1>Find a course:</h1>
 
-                <form class='form-group'
-                      role='search'
-                      aria-label='Search for a course'
-                      action='{{ $path }}'
-                      method='GET'>
+                    <form class='form-group'
+                          role='search'
+                          aria-label='Search for a course'
+                          action='/search-process'
+                          method='GET'>
 
-                    <input list='courses'
-                           class='form-control left'
-                           type='text'
-                           name='searchTerm'
-                           size='60'
-                           value='{{ old('searchTerm') }}'
-                           placeholder='{{ ($searchTerm ? $searchTerm : 'Enter course title...') }}'>
-                    <datalist id='courses'>
-                        @foreach($coursesArray as $courseTitle)
-                            <option value='{{ $courseTitle }}'></option>
-                        @endforeach
-                    </datalist>
-                    <button type='submit' class='btn btn-default left' value='Search'>
-                        <img src='/images/search.png' alt='Magnifying glass'>
-                    </button>
+                        <input list='courses'
+                               class='form-control left'
+                               type='text'
+                               name='searchTerm'
+                               size='60'
+                               value='{{ old('searchTerm') }}'
+                               placeholder='{{ ($searchTerm ? $searchTerm : 'Enter course title...') }}'>
+                        <datalist id='courses'>
+                            @foreach($coursesArray as $courseTitle)
+                                <option value='{{ $courseTitle }}'></option>
+                            @endforeach
+                        </datalist>
+                        <button type='submit' class='btn btn-default left' value='Search'>
+                            <img src='/images/search.png' alt='Magnifying glass'>
+                        </button>
 
-                </form>
+                    </form>
 
-            </div>
 
-        </div>
+
+            </div> {{-- end col--}}
+
+        </div> {{-- end row --}}
+    </div>  {{-- end container-fluid --}}
+
+
 
         {{-- RESULTS --}}
         @if($searchTerm)
@@ -71,12 +75,7 @@
 
                                 {{-- COURSE DETAILS --}}
                                 <div class='course-details left'>
-
-                                    <p class='course'>
-                                        <a href='{{ (Request::path() === 'reviews' ? 'reviews/create' : '') }}/{{ $course->title_for_url }}/{{ $course->crn }}'>
-                                        {{ $course->title }}</a>
-                                    </p>
-
+                                    <p class='course'><a href='/courses/{{ $course->id }}'>{{ $course->title }}</a></p>
                                     <p class='professor'>Professor(s): </p>
 
                                     {{-- LOOP THROUGH ALL INSTRUCTORS OF THE COURSE --}}
@@ -105,12 +104,12 @@
                 </div>
             @else
                 <div class='results'>
-                    <h2 class='noResults'>No courses found.</h2>
+                    <h2 class='noResults'>No reviews found.</h2>
                 </div>
             @endif
 
         @endif
 
-    </div>
+
 
 @endsection

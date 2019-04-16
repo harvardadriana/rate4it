@@ -7,6 +7,7 @@ use App\Course;
 use App\Instructor;
 use App\Subject;
 use App\Degree;
+use App\Review;
 
 class CourseController extends Controller
 {
@@ -33,16 +34,21 @@ class CourseController extends Controller
             }
         }
 
-        return view ('courses.search')->with([
+        return view ('search')->with([
             'coursesArray' => $coursesArray,
             'instructorsArray' => $instructorsArray,
             'searchTerm' => $request->session()->get('searchTerm', ''),
             'searchResults' => $request->session()->get('searchResults', []),
-            'alert' => null,
             'numberCourses' => $request->session()->get('numberCourses', ''),
+            'alert' => $request->session()->get('alert', null),
+            'pageTitle' => 'Find a course',
+            'path' => '/search-process'
         ]);
     }
 
+    /**
+     *  GET  '/search-process'
+     */
     public function searchProcess(Request $request)
     {
         # Extract the search term
@@ -58,27 +64,29 @@ class CourseController extends Controller
         }
 
         return redirect('/search')->with([
-            'searchResults' => $searchResults,
             'searchTerm' => $searchTerm,
+            'searchResults' => $searchResults,
+            'numberCourses' => $numberCourses,
             'alert' => 'Course ' . $searchTerm . ' not found.',
-            'numberCourses' => $numberCourses
+            'pageTitle' => 'Find a course',
+            'path' => '/search-process'
         ]);
     }
 
     /**
-     *  GET  '/courses/{id}'
+     *  GET  '/{title}/{crn}'
      */
-    public function showCourse($id)
+    public function show($title, $crn)
     {
-        $course = Course::with('instructors')->where('id', '=', $id)->first();
+        $course = Course::with('instructors')->where('crn', '=', $crn)->first();
 
         if(!$course) {
             return redirect('/')->with([
-                'alert' => 'Course ' . $id . ' not found.'
+                'alert' => 'Course ' . $title . ' not found.'
             ]);
         }
 
-        return view('courses.showcourse')->with([
+        return view('courses.show')->with([
             'course' => $course
         ]);
     }
