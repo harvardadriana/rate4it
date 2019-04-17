@@ -12,6 +12,18 @@
 
 namespace App{
 /**
+ * App\Degree
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $users
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Degree newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Degree newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Degree query()
+ */
+	class Degree extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\Instructor
  *
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Course[] $courses
@@ -39,6 +51,7 @@ namespace App{
 /**
  * App\User
  *
+ * @property-read \App\Degree $degree
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Review[] $reviews
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newModelQuery()
