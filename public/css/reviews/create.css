@@ -1,8 +1,9 @@
 /* rate.css */
 
 main {
+    min-width: 650px;
     padding: 50px 100px;
-    background-color: var(--main-blue);
+    background-color: lightyellow;
 }
 
 .container {
@@ -13,19 +14,17 @@ main {
 
 h1 {
     margin-bottom: 30px;
+    color: #fff;
     font-size: 2.5rem;
-    /*color: #666666;*/
+    text-shadow: 3px 2px rgba(0, 0, 0, .5);
 }
 
+/*
+ * FORM
+ */
 h2 {
-    margin: 40px 0 20px;
+    margin: 40px 0 0;
     font-size: 1.2rem;
-    /*color: #595959;*/
-}
-
-.error {
-    color: red;
-    margin-bottom: 20px;
 }
 
 /*
@@ -50,11 +49,7 @@ span.star {
     color: #eee;
 }
 
-span.star:hover {
-    color: #ff0;
-    text-shadow: 0 0 25px #ffffcc;
-}
-
+span.star:hover,
 .selected {
     color: #ff0;
     text-shadow: 0 0 25px #ffffcc;
@@ -63,22 +58,21 @@ span.star:hover {
 /*
  * BUTTON - YES / NO
  */
-
-/* Btn Idle state */
-.btn-group.btn-group-toggle label.btn.btn-warning {
-    width: 130px;
-    height: 45px;
-    font-size: 1.3rem;
-    border-radius: .30rem;
-    background-color: #ffe083;
-}
-
-/* Btn Hover state */
+.btn-group.btn-group-toggle label.btn.btn-warning,
 .btn-group.btn-group-toggle label.btn.btn-warning:hover {
     width: 130px;
     height: 45px;
     font-size: 1.3rem;
     border-radius: .30rem;
+}
+
+/* Btn Idle state */
+.btn-group.btn-group-toggle label.btn.btn-warning {
+    background-color: #ffe083;
+}
+
+/* Btn Hover state */
+.btn-group.btn-group-toggle label.btn.btn-warning:hover {
     background-color: #ffc107;
 }
 
@@ -89,19 +83,37 @@ span.star:hover {
     box-shadow: 0 0 7px #fff2cd;
 }
 
-.btn-group > .btn-group:not(:last-child) >
-.btn, .btn-group >
-.btn:not(:last-child):not(.dropdown-toggle) {
+/* Margin between buttons */
+label.btn.btn-warning:not(:last-child):not(.dropdown-toggle) {
     margin-right: 25px;
 }
 
-.submit-review {
-    margin-bottom: 100px;
+/*
+ * ERROR MESSAGES
+ */
+.alert.alert-danger {
+    margin-top: 5px;
+    padding: 0;
+    font-size: 1rem;
 }
 
-.errors {
+.form-group,
+.btn-group.btn-group-toggle {
+    margin-top: 15px;
+}
 
-    margin-bottom: 100px;
+/*
+ * SUBMIT BUTTON
+ */
+.submit-review {
+    margin: 20px 0 50px;
+    width: 215px;
+    background-color: var(--main-orange);
+    border: none;
+    height: auto;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .self-assessment label {
@@ -111,8 +123,6 @@ span.star:hover {
     color: lightgrey;
     font-family: 'Quicksand', sans-serif;
 }
-
-
 
 /* CLEAN AFTER */
 
@@ -126,11 +136,5 @@ span.star:hover {
 /*cursor: pointer;*/
 /*}*/
 
-/*
---breakpoint-xs: 0;
---breakpoint-sm: 576px;
---breakpoint-md: 768px;
---breakpoint-lg: 992px;
---breakpoint-xl: 1200px;
-
-*/
+/*color: #666666;*/
+/*color: #595959;*/

@@ -78,9 +78,9 @@ class ReviewController extends Controller
     }
 
     /**
-     *  GET  '/reviews/create'
+     *  GET  '/reviews/create/{title_for_url}/{crn}'
      */
-    public function create(Request $request, $title_for_url, $crn)
+    public function create($title_for_url, $crn)
     {
         $course = Course::with('instructors')->where('crn', '=', $crn)->first();
 
@@ -89,13 +89,6 @@ class ReviewController extends Controller
                 'alert' => 'Course ' . $title_for_url . ' not found.'
             ]);
         } else {
-
-
-//        return view('reviews.rate')->with([
-//            'valuesForRadio' => $valuesForRadio
-//        ]);
-
-
 
             return view('reviews.create')->with([
                 'course' => $course,
@@ -178,12 +171,5 @@ class ReviewController extends Controller
             'alert' => 'Your rating for ' . 'has been posted.'
         ]);
     }
-
-
-    public function homepage2()
-    {
-        return view('homepage2');
-    }
-
 
 }

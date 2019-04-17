@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Mail;
 |--------------------------------------------------------------------------
 */
 Route::get('/','HomeController');
-Route::get('/homepage2','ReviewController@homepage2');
 
 /*
 |--------------------------------------------------------------------------

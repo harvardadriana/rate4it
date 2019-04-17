@@ -12,10 +12,12 @@
 @section('content')
 
     <div class='container'>
+
         <div class='row justify-content-center'>
+
             <div class='col-md-11 col-lg-9 col-xl-8'>
 
-                <h1>Rate: {{ $course->title }}</h1>
+                <h1>Rating: {{ $course->title }}</h1>
 
                 <form method='POST' action='/reviews'>
                     @csrf
@@ -476,7 +478,9 @@
                 {{--@endif--}}
 
             </div> {{-- end col --}}
+
         </div> {{-- end row --}}
+
     </div> {{-- end container --}}
 
 @endsection

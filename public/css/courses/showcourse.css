@@ -1,32 +1,136 @@
 /* showcourse.css */
 
-.results {
-    margin-top: 60px;
-    margin-bottom: 30px;
+.content {
+    width: 100%;
+    min-width: 850px;
 }
 
-p.subject-course-code {
-    margin: 15px 0;
-    font-size: 1.5rem;
-    color: #555e6a;
+.blue-banner {
+    height: auto;
+    background-color: #1C4A8C;
+    color: #fff;
+    padding: 25px 25px;
+}
+
+.max-col-width {
+    max-width: 900px;
+    padding: 0;
+}
+
+/*
+ * COURSE-WRAPPER
+ */
+.course-wrapper {
+    margin: 0 auto;
+    color: #000;
+
+    margin-top: 115px;
+    margin-bottom: 20px;
+}
+
+.subject-course-code {
+    border-right: 1px solid lightgrey;
+}
+
+#subject.row {
+    height: 30%;
+}
+
+#icon.row {
+    height: 70%;
+}
+
+#subject p {
+    width: 100%;
+    font-size: 1.3rem;
     font-weight: bold;
+    text-align: center;
+    line-height: 100%;
+    margin-bottom: 0;
+    color: #000;
 }
 
-.course-details h1 {
-    margin: 15px 0;
+#icon img {
+    max-width: 75px;
+    max-height: 75px;
+    margin: 0 auto;
+}
+
+.course h1 {
+    margin: 0 0 10px;
     font-size: 2.4rem;
-    color: #555e6a;
 }
 
 .professor {
-    margin: 20px 0;
-    font-size: 1.6rem;
+    margin-bottom: 5px;
+    font-size: 1.4rem;
 }
 
 .instructor {
-    margin: 5px 0;
-    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
 }
+
+/*
+ * COURSE STATISTICS
+ */
+.course-statistics {
+    margin: 0 auto;
+}
+
+.box {
+    padding: 10px 25px;
+}
+
+.box img {
+    width: 65px;
+    height: 65px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.box h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.box p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * REVIEWS
+ */
+.reviews {
+    margin: 0 auto;
+    margin-top: 60px;
+
+}
+
+
+
+
+
+.reviews-wrapper {
+    background-color: #dcdcdc;
+}
+
+
+
 
 .first-review {
     margin: 20px 0;
@@ -39,13 +143,7 @@ p.subject-course-code {
     color: #555e6a;
 }
 
-/********************
- *	REVIEWS
- *******************/
-.reviews {
-    margin-top: 10px;
-    margin-bottom: 60px;
-}
+
 
 
 
