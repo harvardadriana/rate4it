@@ -2,14 +2,7 @@
 
 .content {
     width: 100%;
-    min-width: 850px;
-}
-
-.blue-banner {
-    height: auto;
-    background-color: #1C4A8C;
-    color: #fff;
-    padding: 25px 25px;
+    min-width: 576px;
 }
 
 .max-col-width {
@@ -18,18 +11,13 @@
 }
 
 /*
- * COURSE-WRAPPER
+ * SUBJECT-COURSE-CODE
  */
 .course-wrapper {
     margin: 0 auto;
     color: #000;
-
     margin-top: 115px;
     margin-bottom: 20px;
-}
-
-.subject-course-code {
-    border-right: 1px solid lightgrey;
 }
 
 #subject.row {
@@ -40,6 +28,10 @@
     height: 70%;
 }
 
+.subject-course-code {
+    border-right: 1px solid lightgrey;
+}
+
 #subject p {
     width: 100%;
     font-size: 1.3rem;
@@ -47,7 +39,6 @@
     text-align: center;
     line-height: 100%;
     margin-bottom: 0;
-    color: #000;
 }
 
 #icon img {
@@ -56,6 +47,9 @@
     margin: 0 auto;
 }
 
+/*
+ * COURSE
+ */
 .course h1 {
     margin: 0 0 10px;
     font-size: 2.4rem;
@@ -71,11 +65,50 @@
     font-size: 1.2rem;
 }
 
+.professor-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 7px;
+}
+
+/*
+ * RATING
+ */
+.overall-rating {
+    height: 70%;
+}
+
+.overall-rating span {
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 3.7rem;
+    color: #EFCE4A;
+}
+
+.stars {
+    height: 30%;
+}
+
+#star {
+    width: 25px;
+    height: 25px;
+    margin-top: 7px;
+    margin-right: 2px;
+}
+
 /*
  * COURSE STATISTICS
  */
+.blue-banner {
+    height: auto;
+    background-color: #1C4A8C;
+    color: #fff;
+    padding: 25px 25px;
+}
+
 .course-statistics {
     margin: 0 auto;
+    text-align: center;
 }
 
 .box {
@@ -92,16 +125,117 @@
 
 .box h2 {
     margin-bottom: 15px;
-    text-align: center;
 }
 
 .box p {
-    text-align: center;
     font-size: 1.2rem;
     margin-bottom: 0;
 }
 
+/*
+ * ADDITIONAL COURSE STATISTICS
+ */
+.additional-statistics {
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: lightgrey;
+}
 
+
+/*
+ * REVIEWS WRAPPER
+ */
+.reviews-wrapper {
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    max-width: 750px;
+    padding: 0;
+    background-color: #dcdcdc;
+}
+
+.list-group.list-group-flush {
+    padding: 0;
+}
+
+.list-group-item.d-flex.flex-row.review-item {
+    padding: 0;
+    border: 1px solid green;
+}
+
+/*
+ * REVIEW SIDEBAR
+ */
+.review-sidebar {
+    width: 20%;
+    height: 100%;
+    padding: 2%;
+}
+
+.user-avatar {
+    height: 50%;
+}
+
+.user-avatar img {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+}
+
+.username-date {
+    width: 100%;
+    height: 50%;
+}
+
+#username, #date {
+    margin-left: 10px;
+    font-size: .8rem;
+}
+
+#username {
+    margin-bottom: 3px;
+}
+
+/*
+ * REVIEW
+ */
+.review {
+    width: 80%;
+    padding: 20px;
+    background-color: oldlace;
+}
+
+.review p {
+    margin: 15px 0;
+    font-size: 1.6rem;
+    color: #555e6a;
+}
+
+/*
+ * VOTING FEEDBACK
+ */
+.voting-feedback {
+    background-color: palegoldenrod;
+}
+
+
+
+
+
+
+
+
+.list-group {
+    padding: 20px;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.subject-course-code p, .course a,
+.course-details p {
+    color: #29313e;
+}
 
 
 
@@ -113,53 +247,47 @@
 
 
 /*
- * REVIEWS
+ * IF NO REVIEWS
  */
-.reviews {
+.noreviews-wrapper {
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 80px;
+}
 
+.purple-banner {
+    height: auto;
+    background-color: #7886d7;
+    color: #fff;
+    padding: 30px 30px;
+}
+
+img#hand-rating {
+    width: 50px;
+    height: 50px;
+    margin-right: 25px;
+}
+
+a#first-review {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+a#first-review:hover {
+    color: #3c436b;
 }
 
 
 
 
 
-.reviews-wrapper {
-    background-color: #dcdcdc;
-}
 
-
-
-
-.first-review {
-    margin: 20px 0;
-    font-size: 1.4rem;
-}
-
-.reviews h2 {
-    margin: 15px 0;
-    font-size: 1.6rem;
-    color: #555e6a;
-}
+    /*background-color: #7886d7;*/
+/*background-color: #6574cd;*/
 
 
 
 
 
-/*.list-group {*/
-    /*padding: 20px;*/
-    /*text-align: left;*/
-    /*font-size: 1.2rem;*/
-/*}*/
 
 
-/*.subject-course-code p, .course a,*/
-/*.course-details p {*/
-    /*color: #29313e;*/
-/*}*/
-
-/*.noResults {*/
-    /*padding: 20px;*/
-    /*font-size: 1.4rem;*/
-/*}*/

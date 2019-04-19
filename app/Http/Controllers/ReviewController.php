@@ -15,6 +15,14 @@ use Carbon\Carbon;
 class ReviewController extends Controller
 {
 
+    protected $redirectTo = '/';
+
+    public function __construct()
+    {
+        $this->middleware('verified');
+
+    }
+
     /**
      *  GET  '/reviews'
      */
@@ -166,6 +174,11 @@ class ReviewController extends Controller
         $newReview->user_id = $userId;
         $newReview->course_id = $course_id;
         $newReview->save();
+
+        // Update the overall rating of the course and number of reviews
+        $courseDetails->overall_rating = ($courseDetails->overall_rating + $newReview->overall_rating)/2;
+        $courseDetails->number_of_reviews = $courseDetails->number_of_reviews + 1;
+        $courseDetails->save();
 
         return redirect('/' . $courseDetails->title_for_url . '/' . $courseDetails->crn)->with([
             'alert' => 'Your rating for ' . 'has been posted.'

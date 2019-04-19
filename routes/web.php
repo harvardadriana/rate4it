@@ -9,28 +9,30 @@ use Illuminate\Support\Facades\Mail;
 */
 Route::get('/','HomeController');
 
+
 /*
 |--------------------------------------------------------------------------
-| Authentication
+| Review courses / Verified users only
+|--------------------------------------------------------------------------
+*/
+//Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/reviews','ReviewController@search')->middleware('verified');
+    Route::get('/reviews-process', 'ReviewController@searchProcess')->middleware('verified');
+    Route::post('/reviews','ReviewController@store')->middleware('verified');
+    Route::get('/reviews/create/{title_for_url}/{crn}', 'ReviewController@create')->middleware('verified');
+
+//});
+
+/*
+|--------------------------------------------------------------------------
+| Email verification
 |--------------------------------------------------------------------------
 |
 */
 Auth::routes(['verify' => true]);
 
-/*
-|--------------------------------------------------------------------------
-| Review courses
-|--------------------------------------------------------------------------
-*/
-Route::group(['middleware' => 'auth'], function () {
-
-    Route::get('/reviews','ReviewController@search');
-    Route::get('/reviews-process', 'ReviewController@searchProcess');
-    Route::post('/reviews','ReviewController@store');
-    Route::get('/reviews/create/{title_for_url}/{crn}', 'ReviewController@create');
-
-});
-
+Route::auth();
 /*
 |--------------------------------------------------------------------------
 | Search courses

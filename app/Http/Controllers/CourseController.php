@@ -79,6 +79,11 @@ class CourseController extends Controller
     public function show($title, $crn)
     {
         $course = Course::with('instructors')->where('crn', '=', $crn)->first();
+        $reviewsList = Review::where('course_id', '=', $course->id)->get();
+
+        if(!$reviewsList) {
+            $reviewsList = null;
+        }
 
         if(!$course) {
             return redirect('/')->with([
@@ -87,7 +92,8 @@ class CourseController extends Controller
         }
 
         return view('courses.show')->with([
-            'course' => $course
+            'course' => $course,
+            'reviewsList' => $reviewsList
         ]);
     }
 
