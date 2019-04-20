@@ -24,10 +24,10 @@
 
             {{-- SUBJECT COURSE CODE --}}
             <div class='col-2 subject-course-code'>
-                <div id='subject' class='row justify-content-center align-content-center'>
+                <div id='subject' class='row align-items-center'>
                     <p>{{ $course->subject_and_course_code }}</p>
                 </div>
-                <div id='icon' class='row justify-content-center align-content-center'>
+                <div id='icon' class='row align-items-center'>
                     <img src='/images/icons/subjects/{{ $course->subject->code }}.svg' alt='{{ $course->subject->code }}'>
                 </div>
             </div>
@@ -44,42 +44,38 @@
                 @endforeach
             </div>
 
-            {{-- RATING --}}
-            @if($course->overall_rating)
-                <div class='col-2 rating'>
-                    <div class='row overall-rating'>
-                        <span>{{ $course->overall_rating }}</span>
+            {{-- OVERALL RATING --}}
+            @if($course->rate->overall_rating)
+                <div class='col-2'>
+                    <div class='row overall-rating align-items-start'>
+                        <span>{{ $course->rate->overall_rating }}</span>
                     </div>
-                    <div class='row stars justify-content-center'>
-                        @for($i=0; $i<5; $i++)
-                            <img id='star' src='/images/star-on.png' alt='Rating stars'>
-                        @endfor
+                    <div class='row review-stars justify-content-center'>
+                        @include('modules.review-stars', ['field' => $course->rate->overall_rating])
                     </div>
                 </div>
             @endif
 
         </div>
 
-        @if($course->number_of_reviews)
+        @if($course->rate->number_of_reviews)
 
             {{-- COURSE STATISTICS --}}
             <div class='blue-banner'>
                 <div class='row course-statistics max-col-width'>
                     <div class='box col'>
                         <img src='/images/icons/show/exam.svg' alt='Overall rating icon'>
-                        <h2>{{ $course->overall_rating }} % </h2>
+                        <h2>{{ $course->rate->overall_rating }}</h2>
                         <p>is the overall rating of the course</p>
                     </div>
-
                     <div class='box col'>
                         <img src='/images/icons/show/deep-insight.svg' alt='Deeper insight icon'>
-                        <h2>{{ $course->gain_deeper_insight }} % </h2>
+                        <h2>{{ $course->rate->gain_deeper_insight }} %</h2>
                         <p>of the students gained deeper insight after taking this course</p>
                     </div>
-
                     <div class='box col'>
                         <img src='/images/icons/show/replay.svg' alt='Take the course again icon'>
-                        <h2>{{ $course->take_course_again }} %</h2>
+                        <h2>{{ $course->rate->take_course_again }} %</h2>
                         <p>of the students would take this course again</p>
                     </div>
                 </div>
@@ -105,7 +101,7 @@
                 <ul class='list-group list-group-flush'>
 
                     {{-- LOOP THROUGH ALL REVIEWS FOUND --}}
-                    {{--@foreach($reviewslist as $review)--}}
+                    @foreach($reviewsListArray as $reviews => $review)
 
                         {{-- REVIEW ITEM --}}
                         <li class='list-group-item d-flex flex-row review-item'>
@@ -115,16 +111,12 @@
 
                                 {{-- USER'S AVATAR --}}
                                 <div class='d-flex align-items-center user-avatar'>
-                                    <img src='/images/icons/show/user-avatar.png' alt='User-avatar'>
+                                    <img class='img-fluid' src='/images/icons/show/user-avatar.png' alt='User-avatar'>
                                 </div>
                                 {{-- USERNAME / DATE --}}
-                                <div class='d-flex align-items-center username-date'>
-                                    <div class='user-date'>
-                                        {{--<p>{{ $user->username }}</p>--}}
-                                        <p id='username'>USER NAME</p>
-                                        {{--<p>{{ $review->created_at }}</p>--}}
-                                        <p id='date'> DATE</p>
-                                    </div>
+                                <div class='username-date'>
+                                    <p id='username'>{{ $review->user->username }}</p>
+                                    <p id='date'>{{ $review->created_at->format('m/d/Y') }}</p>
                                 </div>
 
                             </div>
@@ -132,9 +124,11 @@
                             {{-- REVIEW --}}
                             <div class='review'>
 
-                                <div class='user-overall-rating'><div>user-overall-rating</div></div>
-                                <div class='comments'><p>comments</p></div>
-                                <div class='tips'><p>tips</p></div>
+                                <div class='user-overall-rating'>
+                                    @include('modules.review-stars', ['field' => $review->overall_rating])
+                                </div>
+                                <div class='comments'><p>{{ $review->comments }}</p></div>
+                                <div class='tips'><p>{{ $review->survival_tips }}</p></div>
 
                                 {{-- VOTING FEEDBACK --}}
                                 <div class='voting-feedback'>
@@ -142,13 +136,13 @@
                                     <ul>
                                         <li class='vote-item inline-block'>
                                             <a class='thumbs-up' href=''>
-                                                <span>icon-thumbs up</span>
+                                                <span><img src='/images/icons/show/thumbsup.svg' alt='Thumbs up'></span>
                                                 <span>numbers</span>
                                             </a>
                                         </li>
                                         <li class='vote-item inline-block'>
                                             <a class='thumbs-down' href=''>
-                                                <span>icon-thumbs down</span>
+                                                <span><img src='/images/icons/show/thumbsdown.svg' alt='Thumbs down'></span>
                                                 <span>numbers</span>
                                             </a>
                                         </li>
@@ -165,7 +159,7 @@
 
                         </li>
 
-                    {{--@endforeach--}}
+                    @endforeach
 
                 </ul>
 

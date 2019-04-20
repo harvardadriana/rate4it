@@ -79,10 +79,10 @@ class CourseController extends Controller
     public function show($title, $crn)
     {
         $course = Course::with('instructors')->where('crn', '=', $crn)->first();
-        $reviewsList = Review::where('course_id', '=', $course->id)->get();
+        $reviewsListArray = Review::where('course_id', '=', $course->id)->get();
 
-        if(!$reviewsList) {
-            $reviewsList = null;
+        if(!$reviewsListArray) {
+            $reviewsListArray = null;
         }
 
         if(!$course) {
@@ -93,7 +93,7 @@ class CourseController extends Controller
 
         return view('courses.show')->with([
             'course' => $course,
-            'reviewsList' => $reviewsList
+            'reviewsListArray' => $reviewsListArray
         ]);
     }
 

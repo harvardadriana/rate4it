@@ -39,8 +39,6 @@ class CoursesTableSeeder extends Seeder
             $course->crn_as_int = $courseData['crn'];
             $course->college_code = $courseData['college_code'];
             $course->subject_id = $subjectId;
-            $course->number_of_reviews = 0;
-            $course->overall_rating = 0;
             $course->save();
             $count--;
         }

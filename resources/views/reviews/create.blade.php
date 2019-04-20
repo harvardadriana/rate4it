@@ -53,14 +53,14 @@
                             <input type='radio'
                                    name='take_course_again'
                                    id='take_course_again_yes'
-                                   value='yes'
+                                   value='1'
                                    autocomplete='off'>Yes
                         </label>
                         <label class='btn btn-warning'>
                             <input type='radio'
                                    name='take_course_again'
                                    id='take_course_again_no'
-                                   value='no'
+                                   value='0'
                                    autocomplete='off'>No
                         </label>
                     </div>

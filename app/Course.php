@@ -20,4 +20,9 @@ class Course extends Model
     {
         return $this->hasMany('App\Review');
     }
+
+    public function rate()
+    {
+        return $this->hasOne('App\Rate');
+    }
 }

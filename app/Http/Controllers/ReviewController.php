@@ -11,6 +11,7 @@ use App\Degree;
 use App\Review;
 use App\User;
 use Carbon\Carbon;
+use App\Rate;
 
 class ReviewController extends Controller
 {
@@ -115,7 +116,7 @@ class ReviewController extends Controller
         $request->validate([
             'course_id' => 'required',
             'overall_rating' => 'required|numeric',
-            'take_course_again' => 'required|alpha',
+            'take_course_again' => 'required|numeric',
             'attendance_mandatory' => 'required|alpha',
             'class_taken_for_credit' => 'required|alpha',
             'difficulty' => 'required|numeric',
@@ -144,7 +145,7 @@ class ReviewController extends Controller
 
         // Get the course title_for_url and crn
         $course_id = $request->course_id;
-        $courseDetails = Course::where('id', '=', $course_id)->first();
+        $course = Course::with('rate')->where('id', '=', $course_id)->first();
 
         // Save new review
         $newReview = new Review();
@@ -175,12 +176,27 @@ class ReviewController extends Controller
         $newReview->course_id = $course_id;
         $newReview->save();
 
-        // Update the overall rating of the course and number of reviews
-        $courseDetails->overall_rating = ($courseDetails->overall_rating + $newReview->overall_rating)/2;
-        $courseDetails->number_of_reviews = $courseDetails->number_of_reviews + 1;
-        $courseDetails->save();
+        // Update the course overall rate
+        $course->rate->overall_rating = ($course->rate->overall_rating + $newReview->overall_rating)/2;
+        // Calculate percentage of how many students would take the course again
+        $course->rate->take_course_again = (($course->rate->take_course_again + $request->take_course_again) / ($course->rate->number_of_reviews + 1))*100;
+        $course->rate->difficulty = ($course->rate->difficulty + $newReview->difficulty)/2;
+        $course->rate->clear_objectives = ($course->rate->clear_objectives + $newReview->clear_objectives)/2;
+        $course->rate->organized = ($course->rate->organized + $newReview->organized)/2;
+        $course->rate->gain_deeper_insight = ($course->rate->gain_deeper_insight + $newReview->gain_deeper_insight)/2;
+        $course->rate->workload = ($course->rate->workload + $newReview->workload)/2;
+        $course->rate->helpful_assignments = ($course->rate->helpful_assignments + $newReview->helpful_assignments)/2;
+        $course->rate->clear_assignment_instructions = ($course->rate->clear_assignment_instructions + $newReview->clear_assignment_instructions)/2;
+        $course->rate->grading = ($course->rate->grading + $newReview->grading)/2;
+        $course->rate->material = ($course->rate->material + $newReview->material)/2;
+        $course->rate->clarity = ($course->rate->clarity + $newReview->clarity)/2;
+        $course->rate->knowledge = ($course->rate->knowledge + $newReview->knowledge)/2;
+        $course->rate->feedback = ($course->rate->feedback + $newReview->feedback)/2;
+        $course->rate->helpfulness_TA = ($course->rate->helpfulness_TA + $newReview->helpfulness_TA)/2;
+        $course->rate->number_of_reviews = $course->rate->number_of_reviews + 1;
+        $course->rate->save();
 
-        return redirect('/' . $courseDetails->title_for_url . '/' . $courseDetails->crn)->with([
+        return redirect('/' . $course->title_for_url . '/' . $course->crn)->with([
             'alert' => 'Your rating for ' . 'has been posted.'
         ]);
     }
