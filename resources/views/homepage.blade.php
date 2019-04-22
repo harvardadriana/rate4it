@@ -17,8 +17,8 @@
 
             {{-- GIF --}}
             <div id='gif' class='col-sm-10 col-lg-7 order-lg-2 col-xl-6 order-xl-2 gif'>
-                <img class='gif' src='/gif/gif/hero-animation.gif' alt='Student seating with his computer in a yard'>
-                {{--<img class='gif' src='/gif/static/hero-illustration-transparent.png' alt='Student seating with his computer in a yard'>--}}
+                {{--<img class='gif' src='/gif/gif/hero-animation.gif' alt='Student seating with his computer in a yard'>--}}
+                <img class='gif' src='/gif/static/hero-illustration-transparent.png' alt='Student seating with his computer in a yard'>
             </div>
 
             {{-- CONTENT COLUMN --}}
