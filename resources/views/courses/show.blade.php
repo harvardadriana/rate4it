@@ -15,14 +15,24 @@
 
 @section('content')
 
+
 <div class='content'>
 
     @if($course)
 
-        {{-- COURSE WRAPPER --}}
-        <div class='row course-wrapper max-col-width'>
+        @if(session('alert'))
+            <div class='alert alert-success' role='alert'>
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+                <h3 class='alert-heading'>Well done!</h3>
+                <p>{{ session('alert') }}</p>
+            </div>
+        @endif
 
-            {{-- SUBJECT COURSE CODE --}}
+        <div class='row course-wrapper'>
+
+            {{-- SUBJECT COURSE CODE COL --}}
             <div class='col-2 subject-course-code'>
                 <div id='subject' class='row align-items-center'>
                     <p>{{ $course->subject_and_course_code }}</p>
@@ -32,7 +42,7 @@
                 </div>
             </div>
 
-            {{-- COURSE --}}
+            {{-- COURSE COL --}}
             <div class='col-7 course'>
                 <h1>{{ $course->title }}</h1>
                 <p class='professor'>Professor(s): </p>
@@ -44,10 +54,10 @@
                 @endforeach
             </div>
 
-            {{-- OVERALL RATING --}}
+            {{-- OVERALL RATING COL --}}
             @if($course->rate->overall_rating)
                 <div class='col-2'>
-                    <div class='row overall-rating align-items-start'>
+                    <div class='row overall-rating'>
                         <span>{{ $course->rate->overall_rating }}</span>
                     </div>
                     <div class='row review-stars justify-content-center'>
@@ -58,11 +68,20 @@
 
         </div>
 
+        {{-- RATE BUTTON --}}
+        <div class='row rate'>
+            <div class='col-2 offset-9 rate-btn'>
+                <div id='rate-button'>
+                    <a id='rate' href='/reviews/create/{{ $course->title_for_url }}/{{ $course->crn }}'>Rate course</a>
+                </div>
+            </div>
+        </div>
+
         @if($course->rate->number_of_reviews)
 
             {{-- COURSE STATISTICS --}}
             <div class='blue-banner'>
-                <div class='row course-statistics max-col-width'>
+                <div class='row course-statistics'>
                     <div class='box col'>
                         <img src='/images/icons/show/exam.svg' alt='Overall rating icon'>
                         <h2>{{ $course->rate->overall_rating }}</h2>
@@ -75,7 +94,7 @@
                     </div>
                     <div class='box col'>
                         <img src='/images/icons/show/replay.svg' alt='Take the course again icon'>
-                        <h2>{{ $course->rate->take_course_again }} %</h2>
+                        <h2>{{ (round((($course->rate->take_course_again * 100) / $course->rate->number_of_reviews))) }} %</h2>
                         <p>of the students would take this course again</p>
                     </div>
                 </div>
@@ -97,6 +116,8 @@
             {{-- REVIEWS WRAPPER --}}
             <div class='reviews-wrapper'>
 
+                <h2>{{ $numberReviews }} review(s) found:</h2>
+
                 {{--LIST OF REVIEWS --}}
                 <ul class='list-group list-group-flush'>
 
@@ -107,13 +128,9 @@
                         <li class='list-group-item d-flex flex-row review-item'>
 
                             {{-- REVIEW-SIDEBAR --}}
-                            <div class='review-sidebar'>
+                            <div class='review-sidebar text-center'>
 
-                                {{-- USER'S AVATAR --}}
-                                <div class='d-flex align-items-center user-avatar'>
-                                    <img class='img-fluid' src='/images/icons/show/user-avatar.png' alt='User-avatar'>
-                                </div>
-                                {{-- USERNAME / DATE --}}
+                                <img class='user-avatar' src='/images/icons/show/user-avatar.png' alt='User-avatar'>
                                 <div class='username-date'>
                                     <p id='username'>{{ $review->user->username }}</p>
                                     <p id='date'>{{ $review->created_at->format('m/d/Y') }}</p>
@@ -127,31 +144,30 @@
                                 <div class='user-overall-rating'>
                                     @include('modules.review-stars', ['field' => $review->overall_rating])
                                 </div>
-                                <div class='comments'><p>{{ $review->comments }}</p></div>
-                                <div class='tips'><p>{{ $review->survival_tips }}</p></div>
+                                <p><span class='tips'>Comment: </span>{{ $review->comments }}</p>
+                                <p><span class='tips'>Tips: </span>{{ $review->survival_tips }}</p>
 
                                 {{-- VOTING FEEDBACK --}}
-                                <div class='voting-feedback'>
+                                <div class='row d-flex voting-feedback'>
 
-                                    <ul>
-                                        <li class='vote-item inline-block'>
-                                            <a class='thumbs-up' href=''>
-                                                <span><img src='/images/icons/show/thumbsup.svg' alt='Thumbs up'></span>
-                                                <span>numbers</span>
-                                            </a>
-                                        </li>
-                                        <li class='vote-item inline-block'>
-                                            <a class='thumbs-down' href=''>
-                                                <span><img src='/images/icons/show/thumbsdown.svg' alt='Thumbs down'></span>
-                                                <span>numbers</span>
-                                            </a>
-                                        </li>
-                                        <li class='vote-item inline-block'>
-                                            <a class='report' href=''>
-                                                <span>Report</span>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    <div class='vote-item justify-content-start'>
+                                        <a class='thumbs-up' href=''>
+                                            <img src='/images/icons/show/thumbsup.svg' alt='Thumbs up'>
+                                        </a>
+                                    </div>
+                                    <div class='list-inline d-flex justify-content-start'>
+                                        <span class='vote-numbers'>number</span>
+                                    </div>
+                                    <div class='vote-item d-flex justify-content-start'>
+                                        <a class='thumbs-down list-inline' href=''>
+                                            <img src='/images/icons/show/thumbsdown.svg' alt='Thumbs down'>
+                                        </a>
+                                    </div>
+                                    <div class='vote-item list-inline'>
+                                        <a class='report' href=''>
+                                            <span>Report</span>
+                                        </a>
+                                    </div>
 
                                 </div>
 
@@ -163,7 +179,7 @@
 
                 </ul>
 
-            <div>
+            </div>
 
 
 
@@ -181,8 +197,8 @@
 
 
             {{-- IF THERE ARE NO REVIEWS --}}
-            <div class='row noreviews-wrapper max-col-width'>
-                <div class='col-9 purple-banner d-flex justify-content-center'>
+            <div class='row noreviews-wrapper'>
+                <div class='col-12 col-md-11 purple-banner d-flex justify-content-center'>
                     <a id='first-review' href='/reviews/create/{{ $course->title_for_url }}/{{ $course->crn}}'>
                         <img id='hand-rating' src='/images/icons/rating.png' alt='Hand rating'>
                         Be the first one to review this course

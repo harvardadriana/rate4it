@@ -105,14 +105,6 @@ svg {
         font-size: 1.6rem;
     }
 
-    a.navbar-brand {
-        margin-left: 20px;
-    }
-
-    button#navbar-toggler.navbar-toggler {
-        margin-right: 25px;
-    }
-
 }
 
 /*

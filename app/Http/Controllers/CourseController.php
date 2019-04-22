@@ -78,22 +78,25 @@ class CourseController extends Controller
      */
     public function show($title, $crn)
     {
+        $reviewsListArray = [];
+        $numberReviews = 0;
         $course = Course::with('instructors')->where('crn', '=', $crn)->first();
-        $reviewsListArray = Review::where('course_id', '=', $course->id)->get();
-
-        if(!$reviewsListArray) {
-            $reviewsListArray = null;
-        }
+        $reviewsListArray = Review::where('course_id', '=', $course['id'])->get();
 
         if(!$course) {
-            return redirect('/')->with([
+            return redirect('/search')->with([
                 'alert' => 'Course ' . $title . ' not found.'
             ]);
         }
 
+        if ($reviewsListArray) {
+            $numberReviews = count($reviewsListArray);
+        }
+
         return view('courses.show')->with([
             'course' => $course,
-            'reviewsListArray' => $reviewsListArray
+            'reviewsListArray' => $reviewsListArray,
+            'numberReviews' => $numberReviews
         ]);
     }
 

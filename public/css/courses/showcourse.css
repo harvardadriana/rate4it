@@ -5,7 +5,11 @@
     min-width: 576px;
 }
 
-.max-col-width {
+.course-wrapper {
+    margin: 0 auto;
+    color: #000;
+    margin-top: 115px;
+    margin-bottom: 20px;
     max-width: 900px;
     padding: 0;
 }
@@ -13,11 +17,8 @@
 /*
  * SUBJECT-COURSE-CODE
  */
-.course-wrapper {
-    margin: 0 auto;
-    color: #000;
-    margin-top: 115px;
-    margin-bottom: 20px;
+.subject-course-code {
+    border-right: 1px solid lightgrey;
 }
 
 #subject.row {
@@ -26,10 +27,6 @@
 
 #icon.row {
     height: 70%;
-}
-
-.subject-course-code {
-    border-right: 1px solid lightgrey;
 }
 
 #subject p {
@@ -52,7 +49,7 @@
  */
 .course h1 {
     margin: 0 0 10px;
-    font-size: 2.4rem;
+    font-size: 1.7rem;
 }
 
 .professor {
@@ -74,26 +71,60 @@
 /*
  * OVERALL RATING
  */
-.overall-rating {
-    height: 70%;
-}
-
 .overall-rating span {
     margin-top: 5px;
     margin-left: 5px;
     font-size: 3.9rem;
     color: #ffad01;
+    line-height: 100%;
+    vertical-align: top;
 }
 
 .review-stars {
-    height: 30%;
     color: #6574cd;
 }
 
 .review-stars img {
-    width: 150px;
+    width: auto;
     height: auto;
     margin-top: 7px;
+}
+
+/*
+ * RATE BUTTON
+ */
+.row.rate {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 900px;
+}
+
+.col-2.offset-9.rate-btn {
+    padding: 0;
+}
+
+#rate-button {
+    padding: 10px 15px;
+    margin: 0;
+    width: 150px;
+    height: 56px;
+    background-color: var(--main-orange);
+    border-radius: 10px;
+    /*float: left;*/
+}
+
+#rate-button a#rate {
+    font-size: 1.4rem;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+#rate-button:hover,
+#rate-button a#rate:hover {
+    background-color: var(--main-blue);
+    color: #fff;
 }
 
 /*
@@ -103,12 +134,13 @@
     height: auto;
     background-color: #1C4A8C;
     color: #fff;
-    padding: 25px 25px;
 }
 
 .course-statistics {
     margin: 0 auto;
     text-align: center;
+    max-width: 900px;
+    padding: 25px 0;
 }
 
 .box {
@@ -151,8 +183,13 @@
     margin-top: 30px;
     margin-bottom: 50px;
     max-width: 750px;
-    padding: 0;
-    background-color: #dcdcdc;
+    padding: 10px;
+}
+
+.reviews-wrapper h2 {
+    margin: 15px 0;
+    font-size: 1.8rem;
+    color: #555e6a;
 }
 
 .list-group.list-group-flush {
@@ -161,7 +198,6 @@
 
 .list-group-item.d-flex.flex-row.review-item {
     padding: 0;
-    border: 1px solid green;
 }
 
 /*
@@ -169,34 +205,19 @@
  */
 .review-sidebar {
     width: 20%;
-    height: 100%;
     padding: 2%;
 }
 
-.user-avatar {
-    height: 50%;
-}
-
-.user-avatar img {
-    margin: 0 auto;
-    width: 80%;
+img.user-avatar {
+    width: 65px;
     height: auto;
 }
 
-.username-date {
-    margin-top: 10px;
-    width: 100%;
-    height: 50%;
-}
-
 #username, #date {
-    margin-bottom: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
     font-size: .9rem;
     text-align: center;
-}
-
-#username {
-    margin-bottom: 3px;
 }
 
 /*
@@ -204,8 +225,7 @@
  */
 .review {
     width: 80%;
-    padding: 20px;
-    background-color: oldlace;
+    padding: 2%;
 }
 
 .user-overall-rating img {
@@ -219,44 +239,53 @@
     color: #555e6a;
 }
 
+.tips {
+    color: royalblue;
+}
+
+
 /*
  * VOTING FEEDBACK
  */
-.voting-feedback {
-    background-color: palegoldenrod;
-}
-
 .thumbs-up img,
 .thumbs-down img{
     width: 25px;
     height: 25px;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 
 
 
+/*background-color: #7886d7;*/
+/*background-color: #6574cd;*/
 
 
-
-
-.list-group {
-    padding: 20px;
-    text-align: left;
-    font-size: 1.2rem;
-}
+/*.list-group {*/
+    /*padding: 20px;*/
+    /*text-align: left;*/
+    /*font-size: 1.2rem;*/
+/*}*/
 
 .subject-course-code p, .course a,
 .course-details p {
     color: #29313e;
 }
 
+.alert {
+    width: 100%;
+    height: 90px;
+    z-index: 2;
+    position: fixed;
+    top: 87px;
+    left: 0;
+    padding: 10px;
+    text-align: center;
+}
 
-
-
-
-
-
-
-
+.alert p {
+    font-size: 1.2rem;
+}
 
 /*
  * IF NO REVIEWS
@@ -264,11 +293,12 @@
 .noreviews-wrapper {
     margin: 0 auto;
     margin-top: 80px;
+    max-width: 900px;
 }
 
 .purple-banner {
     height: auto;
-    background-color: #7886d7;
+    background-color: #1C4A8C;
     color: #fff;
     padding: 30px 30px;
 }
@@ -289,17 +319,77 @@ a#first-review:hover {
     color: #3c436b;
 }
 
+/*
+ *  SCREEN: XS - SM
+ */
+@media (max-width: 767px) {
 
+    .course-wrapper,
+    .course-statistics,
+    .reviews-wrapper,
+    .noreviews-wrapper,
+    .rate {
+        max-width: 700px;
+    }
 
+    #subject p {
+        font-size: 1.1rem;
+    }
 
+    #icon img {
+        max-width: 65px;
+        max-height: 65px;
+    }
 
+    .course h1 {
+        font-size: 1.5rem;
+    }
 
-    /*background-color: #7886d7;*/
-/*background-color: #6574cd;*/
+    .professor {
+        font-size: 1.2rem;
+    }
 
+    .instructor {
+        font-size: 1rem;
+    }
 
+    .reviews-wrapper h2 {
+        font-size: 1.4rem;
+    }
 
+    .box h2 {
+        font-size: 1.4rem;
+    }
 
+    .box p {
+        font-size: 1rem;
+    }
 
+    #container.container {
+        max-width: 960px;
+    }
 
+    a.navbar-brand {
+        margin-left: 20px;
+    }
 
+}
+
+/*
+ *  SCREEN: MD
+ */
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .course-wrapper,
+    .course-statistics,
+    .reviews-wrapper,
+    .noreviews-wrapper,
+    .rate {
+        max-width: 800px;
+    }
+
+    #container.container {
+        max-width: 960px;
+    }
+
+}

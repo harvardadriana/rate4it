@@ -65,8 +65,6 @@ Route::get('/reviews/{review}/edit', 'ReviewController@edit');  //reviews.edit
 //Route::get('/courses/list', 'CourseController@showList');
 //Route::get('/show', 'CourseController@show');
 
-Route::get('/courses/search2','TestController@search2');
-
 
 
 

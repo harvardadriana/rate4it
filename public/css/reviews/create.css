@@ -3,7 +3,7 @@
 main {
     min-width: 650px;
     padding: 50px 100px;
-    background-color: lightyellow;
+    background-color: var(--main-blue);
 }
 
 .container {

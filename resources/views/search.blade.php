@@ -73,6 +73,7 @@
                                 <div class='course-details left'>
 
                                     <p class='course'>
+                                        {{--<p class='course'><a href='/{{ $course->title_for_url }}/{{ $course->crn }}'>{{ $course->title }}</a></p>--}}
                                         <a href='{{ (Request::path() === 'reviews' ? 'reviews/create' : '') }}/{{ $course->title_for_url }}/{{ $course->crn }}'>
                                         {{ $course->title }}</a>
                                     </p>
@@ -84,25 +85,16 @@
                                         <p class='instructor'>{{ $instructor->first_name . ' ' . $instructor->last_name }}</p>
                                     @endforeach
 
-                                    {{-- DISPLAY ONLY IF THERE ARE REVIEWS --}}
-                                    @if($course->number_of_reviews != 0)
-
-                                        <p class='review'>***** Rating: {{ $course->overall_rating }} -
-                                            <span class='badge badge-primary badge-pill'>{{ $course->number_of_reviews }} reviews</span>
-                                        </p>
-
-                                    @else
-                                        <p class='review'>
-                                            <small>
-                                                <a href='/reviews/create-review/{{ $course->id }}'>Be the first one to review this course</a>
-                                            </small>
-                                        </p>
-                                    @endif
                                 </div>
+
                             </li>
+
                         @endforeach
+
                     </ul>
+
                 </div>
+
             @else
                 <div class='results'>
                     <h2 class='noResults'>No courses found.</h2>

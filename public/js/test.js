@@ -66,10 +66,6 @@ $(document).ready(function () {
 
 
 
-
-
-
-
     $('.star').on('click', function ($element) {
 
         let starPrefixss = ($(this).attr('id')).slice(0, 2);

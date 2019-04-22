@@ -122,6 +122,20 @@ button.btn.btn-default:hover {
     margin-top: 15px;
 }
 
+
+/*
+ *  SCREEN: SM
+ */
+@media (max-width: 767px) {
+
+    nav ul.navbar-nav.ml-auto {
+        background-color: rgba(252, 252, 252);
+        box-shadow: 1px 1px 10px 1px #DEDEDD;
+    }
+
+}
+
+
 /*.noResults {*/
     /*padding: 20px;*/
     /*font-size: 1.4rem;*/

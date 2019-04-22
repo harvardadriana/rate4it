@@ -30,3 +30,25 @@ button#navbar-toggler.navbar-toggler {
 #navbarSupportedContent li.nav-item a.nav-link:hover {
     color: #fff;
 }
+
+/*
+ *  NO BORDER BLUR IN COLLAPSED MENU
+ */
+nav ul.navbar-nav.ml-auto {
+    box-shadow: none;
+}
+
+/*
+ *  SCREEN: XS
+ */
+@media (max-width: 575px) {
+
+    a.navbar-brand {
+        margin-left: 20px;
+    }
+
+    button#navbar-toggler.navbar-toggler {
+        margin-right: 25px;
+    }
+
+}

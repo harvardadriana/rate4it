@@ -177,27 +177,27 @@ class ReviewController extends Controller
         $newReview->save();
 
         // Update the course overall rate
-        $course->rate->overall_rating = ($course->rate->overall_rating + $newReview->overall_rating)/2;
-        // Calculate percentage of how many students would take the course again
-        $course->rate->take_course_again = (($course->rate->take_course_again + $request->take_course_again) / ($course->rate->number_of_reviews + 1))*100;
-        $course->rate->difficulty = ($course->rate->difficulty + $newReview->difficulty)/2;
-        $course->rate->clear_objectives = ($course->rate->clear_objectives + $newReview->clear_objectives)/2;
-        $course->rate->organized = ($course->rate->organized + $newReview->organized)/2;
-        $course->rate->gain_deeper_insight = ($course->rate->gain_deeper_insight + $newReview->gain_deeper_insight)/2;
-        $course->rate->workload = ($course->rate->workload + $newReview->workload)/2;
-        $course->rate->helpful_assignments = ($course->rate->helpful_assignments + $newReview->helpful_assignments)/2;
-        $course->rate->clear_assignment_instructions = ($course->rate->clear_assignment_instructions + $newReview->clear_assignment_instructions)/2;
-        $course->rate->grading = ($course->rate->grading + $newReview->grading)/2;
-        $course->rate->material = ($course->rate->material + $newReview->material)/2;
-        $course->rate->clarity = ($course->rate->clarity + $newReview->clarity)/2;
-        $course->rate->knowledge = ($course->rate->knowledge + $newReview->knowledge)/2;
-        $course->rate->feedback = ($course->rate->feedback + $newReview->feedback)/2;
-        $course->rate->helpfulness_TA = ($course->rate->helpfulness_TA + $newReview->helpfulness_TA)/2;
+        $base = ($course->rate->number_of_reviews == 0 ? '1' : '2');
+        $course->rate->overall_rating = ($course->rate->overall_rating + $newReview->overall_rating)/$base;
+        $course->rate->take_course_again = $course->rate->take_course_again + $request->take_course_again;
+        $course->rate->difficulty = ($course->rate->difficulty + $newReview->difficulty)/$base;
+        $course->rate->clear_objectives = ($course->rate->clear_objectives + $newReview->clear_objectives)/$base;
+        $course->rate->organized = ($course->rate->organized + $newReview->organized)/$base;
+        $course->rate->gain_deeper_insight = ($course->rate->gain_deeper_insight + $newReview->gain_deeper_insight)/$base;
+        $course->rate->workload = ($course->rate->workload + $newReview->workload)/$base;
+        $course->rate->helpful_assignments = ($course->rate->helpful_assignments + $newReview->helpful_assignments)/$base;
+        $course->rate->clear_assignment_instructions = ($course->rate->clear_assignment_instructions + $newReview->clear_assignment_instructions)/$base;
+        $course->rate->grading = ($course->rate->grading + $newReview->grading)/$base;
+        $course->rate->material = ($course->rate->material + $newReview->material)/$base;
+        $course->rate->clarity = ($course->rate->clarity + $newReview->clarity)/$base;
+        $course->rate->knowledge = ($course->rate->knowledge + $newReview->knowledge)/$base;
+        $course->rate->feedback = ($course->rate->feedback + $newReview->feedback)/$base;
+        $course->rate->helpfulness_TA = ($course->rate->helpfulness_TA + $newReview->helpfulness_TA)/$base;
         $course->rate->number_of_reviews = $course->rate->number_of_reviews + 1;
         $course->rate->save();
 
         return redirect('/' . $course->title_for_url . '/' . $course->crn)->with([
-            'alert' => 'Your rating for ' . 'has been posted.'
+            'alert' => 'Your review for ' . $course->title . ' has been posted.'
         ]);
     }
 

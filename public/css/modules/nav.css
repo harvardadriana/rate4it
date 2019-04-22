@@ -9,6 +9,7 @@ nav.navbar.navbar-expand-md.navbar-light {
     width: 100%;
     height: 87px;
     padding: 0;
+    padding-right: 5px;
     z-index: 3;
     background-color: #fff;
     font-size: 1.4rem;
@@ -22,6 +23,7 @@ a.navbar-brand {
     height: 87px;
     padding: 0;
     margin: 0;
+    margin-left: 5px;
 }
 
 #logo {
@@ -41,4 +43,36 @@ nav.navbar.navbar-expand-md.navbar-light .nav-link {
 
 #navbarSupportedContent li.nav-item a.nav-link {
     margin-left: 15px;
+}
+
+/*
+ *  SCREEN: XS
+ */
+@media (max-width: 575px) {
+
+    a.navbar-brand {
+        margin-left: 20px;
+    }
+
+    button#navbar-toggler.navbar-toggler {
+        margin-right: 25px;
+    }
+
+    nav ul.navbar-nav.ml-auto {
+        background-color: rgba(252, 252, 252);
+        box-shadow: 1px 1px 10px 1px #DEDEDD;
+    }
+
+}
+
+/*
+ *  SCREEN: SM
+ */
+@media (min-width: 576px) and (max-width: 767px) {
+
+    nav ul.navbar-nav.ml-auto {
+        background-color: rgba(252, 252, 252);
+        box-shadow: 1px 1px 10px 1px #DEDEDD;
+    }
+
 }
