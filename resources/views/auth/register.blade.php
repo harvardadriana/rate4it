@@ -21,6 +21,14 @@
             <form method='POST' action='{{ route('register') }}'>
                 @csrf
 
+                {{-- MESSAGE USER --}}
+                <div class='row form-group email-requirement'>
+                    <div class='col-md-7 offset-md-5'>
+                        <small>* A Harvard email account is required for registration</small>
+                    </div>
+                </div>
+
+
                 {{-- NAME --}}
                 <div class='row form-group'>
                     <label for='name' class='col-10 col-md-5 col-form-label'>{{ __('Name') }}</label>
@@ -63,6 +71,7 @@
                            class='col-10 col-md-6 form-control{{ $errors->has('email') ? ' is-invalid' : '' }}'
                            name='email'
                            value='{{ old('email') }}'
+                           placeholder='email@domain.harvard.edu'
                            required>
                     @if ($errors->has('email'))
                         <span id='error-messages' class='col-10 col-md-6 offset-md-6 invalid-feedback' role='alert'>

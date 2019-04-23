@@ -29,7 +29,7 @@
                                class='form-control{{ $errors->has("email") ? " is-invalid" : "" }}'
                                name='email'
                                value='{{ old("email") }}'
-                               placeholder='{{ old("email") ? old("email") : "email@domain.com" }}'
+                               placeholder='{{ old("email") ? old("email") : "email@domain.harvard.edu" }}'
                                required>
                         @if ($errors->has('email'))
                             <span class='invalid-feedback' role='alert'>

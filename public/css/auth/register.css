@@ -33,8 +33,17 @@ body, main {
     height: 75px;
     border: 1px solid #2f3874;
     border-radius: 10px 10px 0 0;
-    margin-bottom: 45px;
+    margin-bottom: 15px;
     text-align: center;
+}
+
+.row.form-group.email-requirement {
+    max-height: 40px;
+}
+
+.email-requirement {
+    margin-bottom: 15px;
+    font-style: italic;
 }
 
 /*
@@ -49,6 +58,7 @@ form {
     padding: 0;
     margin: 0;
     font-size: 1.1rem;
+    color: #2f3874;
 }
 
 label {
@@ -97,7 +107,7 @@ button.btn.btn-primary:hover {
 }
 
 /*
- *  @media queries
+ *  @MEDIA QUERIES
  */
 @media (max-width: 767px) {
 
@@ -108,11 +118,15 @@ button.btn.btn-primary:hover {
     }
 
     .login-box h1 {
-        margin-bottom: 15px;
+        margin-bottom: 0;
     }
 
     form {
-        padding: 20px;
+        padding: 10px 20px 20px;
+    }
+
+    .row.form-group.email-requirement {
+        max-height: 20px;
     }
 
     label.col-10.col-md-5.col-form-label {

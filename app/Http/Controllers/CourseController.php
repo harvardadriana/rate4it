@@ -34,15 +34,13 @@ class CourseController extends Controller
             }
         }
 
-        return view ('search')->with([
+        return view ('courses.search')->with([
             'coursesArray' => $coursesArray,
             'instructorsArray' => $instructorsArray,
             'searchTerm' => $request->session()->get('searchTerm', ''),
             'searchResults' => $request->session()->get('searchResults', []),
             'numberCourses' => $request->session()->get('numberCourses', ''),
-            'alert' => $request->session()->get('alert', null),
-            'pageTitle' => 'Find a course',
-            'path' => '/search-process'
+            'alert' => $request->session()->get('alert', null)
         ]);
     }
 
@@ -67,9 +65,7 @@ class CourseController extends Controller
             'searchTerm' => $searchTerm,
             'searchResults' => $searchResults,
             'numberCourses' => $numberCourses,
-            'alert' => 'Course ' . $searchTerm . ' not found.',
-            'pageTitle' => 'Find a course',
-            'path' => '/search-process'
+            'alert' => 'Course ' . $searchTerm . ' not found.'
         ]);
     }
 

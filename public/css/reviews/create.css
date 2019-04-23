@@ -1,23 +1,40 @@
 /* rate.css */
 
-main {
-    min-width: 650px;
-    padding: 50px 100px;
-    background-color: var(--main-blue);
+main, html, body {
+    background-color: #757db2;
 }
 
-.container {
-    color: lightgrey;
-    font-weight: lighter;
-    background-color: var(--main-blue);
+
+.content {
+    width: 100%;
+    min-width: 576px;
+    background-color: #8990bd;
+}
+
+.row.course-title-banner {
+    width: 100%;
+    height: auto;
+    background-color: #4e589c;
+}
+
+
+.course-title-col {
+    /*max-width: 900px;*/
+    margin: 0 auto;
+
 }
 
 h1 {
-    margin-bottom: 30px;
+    margin: 30px;
     color: #fff;
-    font-size: 2.5rem;
+    font-size: 1.7rem;
     text-shadow: 3px 2px rgba(0, 0, 0, .5);
 }
+
+
+
+
+
 
 /*
  * FORM

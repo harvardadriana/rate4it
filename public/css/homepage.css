@@ -1,5 +1,14 @@
 /* homepage.css */
 
+
+html {
+    background-color: var(--main-blue);
+}
+
+body, main, .content, .app {
+    background-color: #fff;
+}
+
 /*
  * CONTENT COLUMN
  */
@@ -46,17 +55,19 @@
 /*
  * TRANSITION
  */
-.transition {
+.transition, svg, .end {
     min-width: 470px;
     width: 100%;
+    margin: 0;
+}
+
+.transition {
     position: relative;
     height: 100px;
     background: #fff;
 }
 
 svg {
-    min-width: 470px;
-    width: 100%;
     position: absolute;
     bottom: 0;
     height: 100px;
@@ -64,16 +75,14 @@ svg {
 }
 
 .end {
-    min-width: 470px;
-    width: 100%;
-    height: 50px;
+    height: 65px;
     margin: 0;
     padding: 0;
     background-color: var(--main-blue);
 }
 
 /*
- *  SCREEN: XS
+ *  @MEDIA QUERIES
  */
 @media (max-width: 575px) {
 
@@ -84,36 +93,47 @@ svg {
     .content {
         width: 100%;
         min-width: 470px;
+        height: auto;
+        padding-top: 30px;
     }
 
     .layout-hero {
-        margin-top: 120px;
-        height: 513px;
+        width: 100%;
+        min-height: 490px;
+        height: auto;
     }
 
     #content-column {
+        width: 100%;
+        height: auto;
         text-align: left;
     }
 
     h1#content-heading {
-        margin: 30px 0;
+        margin-bottom: 15px;
         font-size: 2.3rem;
     }
 
     p#content-text {
-        margin: 45px 0 55px;
+        margin: 25px 0 25px;
         font-size: 1.6rem;
+    }
+
+    .end {
+        height: 35px;
     }
 
 }
 
-/*
- *  SCREEN: SM
- */
 @media (min-width: 576px) and (max-width: 767px) {
 
+    .content {
+        width: 100%;
+    }
+
     .layout-hero {
-        height: 577.5px;
+        height: auto;
+        width: 100%;
     }
 
     .gif {
@@ -129,17 +149,18 @@ svg {
 
     #content-column {
         max-width: 600px;
-        height: 240px;
-        padding: 0 20px;
+        height: auto;
+        padding: 0;
         text-align: left;
     }
 
     #content-column h1 {
         font-size: 2.2rem;
+        margin-top: 10px;
     }
 
     #content-column p {
-        margin: 20px 0;
+        margin: 15px 0;
         font-size: 1.2rem;
     }
 
@@ -148,13 +169,11 @@ svg {
     }
 }
 
-/*
- *  SCREEN: MD
- */
 @media (min-width: 768px) and (max-width: 991px) {
 
     .layout-hero {
         height: 562.5px;
+        width: 100%;
     }
 
     .gif, img.gif {
@@ -186,23 +205,21 @@ svg {
     }
 
     .end {
-        height: 35px;
+        height: 25px;
     }
 
 }
 
-/*
- *  SCREEN: LG
- */
 @media (min-width: 992px) and (max-width: 1199px) {
 
     .content {
         width: 100%;
+        padding-top: 60px;
     }
 
     .layout-hero {
-        margin-top: 180px;
         height: 430px;
+        width: 100%;
     }
 
     #gif {
@@ -242,18 +259,15 @@ svg {
 
 }
 
-/*
- *  SCREEN: XL
- */
 @media (min-width: 1200px) {
 
     .content {
         width: 100%;
+        padding-top: 60px;
     }
 
     .layout-hero {
         margin: 0 auto;
-        margin-top: 170px;
         max-width: 1300px;
         height: 450px;
     }

@@ -21,7 +21,7 @@
     @if($course)
 
         @if(session('alert'))
-            <div class='alert alert-success' role='alert'>
+            <div class='alert alert-success alert-dismissible fade show' role='alert'>
                 <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                     <span aria-hidden='true'>&times;</span>
                 </button>
@@ -38,7 +38,7 @@
                     <p>{{ $course->subject_and_course_code }}</p>
                 </div>
                 <div id='icon' class='row align-items-center'>
-                    <img src='/images/icons/subjects/{{ $course->subject->code }}.svg' alt='{{ $course->subject->code }}'>
+                    <img src='/images/icons/subjects/{{ $course->subject->code }}.svg' alt='Course subject icon'>
                 </div>
             </div>
 

@@ -17,8 +17,6 @@ class CreateReviewsTable extends Migration
             $table->timestamps();
             $table->tinyInteger('overall_rating');
             $table->mediumInteger('take_course_again');
-            $table->char('attendance_mandatory', 3);
-            $table->char('class_taken_for_credit', 3);
             $table->tinyInteger('difficulty');
             $table->tinyInteger('clear_objectives');
             $table->tinyInteger('organized');
@@ -33,8 +31,6 @@ class CreateReviewsTable extends Migration
             $table->tinyInteger('feedback');
             $table->tinyInteger('helpfulness_TA');
             $table->tinyInteger('performance');
-            $table->tinyInteger('attendance');
-            $table->smallInteger('hours_studying');
             $table->char('grade', 3);
             $table->string('survival_tips', 150);
             $table->string('comments', 300);

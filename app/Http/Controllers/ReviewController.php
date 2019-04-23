@@ -47,15 +47,13 @@ class ReviewController extends Controller
             }
         }
 
-        return view ('search')->with([
+        return view ('reviews.search')->with([
             'coursesArray' => $coursesArray,
             'instructorsArray' => $instructorsArray,
             'searchTerm' => $request->session()->get('searchTerm', ''),
             'searchResults' => $request->session()->get('searchResults', []),
             'alert' => $request->session()->get('alert', null),
-            'numberCourses' => $request->session()->get('numberCourses', ''),
-            'pageTitle' => 'Search course for rating',
-            'path' => '/reviews-process'
+            'numberCourses' => $request->session()->get('numberCourses', '')
         ]);
     }
 
@@ -80,9 +78,7 @@ class ReviewController extends Controller
             'searchResults' => $searchResults,
             'searchTerm' => $searchTerm,
             'numberCourses' => $numberCourses,
-            'alert' => 'Course ' . $searchTerm . ' not found.',
-            'pageTitle' => 'Search course for rating',
-            'path' => '/reviews-process'
+            'alert' => 'Course ' . $searchTerm . ' not found.'
         ]);
     }
 
@@ -116,8 +112,6 @@ class ReviewController extends Controller
         $request->validate([
             'course_id' => 'required',
             'overall_rating' => 'required|numeric',
-            'take_course_again' => 'required|numeric',
-            'attendance_mandatory' => 'required|alpha',
             'class_taken_for_credit' => 'required|alpha',
             'difficulty' => 'required|numeric',
             'clear_objectives' => 'required|numeric',
@@ -133,8 +127,6 @@ class ReviewController extends Controller
             'feedback' => 'required|numeric',
             'helpfulness_TA' => 'required|numeric',
             'performance' => 'required|numeric',
-            'attendance' => 'required|numeric',
-            'hours_studying' => 'required|numeric',
             'grade' => 'required',
             'survival_tips' => 'required',
             'comments' => 'required'
@@ -151,8 +143,6 @@ class ReviewController extends Controller
         $newReview = new Review();
         $newReview->overall_rating = $request->overall_rating;
         $newReview->take_course_again = $request->take_course_again;
-        $newReview->attendance_mandatory = $request->attendance_mandatory;
-        $newReview->class_taken_for_credit = $request->class_taken_for_credit;
         $newReview->difficulty = $request->difficulty;
         $newReview->clear_objectives = $request->clear_objectives;
         $newReview->organized = $request->organized;
@@ -167,8 +157,6 @@ class ReviewController extends Controller
         $newReview->feedback = $request->feedback;
         $newReview->helpfulness_TA = $request->helpfulness_TA;
         $newReview->performance = $request->performance;
-        $newReview->attendance = $request->attendance;
-        $newReview->hours_studying = $request->hours_studying;
         $newReview->grade = $request->grade;
         $newReview->survival_tips = $request->survival_tips;
         $newReview->comments = $request->comments;

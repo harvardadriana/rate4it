@@ -11,13 +11,20 @@
 
 @section('content')
 
-    <div class='container'>
+    <div class='content'>
 
-        <div class='row justify-content-center'>
+        <div class='row course-title-banner'>
+
+            <div class='col-md-11 col-lg-9 col-xl-8 justify-content-center course-title-col'>
+
+                <h1>Rating: {{ $course->title }}</h1>
+
+            </div>
+
+        </div>
 
             <div class='col-md-11 col-lg-9 col-xl-8'>
 
-                <h1>Rating: {{ $course->title }}</h1>
 
                 <form method='POST' action='/reviews'>
                     @csrf
@@ -34,7 +41,8 @@
                                        name='overall_rating'
                                        aria-labelledby='rating-input-label'
                                        aria-describedby='rating-input-description'
-                                       value='{{ $i }}'>
+                                       value='{{ $i }}'
+                                        {{ ($course->overall_rating == $i) ? 'selected' : '' }}>
                                 <label for='overall_rating_{{ $i }}' class='form-check-label'>
                                     <span id='a-{{ $i }}' class='star'>★</span>
                                 </label>
@@ -65,50 +73,7 @@
                         </label>
                     </div>
 
-                    <h2>A3. Was attendance mandatory?</h2>
-                    @include('includes.error', ['errorField' => 'attendance_mandatory'])
-
-                    <div class='invalid-feedback'>
-                        Please choose one option
-                    </div>
-                    <div class='btn-group btn-group-toggle' data-toggle='buttons'>
-                        <label class='btn btn-warning'>
-                            <input type='radio'
-                                   name='attendance_mandatory'
-                                   id='attendance_mandatory_yes'
-                                   value='yes'
-                                   autocomplete='off'>Yes
-                        </label>
-                        <label class='btn btn-warning'>
-                            <input type='radio'
-                                   name='attendance_mandatory'
-                                   id='attendance_mandatory_no'
-                                   value='no'
-                                   autocomplete='off'>No
-                        </label>
-                    </div>
-
-                    <h2>A4. Was the class taken for credit?</h2>
-                    @include('includes.error', ['errorField' => 'class_taken_for_credit'])
-
-                    <div class='btn-group btn-group-toggle' data-toggle='buttons'>
-                        <label class='btn btn-warning'>
-                            <input type='radio'
-                                   name='class_taken_for_credit'
-                                   id='class_taken_for_credit_yes'
-                                   value='yes'
-                                   autocomplete='off'>Yes
-                        </label>
-                        <label class='btn btn-warning'>
-                            <input type='radio'
-                                   name='class_taken_for_credit'
-                                   id='class_taken_for_credit_no'
-                                   value='no'
-                                   autocomplete='off'>No
-                        </label>
-                    </div>
-
-                    <h2>A5. Level of difficulty of the course?</h2>
+                    <h2>A3. Level of difficulty of the course?</h2>
                     @include('includes.error', ['errorField' => 'difficulty'])
 
                     <div class='form-group'>
@@ -128,7 +93,7 @@
                         @endfor
                     </div>
 
-                    <h2>A6. The course objectives were clear?</h2>
+                    <h2>A4. The course objectives were clear?</h2>
                     @include('includes.error', ['errorField' => 'clear_objectives'])
 
                     <div class='form-group'>
@@ -148,7 +113,7 @@
                         @endfor
                     </div>
 
-                    <h2>A7. The course was organized and arranged in a logical way?</h2>
+                    <h2>A5. The course was organized and arranged in a logical way?</h2>
                     @include('includes.error', ['errorField' => 'organized'])
 
                     <div class='form-group'>
@@ -168,7 +133,7 @@
                         @endfor
                     </div>
 
-                    <h2>A8. The course helped you gain deeper insight into the topic?
+                    <h2>A6. The course helped you gain deeper insight into the topic?
                         (How confident are you about the subject after taking this course?)</h2>
                     @include('includes.error', ['errorField' => 'gain_deeper_insight'])
 
@@ -189,7 +154,7 @@
                         @endfor
                     </div>
 
-                    <h2>A9. How was the workload of the course?</h2>
+                    <h2>A7. How was the workload of the course?</h2>
                     @include('includes.error', ['errorField' => 'workload'])
 
                     <div class='form-group'>
@@ -209,7 +174,7 @@
                         @endfor
                     </div>
 
-                    <h2>A10. How helpful were the homework assignments to your understanding of the material?</h2>
+                    <h2>A8. How helpful were the homework assignments to your understanding of the material?</h2>
                     @include('includes.error', ['errorField' => 'helpful_assignments'])
 
                     <div class='form-group'>
@@ -229,7 +194,7 @@
                         @endfor
                     </div>
 
-                    <h2>A11. The course contained clear stated instructions that clarified how assignments were to be completed?</h2>
+                    <h2>A9. The course contained clear stated instructions that clarified how assignments were to be completed?</h2>
                     @include('includes.error', ['errorField' => 'clear_assignment_instructions'])
 
                     <div class='form-group'>
@@ -249,7 +214,7 @@
                         @endfor
                     </div>
 
-                    <h2>A12. The grading criteria was well defined?</h2>
+                    <h2>A10. The grading criteria was well defined?</h2>
                     @include('includes.error', ['errorField' => 'grading'])
 
                     <div class='form-group'>
@@ -269,7 +234,7 @@
                         @endfor
                     </div>
 
-                    <h2>A13. The quality of the material provided, readings or reference were valuable or useful?</h2>
+                    <h2>A11. The quality of the material provided, readings or reference were valuable or useful?</h2>
                     @include('includes.error', ['errorField' => 'material'])
 
                     <div class='form-group'>
@@ -289,7 +254,7 @@
                         @endfor
                     </div>
 
-                    <h2>A14. The professor presented the course material in a clear manner that facilitated understanding?
+                    <h2>A12. The professor presented the course material in a clear manner that facilitated understanding?
                         (Effective professors can explain complex ideas in simple ways)</h2>
                     @include('includes.error', ['errorField' => 'clarity'])
 
@@ -310,7 +275,7 @@
                         @endfor
                     </div>
 
-                    <h2>A15. The professor demonstrated in-depth knowledge of the subject?</h2>
+                    <h2>A13. The professor demonstrated in-depth knowledge of the subject?</h2>
                     @include('includes.error', ['errorField' => 'knowledge'])
 
                     <div class='form-group'>
@@ -330,7 +295,7 @@
                         @endfor
                     </div>
 
-                    <h2>A16. The professor provided helpful support or feedback?</h2>
+                    <h2>A14. The professor provided helpful support or feedback?</h2>
                     @include('includes.error', ['errorField' => 'feedback'])
 
                     <div class='form-group'>
@@ -350,7 +315,7 @@
                         @endfor
                     </div>
 
-                    <h2>A17. The TA (Teaching Assistant) provided helpful support or feedback?</h2>
+                    <h2>A15. The TA (Teaching Assistant) provided helpful support or feedback?</h2>
                     @include('includes.error', ['errorField' => 'helpfulness_TA'])
 
                     <div class='form-group'>
@@ -370,7 +335,7 @@
                         @endfor
                     </div>
 
-                    <h2>A18. How satisfied were you with your effort in this course?</h2>
+                    <h2>A16. How satisfied were you with your effort in this course?</h2>
                     @include('includes.error', ['errorField' => 'performance'])
 
                     <div class='form-group'>
@@ -390,44 +355,8 @@
                         @endfor
                     </div>
 
-                    <h2>A19. How many class (or section) sessions did you attend?</h2>
-                    @include('includes.error', ['errorField' => 'attendance'])
-
-                    <div class='form-group'>
-                        @for ($i = 1; $i < 6; $i++)
-                            <div class='form-check form-check-inline stars'>
-                                <input id='attendance_{{ $i }}'
-                                       class='form-check-input form-control radio-item'
-                                       type='radio'
-                                       name='attendance'
-                                       aria-labelledby='rating-input-label'
-                                       aria-describedby='rating-input-description'
-                                       value='{{ $i }}'>
-                                <label for='attendance_{{ $i }}' class='form-check-label'>
-                                    <span id='p-{{ $i }}' class='star'>★</span>
-                                </label>
-                            </div>
-                        @endfor
-                    </div>
-
                     <div class='form-group self-assessment'>
-                        <label for='hours_studying'>A20. On average, how many hours per week have you spent on this course,
-                                                        including attending classes, doing readings, reviewing notes,
-                                                        assignments?</label>
-                        @include('includes.error', ['errorField' => 'hours_studying'])
-
-                        <input id='hours_studying'
-                               class='form-control'
-                               type='number'
-                               name='hours_studying'
-                               aria-labelledby='rating-input-label'
-                               aria-describedby='rating-input-description'
-                               min='0'
-                               value='{{ old('hours_studying') }}'>
-                    </div>
-
-                    <div class='form-group self-assessment'>
-                        <label for='grade'>A21. Your grade?</label>
+                        <label for='grade'>A17. Your grade?</label>
                         @include('includes.error', ['errorField' => 'grade'])
 
                         <input id='grade'
@@ -439,7 +368,7 @@
                     </div>
 
                     <div class='form-group self-assessment'>
-                        <label for='survival_tips'>A22. Any survival tips?</label>
+                        <label for='survival_tips'>A18. Any survival tips?</label>
                         @include('includes.error', ['errorField' => 'survival_tips'])
 
                         <textarea id='survival_tips'
@@ -447,11 +376,11 @@
                                   name='survival_tips'
                                   maxlength='150'
                                   rows='3'
-                                  placeholder='{{ old('survival_tips') }}'></textarea>
+                                  placeholder='Leave your tips here...'>{{ old('survival_tips') }}</textarea>
                     </div>
 
                     <div class='form-group self-assessment'>
-                        <label for='comments'>A23. Write your review: (i.e: pros and cons; what could be improved;
+                        <label for='comments'>A19. Write your review: (i.e: pros and cons; what could be improved;
                                               what are the strengths of the course; what have you liked (and disliked) about the
                                               course; did the course achieve its aims and objectives of the program,...)</label>
                         @include('includes.error', ['errorField' => 'comments'])
@@ -461,7 +390,7 @@
                                   name='comments'
                                   maxlength='300'
                                   rows='5'
-                                  placeholder='{{ old('comments') }}'></textarea>
+                                  placeholder='Leave your comments here...'>{{ old('comments') }}</textarea>
                     </div>
 
                     <input type='hidden' name='course_id' value='{{ $course->id }}'>
@@ -479,8 +408,6 @@
 
             </div> {{-- end col --}}
 
-        </div> {{-- end row --}}
-
-    </div> {{-- end container --}}
+    </div>  end content
 
 @endsection
