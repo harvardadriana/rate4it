@@ -72,8 +72,7 @@ button.btn.btn-default:hover {
 /*
  * RESULTS & NO-RESULTS LAYOUT
  */
-.results-wrapper,
-.no-results-wrapper {
+.results-wrapper {
     margin: 0 auto;
     margin-top: 30px;
     max-width: 550px;
@@ -87,13 +86,6 @@ button.btn.btn-default:hover {
 .list-group.list-group-flush,
 .review-item {
     padding: 0;
-}
-
-.results-wrapper h2,
-.no-results-wrapper h2 {
-    margin: 15px 0;
-    font-size: 1.6rem;
-    color: #555e6a;
 }
 
 /*
@@ -173,6 +165,14 @@ img#hand-rating {
 
 .instructor {
     margin: 3px 0;
+}
+
+/*
+ *  ERROR MESSAGES
+ */
+#user-message {
+    height: 110px;
+    font-size: 1.6rem;
 }
 
 /*

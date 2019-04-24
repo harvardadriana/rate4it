@@ -2,7 +2,7 @@
 
 @push('styles')
     <link rel='stylesheet' type='text/css' href='/css/modules/nav-white.css'>
-    <link rel='stylesheet' type='text/css' href='/css/courses/showcourse.css'>
+    <link rel='stylesheet' type='text/css' href='/css/courses/show.css'>
 @endpush
 
 @push('logo')
@@ -14,7 +14,6 @@
 @endsection
 
 @section('content')
-
 
 <div class='content'>
 

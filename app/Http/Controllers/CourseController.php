@@ -39,8 +39,7 @@ class CourseController extends Controller
             'instructorsArray' => $instructorsArray,
             'searchTerm' => $request->session()->get('searchTerm', ''),
             'searchResults' => $request->session()->get('searchResults', []),
-            'numberCourses' => $request->session()->get('numberCourses', ''),
-            'alert' => $request->session()->get('alert', null)
+            'numberCourses' => $request->session()->get('numberCourses', '')
         ]);
     }
 
@@ -64,8 +63,7 @@ class CourseController extends Controller
         return redirect('/search')->with([
             'searchTerm' => $searchTerm,
             'searchResults' => $searchResults,
-            'numberCourses' => $numberCourses,
-            'alert' => 'Course ' . $searchTerm . ' not found.'
+            'numberCourses' => $numberCourses
         ]);
     }
 

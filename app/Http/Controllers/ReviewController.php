@@ -52,7 +52,6 @@ class ReviewController extends Controller
             'instructorsArray' => $instructorsArray,
             'searchTerm' => $request->session()->get('searchTerm', ''),
             'searchResults' => $request->session()->get('searchResults', []),
-            'alert' => $request->session()->get('alert', null),
             'numberCourses' => $request->session()->get('numberCourses', '')
         ]);
     }
@@ -88,19 +87,32 @@ class ReviewController extends Controller
     public function create($title_for_url, $crn)
     {
         $course = Course::with('instructors')->where('crn', '=', $crn)->first();
+        $previousReview = Review::where('user_id', '=', Auth::user()->id)
+                                ->where('course_id', '=', $course->id)->first();
+        $alert = 'Course ' . $title_for_url . ' not found.';
 
-        if(!$course) {
-            return redirect('/reviews')->with([
-                'alert' => 'Course ' . $title_for_url . ' not found.'
-            ]);
-        } else {
+        if($course) {
 
-            return view('reviews.create')->with([
-                'course' => $course,
-                'title_for_url' => $title_for_url,
-                'crn' => $crn
-            ]);
+            if (!$previousReview) {
+
+                return view('reviews.create')->with([
+                    'course' => $course,
+                    'title_for_url' => $title_for_url,
+                    'crn' => $crn
+                ]);
+
+            } else {
+
+                $alert = 'You have rated this course before';
+
+            }
+
         }
+
+        return redirect('/reviews')->with([
+            'alert' => $alert
+        ]);
+
     }
 
     /**
@@ -110,9 +122,8 @@ class ReviewController extends Controller
     {
         // Validate inputs from user
         $request->validate([
-            'course_id' => 'required',
             'overall_rating' => 'required|numeric',
-            'class_taken_for_credit' => 'required|alpha',
+            'take_course_again' => 'required|numeric',
             'difficulty' => 'required|numeric',
             'clear_objectives' => 'required|numeric',
             'organized' => 'required|numeric',
