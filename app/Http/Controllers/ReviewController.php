@@ -87,31 +87,31 @@ class ReviewController extends Controller
     public function create($title_for_url, $crn)
     {
         $course = Course::with('instructors')->where('crn', '=', $crn)->first();
-        $previousReview = Review::where('user_id', '=', Auth::user()->id)
-                                ->where('course_id', '=', $course->id)->first();
+      //  $previousReview = Review::where('user_id', '=', Auth::user()->id)->first();
+
+//                                ->where('course_id', '=', $course->id)->first();
+
         $alert = 'Course ' . $title_for_url . ' not found.';
 
-        if($course) {
+//dd($previousReview);
 
-            if (!$previousReview) {
+        if(!$course) {
+            return redirect('/reviews')->with([
+                'alert' => $alert
+            ]);
+        }
+//            if (!$previousReview) {
 
                 return view('reviews.create')->with([
                     'course' => $course,
                     'title_for_url' => $title_for_url,
                     'crn' => $crn
                 ]);
-
-            } else {
-
-                $alert = 'You have rated this course before';
-
-            }
-
-        }
-
-        return redirect('/reviews')->with([
-            'alert' => $alert
-        ]);
+//
+//            } else {
+//
+//                $alert = 'You have rated this course before';
+//
 
     }
 
@@ -129,14 +129,12 @@ class ReviewController extends Controller
             'organized' => 'required|numeric',
             'gain_deeper_insight' => 'required|numeric',
             'workload' => 'required|numeric',
-            'helpful_assignments' => 'required|numeric',
             'clear_assignment_instructions' => 'required|numeric',
             'grading' => 'required|numeric',
             'material' => 'required|numeric',
             'clarity' => 'required|numeric',
             'knowledge' => 'required|numeric',
             'feedback' => 'required|numeric',
-            'helpfulness_TA' => 'required|numeric',
             'performance' => 'required|numeric',
             'grade' => 'required',
             'survival_tips' => 'required',
@@ -159,14 +157,12 @@ class ReviewController extends Controller
         $newReview->organized = $request->organized;
         $newReview->gain_deeper_insight = $request->gain_deeper_insight;
         $newReview->workload = $request->workload;
-        $newReview->helpful_assignments = $request->helpful_assignments;
         $newReview->clear_assignment_instructions = $request->clear_assignment_instructions;
         $newReview->grading = $request->grading;
         $newReview->material = $request->material;
         $newReview->clarity = $request->clarity;
         $newReview->knowledge = $request->knowledge;
         $newReview->feedback = $request->feedback;
-        $newReview->helpfulness_TA = $request->helpfulness_TA;
         $newReview->performance = $request->performance;
         $newReview->grade = $request->grade;
         $newReview->survival_tips = $request->survival_tips;
@@ -175,7 +171,7 @@ class ReviewController extends Controller
         $newReview->course_id = $course_id;
         $newReview->save();
 
-        // Update the course overall rate
+        // Update the course overall rating
         $base = ($course->rate->number_of_reviews == 0 ? '1' : '2');
         $course->rate->overall_rating = ($course->rate->overall_rating + $newReview->overall_rating)/$base;
         $course->rate->take_course_again = $course->rate->take_course_again + $request->take_course_again;
@@ -184,16 +180,18 @@ class ReviewController extends Controller
         $course->rate->organized = ($course->rate->organized + $newReview->organized)/$base;
         $course->rate->gain_deeper_insight = ($course->rate->gain_deeper_insight + $newReview->gain_deeper_insight)/$base;
         $course->rate->workload = ($course->rate->workload + $newReview->workload)/$base;
-        $course->rate->helpful_assignments = ($course->rate->helpful_assignments + $newReview->helpful_assignments)/$base;
         $course->rate->clear_assignment_instructions = ($course->rate->clear_assignment_instructions + $newReview->clear_assignment_instructions)/$base;
         $course->rate->grading = ($course->rate->grading + $newReview->grading)/$base;
         $course->rate->material = ($course->rate->material + $newReview->material)/$base;
         $course->rate->clarity = ($course->rate->clarity + $newReview->clarity)/$base;
         $course->rate->knowledge = ($course->rate->knowledge + $newReview->knowledge)/$base;
         $course->rate->feedback = ($course->rate->feedback + $newReview->feedback)/$base;
-        $course->rate->helpfulness_TA = ($course->rate->helpfulness_TA + $newReview->helpfulness_TA)/$base;
         $course->rate->number_of_reviews = $course->rate->number_of_reviews + 1;
         $course->rate->save();
+
+        // Course::calculateOverallRating($course, $newReview);
+
+
 
         return redirect('/' . $course->title_for_url . '/' . $course->crn)->with([
             'alert' => 'Your review for ' . $course->title . ' has been posted.'

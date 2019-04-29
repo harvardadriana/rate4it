@@ -55,7 +55,6 @@ class CourseController extends Controller
 
         # Search for all courses that matches the search term
         if ($searchTerm) {
-
             $searchResults = Course::with('instructors')->where('title', '=', $searchTerm)->get();
             $numberCourses = count($searchResults);
         }
@@ -63,7 +62,8 @@ class CourseController extends Controller
         return redirect('/search')->with([
             'searchTerm' => $searchTerm,
             'searchResults' => $searchResults,
-            'numberCourses' => $numberCourses
+            'numberCourses' => $numberCourses,
+            'alert' => 'Course ' . $searchTerm . ' not found.'
         ]);
     }
 
@@ -72,7 +72,6 @@ class CourseController extends Controller
      */
     public function show($title, $crn)
     {
-        $reviewsListArray = [];
         $numberReviews = 0;
         $course = Course::with('instructors')->where('crn', '=', $crn)->first();
         $reviewsListArray = Review::where('course_id', '=', $course['id'])->get();
@@ -90,7 +89,8 @@ class CourseController extends Controller
         return view('courses.show')->with([
             'course' => $course,
             'reviewsListArray' => $reviewsListArray,
-            'numberReviews' => $numberReviews
+            'numberReviews' => $numberReviews,
+            'alert' => null
         ]);
     }
 

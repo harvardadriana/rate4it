@@ -22,14 +22,12 @@ class CreateRatesTable extends Migration
             $table->float('organized', 2, 1);
             $table->float('gain_deeper_insight', 2, 1);
             $table->float('workload', 2, 1);
-            $table->float('helpful_assignments', 2, 1);
             $table->float('clear_assignment_instructions', 2, 1);
             $table->float('grading', 2, 1);
             $table->float('material', 2, 1);
             $table->float('clarity', 2, 1);
             $table->float('knowledge', 2, 1);
             $table->float('feedback', 2, 1);
-            $table->float('helpfulness_TA', 2, 1);
             $table->mediumInteger('number_of_reviews');
         });
     }

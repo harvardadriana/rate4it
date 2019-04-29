@@ -24,3 +24,5 @@ http://meyerweb.com/eric/tools/css/reset/
 https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js
 
 7. Google Fonts
+
+8. Font awesome

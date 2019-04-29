@@ -66,6 +66,7 @@ namespace App{
  * App\Course
  *
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Instructor[] $instructors
+ * @property-read \App\Rate $rate
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Review[] $reviews
  * @property-read \App\Subject $subject
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Course newModelQuery()
@@ -73,6 +74,18 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Course query()
  */
 	class Course extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\Rate
+ *
+ * @property-read \App\Course $course
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Rate newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Rate newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Rate query()
+ */
+	class Rate extends \Eloquent {}
 }
 
 namespace App{
