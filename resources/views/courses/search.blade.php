@@ -110,7 +110,7 @@
                                             <p class='d-inline'>Be the first to rate this course</p>
                                             <img id='hand-rating'
                                                  class='d-inline'
-                                                 src='/images/icons/rating.png'
+                                                 src='/images/show/rating.png'
                                                  alt='Hand clicking on stars'>
 
                                         </div>

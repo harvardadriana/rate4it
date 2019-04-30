@@ -40,9 +40,9 @@
 
             <div class='content-wrapper'>
 
-                <div class='col-4 offset-6 heading'>
-                    Heading
-                </div>
+                {{--<div class='col-4 offset-6 heading'>--}}
+                    {{--Heading--}}
+                {{--</div>--}}
 
                 <form method='POST' action='/reviews'>
                     @csrf
