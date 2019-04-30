@@ -68,15 +68,18 @@ $(document).ready(function () {
 
     $('.star').on('click', function ($element) {
 
+        // Get star's position
         let starPrefixss = ($(this).attr('id')).slice(0, 2);
         let starPosition = ($(this).attr('id')).slice(2);
 
+        // Disable all stars
         for (let i = 1; i <= 5; i++) {
             $('#' + starPrefixss + i).css({
                 'color': '#eee'
             });
         }
 
+        // enable selected star and all stars on the left
         for (let i = 1; i <= starPosition; i++) {
             $('#' + starPrefixss + i).css({
                 'color': '#ff0',
@@ -85,4 +88,24 @@ $(document).ready(function () {
         }
 
     });
+
+    // If form is not submitted, select again all stars previously selected by user
+    let selectedStar = document.getElementsByClassName('star selected');
+
+    for (let i = 0; i < selectedStar.length; ++i) {
+        let star = selectedStar[i];
+
+        // Get star's position
+        let starPre = ($(selectedStar[i])).attr('id').slice(0, 2);
+        let position = ($(selectedStar[i])).attr('id').slice(2);
+
+        // enable selected star and all stars on the left
+        for (let i = 1; i <= position; i++) {
+            $('#' + starPre + i).css({
+                'color': '#ff0',
+                'text-shadow': '0 0 25px #ffffcc'
+            });
+        }
+    }
+
 });

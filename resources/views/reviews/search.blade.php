@@ -87,7 +87,7 @@
 
                                 <div class='subject-icon'>
 
-                                    <img src='/images/icons/subjects/{{ $course->subject->code }}.svg'
+                                    <img src='/svg/subjects/{{ $course->subject->code }}.svg'
                                          alt='Course subject icon'>
 
                                 </div>

@@ -1,41 +1,78 @@
 /* rate.css */
 
-main, html, body {
-    background-color: #757db2;
-    width: 100%;
-}
-
-
 .content {
     width: 100%;
     min-width: 576px;
-    background-color: #8990bd;
+    padding: 25px 0 0;
+    color: #555e6a;
 }
 
-.row.course-title-banner {
+.course-title-banner {
+    max-width: 900px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+/*
+ * LEFT COL
+ */
+.rating-col {
+    border-right: 1px solid lightgrey;
+}
+
+/*
+ * COURSE TITLE COL
+ */
+.course h1 {
+    margin: 0 0 10px;
+    font-size: 1.4rem;
+}
+
+.professor {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.instructor {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.professor-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 7px;
+}
+
+/*
+ * BLUE BANNER
+ */
+.blue-wrapper {
     width: 100%;
     height: auto;
-    background-color: #4e589c;
-}
-
-
-.course-title-col {
-    /*max-width: 900px;*/
-    margin: 0 auto;
-
-}
-
-.course-title-banner h1 {
-    width: 100%;
-    margin: 30px;
+    background-color: var(--main-dark-blue);
     color: #fff;
-    font-size: 1.7rem;
-    text-align: center;
-    text-shadow: 3px 2px rgba(0, 0, 0, .5);
+}
+
+.content-wrapper  {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 10px 25px;
 }
 
 
 
+
+
+
+
+
+
+
+.heading {
+    border: 1px solid red;
+}
 
 
 
@@ -64,13 +101,12 @@ span.star {
     float: left;
     margin-right: 0;
     font-size: 1.4rem;
-    background-color: #8990bd;
     padding: 10px;
     color: #eee;
 }
 
 span.star:hover,
-.selected {
+span.selected {
     color: #ff0;
     text-shadow: 0 0 25px #ffffcc;
 }
@@ -144,13 +180,11 @@ label.btn.btn-warning:not(:last-child):not(.dropdown-toggle) {
     font-family: 'Quicksand', sans-serif;
 }
 
-/* CLEAN AFTER */
 
-.gradient {
-    height: 500px;
-    background: linear-gradient(var(--main-blue), #4e589c, #fff);
-    border: 1px solid black;
-}
+
+
+
+/* CLEAN AFTER */
 
 /*label.star {*/
 /*cursor: pointer;*/

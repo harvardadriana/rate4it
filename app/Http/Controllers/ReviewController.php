@@ -120,6 +120,9 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
+
+    //dd($request);
+
         // Validate inputs from user
         $request->validate([
             'overall_rating' => 'required|numeric',
