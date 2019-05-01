@@ -136,14 +136,20 @@
 
                                     @endif
 
-                                    <p class='professor'>Professor(s): </p>
+                                    <div class=' d-flex d-inline'>
 
-                                    {{--LOOP THROUGH ALL INSTRUCTORS OF THE COURSE--}}
-                                    @foreach($course->instructors as $instructor)
+                                        <img class='professor-icon' src='/svg/show/professor.svg' alt='Person reading a book'>
+                                        <p class='professor'>Professor(s): </p>
+                                        <div class='instructor'>
 
-                                        <p class='instructor'>{{ $instructor->first_name . ' ' . $instructor->last_name }}</p>
+                                            {{--LOOP THROUGH ALL INSTRUCTORS OF THE COURSE--}}
+                                            @foreach($course->instructors as $instructor)
+                                                <p class='instructor'>{{ $instructor->first_name . ' ' . $instructor->last_name }}</p>
+                                            @endforeach
 
-                                    @endforeach
+                                        </div>
+
+                                    </div>
 
                                 </div>
 

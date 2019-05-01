@@ -156,6 +156,10 @@ img#hand-rating {
     margin-right: 10px;
 }
 
+.rate.d-flex {
+    margin-bottom: 15px;
+}
+
 .number-reviews p {
     margin-top: 3px;
 }

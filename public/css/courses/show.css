@@ -109,6 +109,22 @@
 }
 
 /*
+ *  ERROR MESSAGES
+ */
+.alert {
+    height: 110px;
+    text-align: center;
+}
+
+.alert h3 {
+    font-size: 1.6rem;
+}
+
+.alert p {
+    font-size: 1.3rem;
+}
+
+/*
  * COURSE STATISTICS
  */
 .blue-banner {

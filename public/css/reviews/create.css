@@ -20,7 +20,7 @@
  * LEFT COL
  */
 .rating-col h1 {
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     text-align: right;
 }
 
@@ -33,13 +33,13 @@
 
 .subject-course-code {
     padding-left: 20px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 5px;
 }
 
 .course h1 {
     margin: 5px 0;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     padding-left: 20px;
     margin-bottom: 10px;
 }
@@ -99,16 +99,20 @@
 }
 
 .card-body p {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .btn.btn-link {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     padding-bottom: 0;
 }
 
 .box1 h2 {
     margin: 15px 0 5px 15px;
+}
+
+.btn.btn-link.collapsed {
+    font-size: 1.1rem;
 }
 
 #grade {
@@ -148,8 +152,8 @@ span.star {
     height: auto;
     float: left;
     margin-right: 0;
-    font-size: 1.4rem;
-    padding: 10px;
+    font-size: 1.3rem;
+    padding: 10px 5px;
     color: #eee;
 }
 
@@ -164,7 +168,7 @@ span.selected {
  */
 .btn-group.btn-group-toggle label.btn.btn-warning,
 .btn-group.btn-group-toggle label.btn.btn-warning:hover {
-    width: 120px;
+    width: 100px;
     height: 45px;
     font-size: 1.3rem;
     border-radius: .30rem;
@@ -191,12 +195,16 @@ span.selected {
 
 /* Margin between buttons */
 label.btn.btn-warning:not(:last-child):not(.dropdown-toggle) {
-    margin-right: 35px;
+    margin-right: 15px;
 }
 
 .form-group,
 .btn-group.btn-group-toggle {
     margin-top: 15px;
+}
+
+.text-box {
+    padding-left: 10px;
 }
 
 /*
@@ -211,4 +219,52 @@ label.btn.btn-warning:not(:last-child):not(.dropdown-toggle) {
     border-radius: 10px;
     font-size: 1.4rem;
     font-family: 'Quicksand', sans-serif;
+}
+
+/*
+ *  @MEDIA QUERIES
+ */
+@media (min-width: 768px) {
+
+    /* Font-sizes */
+    .rating-col h1 {
+        font-size: 1.9rem;
+    }
+
+    .subject-course-code {
+        font-size: 1.2rem;
+    }
+
+    .course h1 {
+        font-size: 1.6rem;
+    }
+
+    .btn.btn-link {
+        font-size: 1.3rem;
+    }
+
+    .btn.btn-link.collapsed {
+        font-size: 1.3rem;
+    }
+
+    .card-body p {
+        font-size: 1.1rem;
+    }
+
+    span.star {
+        font-size: 1.4rem;
+        padding: 10px;
+    }
+
+    /* Margin between buttons */
+    label.btn.btn-warning:not(:last-child):not(.dropdown-toggle) {
+        margin-right: 35px;
+    }
+
+    /* BUTTON - YES / NO */
+    .btn-group.btn-group-toggle label.btn.btn-warning,
+    .btn-group.btn-group-toggle label.btn.btn-warning:hover {
+        width: 120px;
+    }
+
 }
