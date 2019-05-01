@@ -21,7 +21,6 @@ class ReviewController extends Controller
     public function __construct()
     {
         $this->middleware('verified');
-
     }
 
     /**
@@ -68,7 +67,6 @@ class ReviewController extends Controller
 
         # Search for all courses that matches the search term
         if ($searchTerm) {
-
             $searchResults = Course::with('instructors')->where('title', '=', $searchTerm)->get();
             $numberCourses = count($searchResults);
         }
@@ -87,32 +85,28 @@ class ReviewController extends Controller
     public function create($title_for_url, $crn)
     {
         $course = Course::with('instructors')->where('crn', '=', $crn)->first();
-      //  $previousReview = Review::where('user_id', '=', Auth::user()->id)->first();
-
-//                                ->where('course_id', '=', $course->id)->first();
-
-        $alert = 'Course ' . $title_for_url . ' not found.';
-
-//dd($previousReview);
 
         if(!$course) {
             return redirect('/reviews')->with([
-                'alert' => $alert
+                'alert' => 'Course ' . $title_for_url . ' not found.'
             ]);
-        }
-//            if (!$previousReview) {
+        } else {
+            $previousReview = Review::where('user_id', '=', Auth::user()->id)->where('course_id', '=', $course->id)->first();
 
+            if ($previousReview == null) {
                 return view('reviews.create')->with([
                     'course' => $course,
                     'title_for_url' => $title_for_url,
                     'crn' => $crn
                 ]);
-//
-//            } else {
-//
-//                $alert = 'You have rated this course before';
-//
-
+            } else {
+                return redirect('/reviews')->with([
+                    'searchResults' => [],
+                    'searchTerm' => $course->title,
+                    'alert' => 'You have rated this course before'
+                ]);
+            }
+        }
     }
 
     /**

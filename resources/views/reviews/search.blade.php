@@ -53,6 +53,17 @@
 
         </div>
 
+        {{-- IF THE USER HAS RATED THE COURSE BEFORE --}}
+        {{--@if($previousReview)--}}
+
+            {{--@if(session('alert'))--}}
+
+                {{--@include('modules.alert-messages', ['message' => session('alert')])--}}
+
+            {{--@endif--}}
+
+        {{--@endif--}}
+
         @if($searchTerm)
 
             {{-- IF NO COURSES ARE FOUND --}}
@@ -162,6 +173,7 @@
                 </div>
 
             @endif
+
         @endif
 
     </div>
