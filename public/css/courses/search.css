@@ -133,6 +133,7 @@ h2.course-title {
 
 .review-course {
     margin-left: 15px;
+    margin-bottom: 15px;
 }
 
 img#hand-rating {
@@ -159,12 +160,18 @@ img#hand-rating {
     margin-top: 3px;
 }
 
+.professor-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+}
+
 .professor {
-    margin: 10px 0 5px;
+    margin: 0 15px 5px 0;
 }
 
 .instructor {
-    margin: 3px 0;
+    margin-bottom: 3px;
 }
 
 /*

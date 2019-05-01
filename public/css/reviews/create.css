@@ -44,15 +44,15 @@
     margin-bottom: 10px;
 }
 
+.professor {
+    font-size: 1.2rem;
+}
+
 .professor-icon {
     width: 25px;
     height: 25px;
     margin-left: 22px;
-}
-
-.professor {
-    margin-left: 20px;
-    font-size: 1.2rem;
+    margin-right: 10px;
 }
 
 .instructor {
@@ -172,7 +172,9 @@ span.selected {
 
 /* Btn Idle state */
 .btn-group.btn-group-toggle label.btn.btn-warning {
-    background-color: #ffe083;
+    background-color: var(--main-orange);
+    border: none;
+    color: #fff;
 }
 
 /* Btn Hover state */

@@ -26,11 +26,9 @@
                     <p class='subject-course-code'>{{ $course->subject_and_course_code }}</p>
                     <h1>{{ $course->title }}</h1>
                 </div>
-                <div class='d-flex'>
-                    <div class=' d-flex d-inline'>
-                        <img class='professor-icon' src='/svg/review/professor-white.svg' alt='Person reading a book'>
-                        <p class='professor'>Professor(s): </p>
-                    </div>
+                <div class=' d-flex d-inline'>
+                    <img class='professor-icon' src='/svg/review/professor-white.svg' alt='Person reading a book'>
+                    <p class='professor'>Professor(s): </p>
                     <div class='instructor'>
                         {{-- LOOP THROUGH ALL INSTRUCTORS OF THE COURSE --}}
                         @foreach($course->instructors as $instructor)
