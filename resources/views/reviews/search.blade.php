@@ -53,106 +53,109 @@
 
         </div>
 
-        {{-- IF NO COURSES ARE FOUND --}}
-        @if(count($searchResults) == 0)
+        @if($searchTerm)
 
-            @if(session('alert'))
+            {{-- IF NO COURSES ARE FOUND --}}
+            @if(count($searchResults) == 0)
 
-                @include('modules.alert-messages', ['message' => session('alert')])
+                @if(session('alert'))
 
-            @endif
+                    @include('modules.alert-messages', ['message' => session('alert')])
 
-        @else
+                @endif
 
-            {{-- IF THERE ARE ANY COURSES FOUND --}}
-            <div class='results-wrapper'>
+            @else
 
-                <h2>{{ $numberCourses }} courses(s) found:</h2>
+                {{-- IF THERE ARE ANY COURSES FOUND --}}
+                <div class='results-wrapper'>
 
-                <div class='list-group list-group-flush'>
+                    <h2>{{ $numberCourses }} courses(s) found:</h2>
 
-                    {{-- LOOP THROUGH ALL COURSES FOUND --}}
-                    @foreach($searchResults as $course)
+                    <div class='list-group list-group-flush'>
 
-                        <a class='list-group-item list-group-item-action d-flex flex-row review-item'
-                           href='/reviews/create/{{ $course->title_for_url }}/{{ $course->crn }}'>
+                        {{-- LOOP THROUGH ALL COURSES FOUND --}}
+                        @foreach($searchResults as $course)
 
-                            <div class='results-sidebar-col'>
+                            <a class='list-group-item list-group-item-action d-flex flex-row review-item'
+                               href='/reviews/create/{{ $course->title_for_url }}/{{ $course->crn }}'>
 
-                                <div class='subject-container'>
+                                <div class='results-sidebar-col'>
 
-                                    <p>{{ $course->subject_and_course_code }}</p>
+                                    <div class='subject-container'>
 
-                                </div>
-
-                                <div class='subject-icon'>
-
-                                    <img src='/svg/subjects/{{ $course->subject->code }}.svg'
-                                         alt='Course subject icon'>
-
-                                </div>
-
-                            </div>
-
-                            <div class='course-details-col'>
-
-                                <h2 class='course-title'>
-                                    {{ $course->title }}
-                                </h2>
-
-                                @if($course->rate->number_of_reviews == 0)
-
-                                    {{-- IF NO REVIEWS ARE FOUND --}}
-                                    <div class='review-course'>
-
-                                        <p class='d-inline'>Be the first to rate this course</p>
-                                        <img id='hand-rating'
-                                             class='d-inline'
-                                             src='/images/show/rating.png'
-                                             alt='Hand clicking on stars'>
+                                        <p>{{ $course->subject_and_course_code }}</p>
 
                                     </div>
 
-                                @else
+                                    <div class='subject-icon'>
 
-                                    {{-- IF THERE ARE ANY REVIEWS FOUND --}}
-                                    <div class='rate d-flex'>
-
-                                        <div class='user-overall-rating d-inline-block'>
-
-                                            @include('modules.review-stars', ['field' => $course->rate->overall_rating])
-
-                                        </div>
-
-                                        <div class='number-reviews d-inline-block'>
-
-                                            <p>{{ $course->rate->number_of_reviews . ' reviews'}} </p>
-
-                                        </div>
+                                        <img src='/svg/subjects/{{ $course->subject->code }}.svg'
+                                             alt='Course subject icon'>
 
                                     </div>
 
-                                @endif
+                                </div>
 
-                                <p class='professor'>Professor(s): </p>
+                                <div class='course-details-col'>
 
-                                {{--LOOP THROUGH ALL INSTRUCTORS OF THE COURSE--}}
-                                @foreach($course->instructors as $instructor)
+                                    <h2 class='course-title'>
+                                        {{ $course->title }}
+                                    </h2>
 
-                                    <p class='instructor'>{{ $instructor->first_name . ' ' . $instructor->last_name }}</p>
+                                    @if($course->rate->number_of_reviews == 0)
 
-                                @endforeach
+                                        {{-- IF NO REVIEWS ARE FOUND --}}
+                                        <div class='review-course'>
 
-                            </div>
+                                            <p class='d-inline'>Be the first to rate this course</p>
+                                            <img id='hand-rating'
+                                                 class='d-inline'
+                                                 src='/images/show/rating.png'
+                                                 alt='Hand clicking on stars'>
 
-                        </a>
+                                        </div>
 
-                    @endforeach
+                                    @else
+
+                                        {{-- IF THERE ARE ANY REVIEWS FOUND --}}
+                                        <div class='rate d-flex'>
+
+                                            <div class='user-overall-rating d-inline-block'>
+
+                                                @include('modules.review-stars', ['field' => $course->rate->overall_rating])
+
+                                            </div>
+
+                                            <div class='number-reviews d-inline-block'>
+
+                                                <p>{{ $course->rate->number_of_reviews . ' reviews'}} </p>
+
+                                            </div>
+
+                                        </div>
+
+                                    @endif
+
+                                    <p class='professor'>Professor(s): </p>
+
+                                    {{--LOOP THROUGH ALL INSTRUCTORS OF THE COURSE--}}
+                                    @foreach($course->instructors as $instructor)
+
+                                        <p class='instructor'>{{ $instructor->first_name . ' ' . $instructor->last_name }}</p>
+
+                                    @endforeach
+
+                                </div>
+
+                            </a>
+
+                        @endforeach
+
+                    </div>
 
                 </div>
 
-            </div>
-
+            @endif
         @endif
 
     </div>

@@ -3,46 +3,65 @@
 .content {
     width: 100%;
     min-width: 576px;
-    padding: 25px 0 0;
-    color: #555e6a;
+    padding: 20px 0 0;
+    background-color: var(--main-dark-blue);
 }
 
 .course-title-banner {
     max-width: 900px;
     margin: 0 auto;
-    margin-bottom: 20px;
-    padding: 0;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: #fff;
+    text-shadow: 3px 2px rgba(0, 0, 0, .5);
 }
 
 /*
  * LEFT COL
  */
-.rating-col {
-    border-right: 1px solid lightgrey;
+.rating-col h1 {
+    font-size: 1.9rem;
+    text-align: right;
 }
 
 /*
  * COURSE TITLE COL
  */
-.course h1 {
-    margin: 0 0 10px;
-    font-size: 1.4rem;
+.title {
+    border-left: 2px solid lightgrey;
 }
 
-.professor {
-    margin-bottom: 5px;
+.subject-course-code {
+    padding-left: 20px;
     font-size: 1.2rem;
+    margin-bottom: 5px;
 }
 
-.instructor {
+.course h1 {
+    margin: 5px 0;
+    font-size: 1.6rem;
+    padding-left: 20px;
     margin-bottom: 10px;
-    font-size: 1.1rem;
 }
 
 .professor-icon {
     width: 25px;
     height: 25px;
-    margin-right: 7px;
+    margin-left: 22px;
+}
+
+.professor {
+    margin-left: 20px;
+    font-size: 1.2rem;
+}
+
+.instructor {
+    margin-left: 20px;
+}
+
+.instructor p {
+    margin-bottom: 0;
+    font-size: 1.2rem;
 }
 
 /*
@@ -52,36 +71,65 @@
     width: 100%;
     height: auto;
     background-color: var(--main-dark-blue);
-    color: #fff;
 }
 
-.content-wrapper  {
+.content-wrapper {
     max-width: 850px;
     margin: 0 auto;
     padding: 10px 25px;
 }
 
-
-
-
-
-
-
-
-
-
-.heading {
-    border: 1px solid red;
+.row.card-header,
+.box1,
+.box2 {
+    padding: 0;
 }
 
+.card-header {
+    background-color: var(--main-dark-blue);
+}
 
+.card-header,
+.btn.btn-link {
+    color: #fff;
+}
+
+.card-body {
+    background-color: lightgrey;
+}
+
+.card-body p {
+    font-size: 1.1rem;
+}
+
+.btn.btn-link {
+    font-size: 1.3rem;
+    padding-bottom: 0;
+}
+
+.box1 h2 {
+    margin: 15px 0 5px 15px;
+}
+
+#grade {
+    width: 40%;
+}
+
+#survival_tips,
+#comments {
+    width: 90%;
+}
 
 /*
- * FORM
+ * ERROR MESSAGES
  */
-h2 {
-    margin: 40px 0 0;
-    font-size: 1.2rem;
+.alert.alert-danger {
+    margin: 0 0 10px 30px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    color: pink;
+    text-align: left;
 }
 
 /*
@@ -116,7 +164,7 @@ span.selected {
  */
 .btn-group.btn-group-toggle label.btn.btn-warning,
 .btn-group.btn-group-toggle label.btn.btn-warning:hover {
-    width: 130px;
+    width: 120px;
     height: 45px;
     font-size: 1.3rem;
     border-radius: .30rem;
@@ -141,16 +189,7 @@ span.selected {
 
 /* Margin between buttons */
 label.btn.btn-warning:not(:last-child):not(.dropdown-toggle) {
-    margin-right: 25px;
-}
-
-/*
- * ERROR MESSAGES
- */
-.alert.alert-danger {
-    margin-top: 5px;
-    padding: 0;
-    font-size: 1rem;
+    margin-right: 35px;
 }
 
 .form-group,
@@ -171,24 +210,3 @@ label.btn.btn-warning:not(:last-child):not(.dropdown-toggle) {
     font-size: 1.4rem;
     font-family: 'Quicksand', sans-serif;
 }
-
-.self-assessment label {
-    margin: 20px 0 20px;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: lightgrey;
-    font-family: 'Quicksand', sans-serif;
-}
-
-
-
-
-
-/* CLEAN AFTER */
-
-/*label.star {*/
-/*cursor: pointer;*/
-/*}*/
-
-/*color: #666666;*/
-/*color: #595959;*/
