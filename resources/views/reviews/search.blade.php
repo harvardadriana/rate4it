@@ -31,8 +31,8 @@
                            type='text'
                            name='searchTerm'
                            size='60'
-                           value='{{ old('searchTerm') }}'
-                           placeholder='{{ ($searchTerm ? $searchTerm : 'Enter course title...') }}'>
+                           value='{{ $searchTerm ? $searchTerm : '' }}'
+                           placeholder='Enter course title...'>
                     <datalist id='courses'>
 
                         @foreach($coursesArray as $courseTitle)
@@ -52,17 +52,6 @@
             </div>
 
         </div>
-
-        {{-- IF THE USER HAS RATED THE COURSE BEFORE --}}
-        {{--@if($previousReview)--}}
-
-            {{--@if(session('alert'))--}}
-
-                {{--@include('modules.alert-messages', ['message' => session('alert')])--}}
-
-            {{--@endif--}}
-
-        {{--@endif--}}
 
         @if($searchTerm)
 

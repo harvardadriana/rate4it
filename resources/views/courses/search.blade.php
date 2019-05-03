@@ -31,8 +31,8 @@
                            type='text'
                            name='searchTerm'
                            size='60'
-                           value='{{ old('searchTerm') }}'
-                           placeholder='{{ ($searchTerm ? $searchTerm : 'Enter course title...') }}'  >
+                           value='{{ $searchTerm ? $searchTerm : '' }}'
+                           placeholder='Enter course title...'>
                     <datalist id='courses'>
 
                         @foreach($coursesArray as $courseTitle)
