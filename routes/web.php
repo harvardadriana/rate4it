@@ -51,7 +51,7 @@ Route::get('/search-processtest', 'TestController@searchProcesstest');
 */
 Route::get('/search','CourseController@search');
 Route::get('/search-process', 'CourseController@searchProcess');
-Route::get('/{title_for_url}/{crn}', 'CourseController@show');
+Route::get('/course/{title_for_url}/{crn}', 'CourseController@show');
 
 /*
 |--------------------------------------------------------------------------
@@ -80,26 +80,26 @@ Route::get('/reviews/{review}/edit', 'ReviewController@edit');  //reviews.edit
 
 
 
-
-/*
-|--------------------------------------------------------------------------
-| TESTING - MAIL
-|--------------------------------------------------------------------------
-|
-*/
-Route::get('/mail', function () {
-
-    $data = [
-        'title' => 'hi',
-        'content' => 'content here'
-    ];
-
-
-    Mail::send('emails.test', $data, function ($message) {
-
-        $message->to('adrianarossettisugih@g.harvard.edu', 'Adriana')->subject('hello');
-
-    });
-
-
-});
+//
+///*
+//|--------------------------------------------------------------------------
+//| TESTING - MAIL
+//|--------------------------------------------------------------------------
+//|
+//*/
+//Route::get('/mail', function () {
+//
+//    $data = [
+//        'title' => 'hi',
+//        'content' => 'content here'
+//    ];
+//
+//
+//    Mail::send('emails.test', $data, function ($message) {
+//
+//        $message->to('adrianarossettisugih@g.harvard.edu', 'Adriana')->subject('hello');
+//
+//    });
+//
+//
+//});

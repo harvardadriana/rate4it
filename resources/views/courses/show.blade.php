@@ -34,6 +34,7 @@
                 {{-- COURSE TITLE COL --}}
                 <div class='col-7 course'>
                     <h1>{{ $course->title }}</h1>
+                    <p class='subject-name'>{{ $course->subject->name }}</p>
                     <div class=' d-flex d-inline'>
                         <img class='professor-icon' src='/svg/show/professor.svg' alt='Person reading a book'>
                         <p class='professor'>Professor(s): </p>
@@ -106,81 +107,39 @@
 
                 {{--ADDITIONAL STATISTICS --}}
                 <div class='additional-statistics-banner'>
-
                     @include('modules.rating-explanation')
-
                 </div>
 
-                {{-- REVIEWS WRAPPER --}}
                 <div class='reviews-wrapper'>
-
                     <h2>{{ $numberReviews }} review(s) found:</h2>
-
-                    {{--LIST OF REVIEWS --}}
                     <ul class='list-group list-group-flush'>
-
                         {{-- LOOP THROUGH ALL REVIEWS FOUND --}}
                         @foreach($reviewsListArray as $reviews => $review)
 
                             {{-- REVIEW ITEM --}}
                             <li class='list-group-item d-flex flex-row review-item'>
-
-                                {{-- REVIEW-SIDEBAR --}}
                                 <div class='review-sidebar text-center'>
-
                                     <img class='user-avatar' src='/images/show/user-avatar.png' alt='User-avatar'>
                                     <div class='username-date'>
                                         <p id='username'>{{ $review->user->username }}</p>
                                         <p id='date'>{{ $review->created_at->format('m/d/Y') }}</p>
                                     </div>
-
                                 </div>
 
                                 {{-- REVIEW --}}
                                 <div class='review'>
-
                                     <div class='user-overall-rating'>
                                         @include('modules.review-stars', ['field' => $review->overall_rating])
                                     </div>
                                     <p><span class='comment-tips'>Comment: </span>{{ $review->comments }}</p>
                                     <p><span class='comment-tips'>Tips: </span>{{ $review->survival_tips }}</p>
-
-                                    {{-- VOTING FEEDBACK --}}
-                                    <div class='row d-flex voting-feedback'>
-
-                                        <div class='vote-item justify-content-start'>
-                                            <a class='thumbs-up' href=''>
-                                                <img src='/svg/show/thumbsup.svg' alt='Thumbs up'>
-                                            </a>
-                                        </div>
-                                        <div class='list-inline d-flex justify-content-start'>
-                                            <span class='vote-numbers'>number</span>
-                                        </div>
-                                        <div class='vote-item d-flex justify-content-start'>
-                                            <a class='thumbs-down list-inline' href=''>
-                                                <img src='/svg/show/thumbsdown.svg' alt='Thumbs down'>
-                                            </a>
-                                        </div>
-                                        <div class='vote-item list-inline'>
-                                            <a class='report' href=''>
-                                                <span>Report</span>
-                                            </a>
-                                        </div>
-
-                                    </div>
-
                                 </div>
-
                             </li>
-
                         @endforeach
-
                     </ul>
-
                 </div>
 
             @else
-
                 {{-- IF THERE ARE NO REVIEWS --}}
                 <div class='row no-reviews-wrapper'>
                     <div class='col-12 col-md-11 review-banner d-flex justify-content-center'>
@@ -190,14 +149,11 @@
                         </a>
                     </div>
                 </div>
-
             @endif
 
         @else
-
             {{-- IF THE COURSE IS NOT FOUND --}}
             @include('modules.alert-messages', ['message' => 'The course was not found'])
-
         @endif
 
     </div>

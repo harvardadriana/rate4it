@@ -11,7 +11,6 @@ use App\Degree;
 use App\Review;
 use App\User;
 use Carbon\Carbon;
-use App\Rate;
 
 class ReviewController extends Controller
 {
@@ -28,11 +27,12 @@ class ReviewController extends Controller
      */
     public function search(Request $request)
     {
+        # Get all courses with instructors from DB
         $coursesList = Course::with('instructors')->orderBy('title')->get();
-        $coursesArray = [];         // course->id + course->title
-        $instructorsArray = [];     // course->id + f.name + l.name
+        $coursesArray = [];
+        $instructorsArray = [];
 
-        # Get all course titles
+        # Get titles of the courses
         foreach($coursesList as $course) {
 
             # Avoid duplicated course titles
@@ -60,6 +60,11 @@ class ReviewController extends Controller
      */
     public function searchProcess(Request $request)
     {
+        # Validate search
+        $request->validate([
+            'searchTerm' => 'required'
+        ]);
+
         # Extract the search term
         $searchTerm = $request->input('searchTerm', null);
         $searchResults = [];
@@ -84,15 +89,20 @@ class ReviewController extends Controller
      */
     public function create($title_for_url, $crn)
     {
+        # Get the course to be rated
         $course = Course::with('instructors')->where('crn', '=', $crn)->first();
 
+        # If the course is not found, redirects to reviews page
         if(!$course) {
             return redirect('/reviews')->with([
                 'alert' => 'Course ' . $title_for_url . ' not found.'
             ]);
         } else {
+
+            # Check if user has rated the course before
             $previousReview = Review::where('user_id', '=', Auth::user()->id)->where('course_id', '=', $course->id)->first();
 
+            # If there are no previous ratings for the course from this user, create review
             if ($previousReview == null) {
                 return view('reviews.create')->with([
                     'course' => $course,
@@ -100,6 +110,8 @@ class ReviewController extends Controller
                     'crn' => $crn
                 ]);
             } else {
+
+                # Otherwise redirect user to reviews page
                 return redirect('/reviews')->with([
                     'searchResults' => [],
                     'searchTerm' => $course->title,
@@ -114,10 +126,7 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-
-    //dd($request);
-
-        // Validate inputs from user
+        # Validate inputs from user
         $request->validate([
             'overall_rating' => 'required|numeric',
             'take_course_again' => 'required|numeric',
@@ -138,14 +147,14 @@ class ReviewController extends Controller
             'comments' => 'required'
         ]);
 
-        // Get user ID
+        # Get user ID
         $userId = Auth::user()->id;
 
-        // Get the course title_for_url and crn
+        # Get the course title_for_url and crn
         $course_id = $request->course_id;
         $course = Course::with('rate')->where('id', '=', $course_id)->first();
 
-        // Save new review
+        # Save new review
         $newReview = new Review();
         $newReview->overall_rating = $request->overall_rating;
         $newReview->take_course_again = $request->take_course_again;
@@ -168,7 +177,7 @@ class ReviewController extends Controller
         $newReview->course_id = $course_id;
         $newReview->save();
 
-        // Update the course overall rating
+        # Update the course overall rating
         $base = ($course->rate->number_of_reviews == 0 ? '1' : '2');
         $course->rate->overall_rating = ($course->rate->overall_rating + $newReview->overall_rating)/$base;
         $course->rate->take_course_again = $course->rate->take_course_again + $request->take_course_again;

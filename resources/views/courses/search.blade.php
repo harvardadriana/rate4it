@@ -77,7 +77,7 @@
                         @foreach($searchResults as $course)
 
                             <a class='list-group-item list-group-item-action d-flex flex-row review-item'
-                               href='/{{ $course->title_for_url }}/{{ $course->crn }}'>
+                               href='/course/{{ $course->title_for_url }}/{{ $course->crn }}'>
 
                                 <div class='results-sidebar-col'>
 

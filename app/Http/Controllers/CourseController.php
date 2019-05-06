@@ -16,13 +16,13 @@ class CourseController extends Controller
      */
     public function search(Request $request)
     {
+        # Get all courses with instructors from DB
         $coursesList = Course::with('instructors')->orderBy('title')->get();
-        $coursesArray = [];         // course->id + course->title
-        $instructorsArray = [];     // course->id + f.name + l.name
+        $coursesArray = [];
+        $instructorsArray = [];
 
-        # Get all course titles
-        foreach($coursesList as $course) {
-
+        # Get titles of the courses
+        foreach ($coursesList as $course) {
             # Avoid duplicated course titles
             if (!in_array($course->title, $coursesArray)) {
                 $coursesArray[$course->id] = $course->title;
@@ -34,7 +34,7 @@ class CourseController extends Controller
             }
         }
 
-        return view ('courses.search')->with([
+        return view('courses.search')->with([
             'coursesArray' => $coursesArray,
             'instructorsArray' => $instructorsArray,
             'searchTerm' => $request->session()->get('searchTerm', ''),
@@ -51,7 +51,6 @@ class CourseController extends Controller
         # Validate search
         $request->validate([
             'searchTerm' => 'required'
-
         ]);
 
         # Extract the search term
@@ -74,22 +73,24 @@ class CourseController extends Controller
     }
 
     /**
-     *  GET  '/{title}/{crn}'
+     *  GET  '/course/{title}/{crn}'
      */
     public function show($title, $crn)
     {
         $numberReviews = 0;
+
+        # Get the course requested by the user
         $course = Course::with('instructors')->where('crn', '=', $crn)->first();
+
+        # Get all reviews related to that course
         $reviewsListArray = Review::where('course_id', '=', $course['id'])->orderByDesc('created_at')->get();
 
-        if(!$course) {
-            return redirect('/search')->with([
-                'searchTerm' => $title,
-                'searchResults' => [],
-                'alert' => 'Course ' . $title . ' not found.'
-            ]);
+        # If the course is not found, redirect to search page
+        if (!$course) {
+            return redirect('/search');
         }
 
+        # If there are reviews of the course, count number of reviews
         if ($reviewsListArray) {
             $numberReviews = count($reviewsListArray);
         }
@@ -111,7 +112,5 @@ class CourseController extends Controller
 //            'searchResults' => $request->session()->get('searchResults', []),
 //        ]);
 //    }
-
-
 }
 
