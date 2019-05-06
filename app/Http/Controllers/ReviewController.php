@@ -199,7 +199,7 @@ class ReviewController extends Controller
 
 
 
-        return redirect('/' . $course->title_for_url . '/' . $course->crn)->with([
+        return redirect('/course/' . $course->title_for_url . '/' . $course->crn)->with([
             'alert' => 'Your review for ' . $course->title . ' has been posted.'
         ]);
     }
