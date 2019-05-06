@@ -1,0 +1,104 @@
+/* email.css */
+
+html {
+    background-image: url('/images/login-background-blue-2500x1429.jpg');
+    background-color: var(--main-blue);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+body, main {
+    background: none;
+}
+
+.card {
+    border: none;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.card-header,
+.card-body,
+button.btn.btn-primary {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.card-header {
+    background-color: #2f3874;
+    border-radius: 10px 10px 0 0;
+}
+
+.card .card-header h1 {
+    color: #fff;
+    font-weight: 200;
+    width: auto;
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.card-body {
+    color: #555e6a;
+    background-color: rgba(176, 179, 199, 0.9);
+    border-radius: 0 0 10px 10px;
+}
+
+/*
+ *  FORM
+ */
+input#email.form-control,
+input#email.form-control:focus {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid #fff;
+    color: #2f3874;
+}
+
+input#email.form-control:active {
+    background-color: transparent;
+}
+
+input#email.form-control::placeholder {
+    color: grey;
+}
+
+/*
+ * BUTTON
+ */
+button.btn.btn-primary {
+    margin: 15px 0 40px;
+    background-color: var(--main-blue);
+    border: none;
+    height: auto;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    font-family: 'Quicksand', sans-serif;
+}
+
+button.btn.btn-primary:hover {
+    background-color: var(--main-orange);
+}
+
+/*
+ *  @MEDIA QUERIES
+ */
+@media (min-width: 768px) and (max-width: 991px){
+
+    .card {
+        margin-top: 70px;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    .card {
+        margin-top: 120px;
+    }
+
+}

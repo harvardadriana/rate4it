@@ -33,6 +33,17 @@ Route::get('/','HomeController');
 Auth::routes(['verify' => true]);
 
 Route::auth();
+
+
+/*
+|--------------------------------------------------------------------------
+| DELETE LATER
+|--------------------------------------------------------------------------
+*/
+Route::get('/search/test','TestController@searchtest');
+Route::get('/search-processtest', 'TestController@searchProcesstest');
+
+
 /*
 |--------------------------------------------------------------------------
 | Search courses

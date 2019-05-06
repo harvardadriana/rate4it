@@ -1,5 +1,14 @@
 @extends('layouts.master')
 
+@push('styles')
+    <link rel='stylesheet' type='text/css' href='/css/modules/nav-blue.css'>
+    <link rel='stylesheet' type='text/css' href='/css/auth/login.css'>
+@endpush
+
+@push('logo')
+    <img id='logo' src='/images/logo-blue.jpg' alt='Rate4it Logo'>
+@endpush
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

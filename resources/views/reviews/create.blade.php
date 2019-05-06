@@ -790,7 +790,7 @@
                                            name='grade'
                                            maxlength='3'
                                            value='{{ old('grade') }}'
-                                           placeholder='A, B+, B, ...'>
+                                           placeholder='A, B+, B, ... or n/a'>
                                 </div>
                             </div>
                             {{-- CARD-BODY --}}

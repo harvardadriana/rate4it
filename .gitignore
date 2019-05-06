@@ -12,3 +12,5 @@ npm-debug.log
 yarn-error.log
 storage/debugbar
 app/Http/Controllers/TestController.php
+public/css/courses/searchtest.css
+resources/views/courses/test.blade.php

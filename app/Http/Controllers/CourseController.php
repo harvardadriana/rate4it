@@ -48,6 +48,12 @@ class CourseController extends Controller
      */
     public function searchProcess(Request $request)
     {
+        # Validate search
+        $request->validate([
+            'searchTerm' => 'required'
+
+        ]);
+
         # Extract the search term
         $searchTerm = $request->input('searchTerm', null);
         $searchResults = [];
@@ -74,10 +80,12 @@ class CourseController extends Controller
     {
         $numberReviews = 0;
         $course = Course::with('instructors')->where('crn', '=', $crn)->first();
-        $reviewsListArray = Review::where('course_id', '=', $course['id'])->get();
+        $reviewsListArray = Review::where('course_id', '=', $course['id'])->orderByDesc('created_at')->get();
 
         if(!$course) {
             return redirect('/search')->with([
+                'searchTerm' => $title,
+                'searchResults' => [],
                 'alert' => 'Course ' . $title . ' not found.'
             ]);
         }
@@ -103,5 +111,7 @@ class CourseController extends Controller
 //            'searchResults' => $request->session()->get('searchResults', []),
 //        ]);
 //    }
+
+
 }
 

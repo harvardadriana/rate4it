@@ -4,7 +4,7 @@
     width: 100%;
     min-width: 576px;
     padding: 20px 0 0;
-    background-color: var(--main-dark-blue);
+    background-color: var(--main-blue);
 }
 
 .course-title-banner {
@@ -70,7 +70,7 @@
 .blue-wrapper {
     width: 100%;
     height: auto;
-    background-color: var(--main-dark-blue);
+    background-color: var(--main-blue);
 }
 
 .content-wrapper {
@@ -86,7 +86,7 @@
 }
 
 .card-header {
-    background-color: var(--main-dark-blue);
+    background-color: var(--main-blue);
 }
 
 .card-header,
