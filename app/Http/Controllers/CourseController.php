@@ -16,28 +16,24 @@ class CourseController extends Controller
      */
     public function search(Request $request)
     {
-        # Get all courses with instructors from DB
-        $coursesList = Course::with('instructors')->orderBy('title')->get();
-        $coursesArray = [];
-        $instructorsArray = [];
+        # Get all courses with instructors and subject from the DB
+        $allCourses = Course::with('instructors')->with('subject')->orderBy('title')->get();
 
-        # Get titles of the courses
-        foreach ($coursesList as $course) {
-            # Avoid duplicated course titles
-            if (!in_array($course->title, $coursesArray)) {
-                $coursesArray[$course->id] = $course->title;
-            }
+        # Get all course codes, course titles, subjects, and instructors
+        $courseCodesArray = Course::getCourseCodes($allCourses);
+        $courseTitlesArray = Course::getCourseTitles($allCourses);
+        $subjectsArray = Subject::getSubjects($allCourses);
+        $instructorsArray = Instructor::getInstructors($allCourses);
 
-            # Get all instructors
-            foreach ($course['instructors'] as $eachInstructor) {
-                $instructorsArray[$course->id] = [$eachInstructor->last_name, $eachInstructor->first_name];
-            }
-        }
-
-        return view('courses.search')->with([
-            'coursesArray' => $coursesArray,
-            'instructorsArray' => $instructorsArray,
-            'searchTerm' => $request->session()->get('searchTerm', ''),
+        return view('courses.test')->with([
+            'courseCodesArray' => $request->session()->get('courseCodesArray', $courseCodesArray),
+            'courseTitlesArray' => $request->session()->get('courseTitlesArray', $courseTitlesArray),
+            'subjectsArray' => $request->session()->get('subjectsArray', $subjectsArray),
+            'instructorsArray' => $request->session()->get('instructorsArray', $instructorsArray),
+            'searchCourseCode' => $request->session()->get('searchCourseCode', ''),
+            'searchCourseTitle' => $request->session()->get('searchCourseTitle', ''),
+            'searchSubject' => $request->session()->get('searchSubject', ''),
+            'searchInstructor' => $request->session()->get('searchInstructor', ''),
             'searchResults' => $request->session()->get('searchResults', []),
             'numberCourses' => $request->session()->get('numberCourses', '')
         ]);
@@ -48,27 +44,109 @@ class CourseController extends Controller
      */
     public function searchProcess(Request $request)
     {
-        # Validate search
-        $request->validate([
-            'searchTerm' => 'required'
-        ]);
+        # Extract the searched terms
+        $searchCourseCode = $request->input('searchCourseCode', null);
+        $searchCourseTitle = $request->input('searchCourseTitle', null);
+        $searchSubject = $request->input('searchSubject', null);
+        $searchInstructor = $request->input('searchInstructor', null);
 
-        # Extract the search term
-        $searchTerm = $request->input('searchTerm', null);
+        $courseCodesArray = [];
+        $courseTitlesArray = [];
+        $subjectsArray = [];
+        $instructorsArray = [];
+
         $searchResults = [];
         $numberCourses = null;
 
-        # Search for all courses that matches the search term
-        if ($searchTerm) {
-            $searchResults = Course::with('instructors')->where('title', '=', $searchTerm)->get();
+        if ($searchCourseCode) {
+            # Get all courses that match the subject-course-code searched
+            $searchResults = Course::with('instructors')->with('subject')->where('subject_and_course_code', '=', $request->input('searchCourseCode'))->orderBy('title')->get();
+
             $numberCourses = count($searchResults);
+
+            # Get all course codes, course titles, subjects, and instructors
+            $courseCodesArray = Course::getCourseCodes($searchResults);
+            $courseTitlesArray = Course::getCourseTitles($searchResults);
+            $subjectsArray = Subject::getSubjects($searchResults);
+            $instructorsArray = Instructor::getInstructors($searchResults);
         }
 
-        return redirect('/search')->with([
-            'searchTerm' => $searchTerm,
+        if ($searchCourseTitle) {
+            # Get all courses that match the course title searched
+            $searchResults = Course::with('instructors')->with('subject')->where('title', '=', $request->input('searchCourseTitle'))->orderBy('title')->get();
+
+            if ($searchResults) {
+                $numberCourses = count($searchResults);
+
+                # Get all course codes, course titles, subjects, and instructors
+                $courseCodesArray = Course::getCourseCodes($searchResults);
+                $courseTitlesArray = Course::getCourseTitles($searchResults);
+                $subjectsArray = Subject::getSubjects($searchResults);
+                $instructorsArray = Instructor::getInstructors($searchResults);
+            }
+        }
+
+        if ($searchSubject) {
+            # Get all courses that match the subject searched
+            $subjectId = Subject::where('name', '=', $searchSubject)->pluck('id');
+
+            # Get all courses with instructors and subject from the DB with the requested subject id
+            $searchResults = Course::with('instructors')->with('subject')->orderBy('title')->where('subject_id', '=', $subjectId[0])->get();
+
+            if ($searchResults && $subjectId) {
+                $numberCourses = count($searchResults);
+
+                # Get all course codes, course titles, subjects, and instructors
+                $courseCodesArray = Course::getCourseCodes($searchResults);
+                $courseTitlesArray = Course::getCourseTitles($searchResults);
+                $subjectsArray = Subject::getSubjects($searchResults);
+                $instructorsArray = Instructor::getInstructors($searchResults);
+            }
+        }
+
+        if ($searchInstructor) {
+            # Get all courses with the instructor searched
+            $searchResults = Instructor::find($searchInstructor)->courses()->get();
+
+            if ($searchResults && $searchInstructor) {
+                $numberCourses = count($searchResults);
+
+                # Get all course codes, course titles, subjects, and instructors
+                $courseCodesArray = Course::getCourseCodes($searchResults);
+                $courseTitlesArray = Course::getCourseTitles($searchResults);
+                $subjectsArray = Subject::getSubjects($searchResults);
+                $instructorsArray = Instructor::getInstructors($searchResults);
+            }
+        }
+
+        //  $coursesAll = DB::table('courses')
+        //    ->join('instructors', 'instructors.id', '=', $instructorId)->get();
+
+//            $conditions[] = '->where(\'subject_and_course_code\', \'=\', $searchCourseCode)';
+        //    }
+
+//
+////
+//        $coursesList2 = Course::with('instructors')->with('subject')
+//                                     ->where('title', $request->input('searchCourse'))
+//                                     ->where('subject_id', '=', $subjectId)
+//                                     ->where('subject_and_course_code', '=', $searchCourseCode)
+//                                     ->get();
+
+        return redirect('/search/test')->with([
+            'searchCourseCode' => $searchCourseCode,
+            'searchCourseTitle' => $searchCourseTitle,
+            'searchSubject' => $searchSubject,
+            'searchInstructor' => $searchInstructor,
+
+            'courseCodesArray' => $courseCodesArray,
+            'courseTitlesArray' => $courseTitlesArray,
+            'subjectsArray' => $subjectsArray,
+            'instructorsArray' => $instructorsArray,
+
             'searchResults' => $searchResults,
             'numberCourses' => $numberCourses,
-            'alert' => 'Course ' . $searchTerm . ' not found.'
+            'alert' => 'Course ' . $searchCourseTitle . ' not found.'
         ]);
     }
 

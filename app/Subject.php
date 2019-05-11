@@ -10,4 +10,23 @@ class Subject extends Model
     {
         return $this->hasMany('App\Course');
     }
+
+    /**
+     * Get all subjects
+     */
+    public static function getSubjects($searchResults)
+    {
+        $subjectsArray = [];
+
+        foreach ($searchResults as $course) {
+            if (!in_array($course->subject_id, $subjectsArray)) {
+                $subjectsArray[$course->subject_id] = $course['subject']['name'];
+            }
+        }
+
+        # Sort array in alphabetic order
+        asort($subjectsArray);
+
+        return $subjectsArray;
+    }
 }

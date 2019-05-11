@@ -35,7 +35,7 @@
                            placeholder='Enter course title...'>
                     <datalist id='courses'>
 
-                        @foreach($coursesArray as $courseTitle)
+                        @foreach($courseTitlesArray as $courseTitle)
                             <option value='{{ $courseTitle }}'></option>
                         @endforeach
 

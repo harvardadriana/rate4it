@@ -28,26 +28,16 @@ class ReviewController extends Controller
     public function search(Request $request)
     {
         # Get all courses with instructors from DB
-        $coursesList = Course::with('instructors')->orderBy('title')->get();
-        $coursesArray = [];
-        $instructorsArray = [];
+        $searchResults = Course::with('instructors')->orderBy('title')->get();
 
         # Get titles of the courses
-        foreach($coursesList as $course) {
+        $courseTitlesArray = Course::getCourseTitles($searchResults);
 
-            # Avoid duplicated course titles
-            if (!in_array($course->title, $coursesArray)) {
-                $coursesArray[$course->id] = $course->title;
-            }
-
-            # Get all instructors
-            foreach ($course['instructors'] as $eachInstructor) {
-                $instructorsArray[$course->id] = [$eachInstructor->last_name, $eachInstructor->first_name];
-            }
-        }
+        # Get all instructors
+        $instructorsArray = Instructor::getInstructors($searchResults);
 
         return view ('reviews.search')->with([
-            'coursesArray' => $coursesArray,
+            'courseTitlesArray' => $courseTitlesArray,
             'instructorsArray' => $instructorsArray,
             'searchTerm' => $request->session()->get('searchTerm', ''),
             'searchResults' => $request->session()->get('searchResults', []),
@@ -178,26 +168,7 @@ class ReviewController extends Controller
         $newReview->save();
 
         # Update the course overall rating
-        $base = ($course->rate->number_of_reviews == 0 ? '1' : '2');
-        $course->rate->overall_rating = ($course->rate->overall_rating + $newReview->overall_rating)/$base;
-        $course->rate->take_course_again = $course->rate->take_course_again + $request->take_course_again;
-        $course->rate->difficulty = ($course->rate->difficulty + $newReview->difficulty)/$base;
-        $course->rate->clear_objectives = ($course->rate->clear_objectives + $newReview->clear_objectives)/$base;
-        $course->rate->organized = ($course->rate->organized + $newReview->organized)/$base;
-        $course->rate->gain_deeper_insight = ($course->rate->gain_deeper_insight + $newReview->gain_deeper_insight)/$base;
-        $course->rate->workload = ($course->rate->workload + $newReview->workload)/$base;
-        $course->rate->clear_assignment_instructions = ($course->rate->clear_assignment_instructions + $newReview->clear_assignment_instructions)/$base;
-        $course->rate->grading = ($course->rate->grading + $newReview->grading)/$base;
-        $course->rate->material = ($course->rate->material + $newReview->material)/$base;
-        $course->rate->clarity = ($course->rate->clarity + $newReview->clarity)/$base;
-        $course->rate->knowledge = ($course->rate->knowledge + $newReview->knowledge)/$base;
-        $course->rate->feedback = ($course->rate->feedback + $newReview->feedback)/$base;
-        $course->rate->number_of_reviews = $course->rate->number_of_reviews + 1;
-        $course->rate->save();
-
-        // Course::calculateOverallRating($course, $newReview);
-
-
+         Course::calculateOverallRating($course, $newReview);
 
         return redirect('/course/' . $course->title_for_url . '/' . $course->crn)->with([
             'alert' => 'Your review for ' . $course->title . ' has been posted.'

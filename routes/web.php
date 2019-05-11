@@ -43,6 +43,9 @@ Route::auth();
 Route::get('/search/test','TestController@searchtest');
 Route::get('/search-processtest', 'TestController@searchProcesstest');
 
+Route::get('/test2', 'TestController@test2');
+Route::get('/findCourseTitle', 'TestController@findCourseTitle');
+
 
 /*
 |--------------------------------------------------------------------------
