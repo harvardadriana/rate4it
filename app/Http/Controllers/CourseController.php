@@ -25,7 +25,7 @@ class CourseController extends Controller
         $subjectsArray = Subject::getSubjects($allCourses);
         $instructorsArray = Instructor::getInstructors($allCourses);
 
-        return view('courses.test')->with([
+        return view('courses.search')->with([
             'courseCodesArray' => $request->session()->get('courseCodesArray', $courseCodesArray),
             'courseTitlesArray' => $request->session()->get('courseTitlesArray', $courseTitlesArray),
             'subjectsArray' => $request->session()->get('subjectsArray', $subjectsArray),
@@ -133,7 +133,7 @@ class CourseController extends Controller
 //                                     ->where('subject_and_course_code', '=', $searchCourseCode)
 //                                     ->get();
 
-        return redirect('/search/test')->with([
+        return redirect('/search')->with([
             'searchCourseCode' => $searchCourseCode,
             'searchCourseTitle' => $searchCourseTitle,
             'searchSubject' => $searchSubject,
