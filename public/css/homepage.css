@@ -1,6 +1,5 @@
 /* homepage.css */
 
-
 html {
     background-color: var(--main-blue);
 }
@@ -10,36 +9,51 @@ body, main, .content, .app {
 }
 
 /*
+ * GIF
+ */
+.layout-hero {
+    width: 100%;
+    margin: 0;
+}
+
+.gif, img.gif {
+    max-width: 100%;
+    height: auto;
+}
+
+/*
  * CONTENT COLUMN
  */
 #content-column {
     height: 100%;
-    padding: 20px 30px;
+    padding: 0 20px 10px;
 }
 
 #content-column h1 {
+    margin-bottom: 15px;
     color: #666666;
+    font-size: 1.7rem;
 }
 
 #content-column p {
+    margin-bottom: 25px;
     color: #595959;
-    font-size: 1.6rem;
+    font-size: 1.1rem;
 }
 
 /*
  * BUTTON
  */
 #search-course {
-    padding: 10px 15px;
-    margin: 0;
-    width: 215px;
-    height: 56px;
+    width: auto;
     background-color: var(--main-orange);
     border-radius: 10px;
 }
 
 #content-column #search-course a#search {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
+    line-height: 100%;
+    padding: 7px;
     color: #fff;
     text-decoration: none;
     border-radius: 10px;
@@ -56,7 +70,7 @@ body, main, .content, .app {
  * TRANSITION
  */
 .transition, svg, .end {
-    min-width: 470px;
+    min-width: 320px;
     width: 100%;
     margin: 0;
 }
@@ -75,7 +89,7 @@ svg {
 }
 
 .end {
-    height: 65px;
+    height: 35px;
     margin: 0;
     padding: 0;
     background-color: var(--main-blue);
@@ -84,128 +98,58 @@ svg {
 /*
  *  @MEDIA QUERIES
  */
-@media (max-width: 575px) {
-
-    .gif {
-        display: none;
-    }
-
-    .content {
-        width: 100%;
-        min-width: 470px;
-        height: auto;
-        padding-top: 30px;
-    }
-
-    .layout-hero {
-        width: 100%;
-        min-height: 490px;
-        height: auto;
-    }
-
-    #content-column {
-        width: 100%;
-        height: auto;
-        text-align: left;
-    }
-
-    h1#content-heading {
-        margin-bottom: 15px;
-        font-size: 2.3rem;
-    }
-
-    p#content-text {
-        margin: 25px 0 25px;
-        font-size: 1.6rem;
-    }
-
-    .end {
-        height: 35px;
-    }
-
-}
-
 @media (min-width: 576px) and (max-width: 767px) {
 
-    .content {
-        width: 100%;
-    }
-
-    .layout-hero {
-        height: auto;
-        width: 100%;
-    }
-
-    .gif {
-        max-width: 600px;
-    }
-
-    .gif, img.gif {
-        width: 450px;
-        height: 337.5px;
-        display: block;
-        margin: 0 auto;
-    }
-
     #content-column {
-        max-width: 600px;
-        height: auto;
         padding: 0;
-        text-align: left;
     }
 
     #content-column h1 {
-        font-size: 2.2rem;
-        margin-top: 10px;
+        font-size: 2.1rem;
     }
 
     #content-column p {
-        margin: 15px 0;
+        margin-bottom: 20px;
         font-size: 1.2rem;
     }
 
     .end {
         height: 25px;
     }
+
+    #content-column #search-course a#search {
+        font-size: 1.4rem;
+    }
+
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
 
-    .layout-hero {
-        height: 562.5px;
-        width: 100%;
-    }
-
-    .gif, img.gif {
-        width: 450px;
-        max-width: 670px;
-        height: 337.5px;
-        display: block;
-        margin: 0 auto;
-    }
-
     #content-column {
+        padding: 0;
         max-width: 670px;
-        height: 225px;
-        padding: 0 20px;
         text-align: center;
     }
 
     #content-column h1 {
-        font-size: 2.6rem;
+        font-size: 2.4rem;
     }
 
     #content-column p {
         margin: 20px 0 25px;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+
+    .end {
+        height: 25px;
     }
 
     #search-course {
         margin: 0 auto;
     }
 
-    .end {
-        height: 25px;
+    #content-column #search-course a#search {
+        font-size: 1.4rem;
     }
 
 }
@@ -213,13 +157,7 @@ svg {
 @media (min-width: 992px) and (max-width: 1199px) {
 
     .content {
-        width: 100%;
-        padding-top: 60px;
-    }
-
-    .layout-hero {
-        height: 430px;
-        width: 100%;
+        padding-top: 120px;
     }
 
     #gif {
@@ -229,13 +167,11 @@ svg {
     .gif, img.gif {
         margin: 0;
         padding: 0;
-        max-width: 550px;
-        height: auto;
     }
 
     #content-column {
         max-width: 440px;
-        padding: 0 35px 0 0;
+        padding: 0 15px 0 20px;
         text-align: right;
     }
 
@@ -249,12 +185,20 @@ svg {
         font-size: 1.4rem;
     }
 
+    .end {
+        height: 25px;
+    }
+
     #search-course {
         float: right;
     }
 
+    #content-column #search-course a#search {
+        font-size: 1.4rem;
+    }
+
     .transition {
-        margin-top: 27px;
+        margin-top: 80px;
     }
 
 }
@@ -262,34 +206,32 @@ svg {
 @media (min-width: 1200px) {
 
     .content {
-        width: 100%;
-        padding-top: 60px;
+        padding-top: 120px;
     }
 
     .layout-hero {
-        margin: 0 auto;
         max-width: 1300px;
-        height: 450px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    #gif {
+        margin-top: 17.5px;
     }
 
     .gif {
         margin: 0;
         padding: 0;
-        width: 600px;
-        height: 450px;
-    }
-
-    img.gif {
-        float: right;
     }
 
     #content-column {
         padding: 0 35px 0 15px;
         text-align: right;
+        max-width: 550px;
     }
 
     #content-column h1 {
-        margin-top: 85px;
+        margin-top: 30px;
         font-size: 2.7rem;
     }
 
@@ -298,12 +240,20 @@ svg {
         font-size: 1.7rem;
     }
 
+    .end {
+        height: 25px;
+    }
+
     #search-course {
         float: right;
     }
 
+    #content-column #search-course a#search {
+        font-size: 1.4rem;
+    }
+
     .transition {
-        margin-top: 15px;
+        margin-top: 80px;
     }
 
 }

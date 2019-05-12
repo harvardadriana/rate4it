@@ -16,19 +16,22 @@
         <div class='row layout-hero d-flex justify-content-center'>
 
             {{-- GIF --}}
-            <div id='gif' class='col-sm-10 col-lg-7 order-lg-2 col-xl-6 order-xl-2 gif'>
-                <img class='gif' src='/gif/gif/hero-animation.gif' alt='Student seating with his computer in a yard'>
+            <div id='gif' class='col-12 col-sm-10 col-lg-7 order-lg-2 col-xl-6 order-xl-2 gif text-center'>
+                <img class='gif img-fluid'
+                     src='/gif/gif/hero-animation.gif'
+                     alt='Student seating with his computer in a yard'>
             </div>
 
             {{-- CONTENT COLUMN --}}
-            <div id='content-column' class='col-10 col-sm-10 col-lg-5 order-lg-1 col-xl-6 order-xl-1'>
-                <h1 id='content-heading'>Choosing your next course?</h1>
-                <p id='content-text'>It&#39;s important to choose a course that will help you achieve
-                                     your goals. Search for your next course and check other students' reviews.</p>
+            <div id='content-column' class='col-12 col-sm-10 col-lg-5 order-lg-1 col-xl-6 order-xl-1'>
+                <h1>Choosing your next course?</h1>
+                <p>It&#39;s important to choose a course that will help you achieve
+                   your goals. Search for your next course and check other students' reviews.</p>
 
-                <div id='search-course' class='text-right'>
+                <button id='search-course' type='button' class='btn btn-link'>
                     <a id='search' href='/search'>Search for courses</a>
-                </div>
+                </button>
+
             </div>
 
         </div>
