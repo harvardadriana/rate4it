@@ -1,0 +1,271 @@
+/* search.css */
+
+.content {
+    width: 100%;
+    min-width: 576px;
+    padding-bottom: 40px;
+}
+
+.blue-banner {
+    width: 100%;
+    background-color: var(--main-blue);
+}
+
+/*
+ * SEARCH BOX
+ */
+.search-box {
+    width: 550px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 25px 10px;
+}
+
+.search-box h1 {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-size: 2.3rem;
+    color: lightgrey;
+    text-align: center;
+}
+
+.form-group {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 500px;
+    height: auto;
+    display: block;
+    overflow: auto;
+    padding: 10px;
+    border-radius: 35px;
+    background-color: #626aa7;
+}
+
+input.form-control {
+    width: 420px;
+    height: 60px;
+    font-size: 1.2rem;
+    background-color: #fff;
+    border-radius: 35px 0 0 35px;
+    border: none;
+    border-right: 1px solid #ced4da;
+}
+
+button.btn.btn-default {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    border: none;
+    border-radius: 0 35px 35px 0;
+    background-color: #fff;
+}
+
+button.btn.btn-default img {
+    width: 40px;
+    height: 40px;
+}
+
+button.btn.btn-default:hover {
+    background-color: lightgrey;
+}
+
+/*
+ * RESULTS & NO-RESULTS LAYOUT
+ */
+.results-wrapper {
+    margin: 0 auto;
+    margin-top: 30px;
+    max-width: 550px;
+    padding: 10px;
+    height: 100%;
+}
+
+/*
+ * RESULTS
+ */
+.list-group.list-group-flush,
+.review-item {
+    padding: 0;
+}
+
+/*
+ * RESULTS COLUMNS LAYOUT
+ */
+.results-sidebar-col {
+    width: 23%;
+    padding: 2% 0;
+}
+
+.course-details-col {
+    width: 77%;
+    padding: 2% 0 2% 2%;
+}
+
+/*
+ * RESULTS SIDEBAR COL
+ */
+.subject-container {
+    padding-top: 2%;
+}
+
+.subject-container p {
+    font-size: 1rem;
+    line-height: 100%;
+    text-align: center;
+}
+
+.subject-icon img {
+    margin: 0 auto;
+    width: 65px;
+    height: auto;
+    display: block;
+}
+
+/*
+ * RESULTS RIGHT COL
+ */
+h2.course-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #555e6a;
+}
+
+.review-course {
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+img#hand-rating {
+    width: 30px;
+    height: auto;
+    margin-left: 10px;
+}
+
+.user-overall-rating.d-inline-block,
+.rate {
+    max-height: 30px;
+}
+
+/*
+ *  STARS
+ */
+.user-overall-rating img {
+    width: 120px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.rate.d-flex {
+    margin-bottom: 15px;
+}
+
+.number-reviews p {
+    margin-top: 3px;
+}
+
+.professor-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+}
+
+.professor {
+    margin: 0 15px 5px 0;
+}
+
+.instructor {
+    margin-bottom: 3px;
+}
+
+/*
+ *  ERROR MESSAGES
+ */
+#user-message {
+    height: 110px;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+/*
+ *  @MEDIA QUERIES
+ */
+@media (max-width: 767px) {
+
+    nav ul.navbar-nav.ml-auto {
+        background-color: rgb(252, 252, 252);
+        box-shadow: 1px 1px 10px 1px #DEDEDD;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+    .results-wrapper,
+    .no-results-wrapper {
+        max-width: 760px;
+        padding: 0 20px;
+    }
+
+    .results-wrapper h2,
+    .no-results-wrapper h2 {
+        font-size: 1.7rem;
+    }
+
+    h2.course-title {
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+    }
+
+    #subject-course-code,
+    .instructor,
+    .professor {
+        font-size: 1.1rem;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    .search-box {
+        width: 900px;
+        padding: 50px 30px;
+    }
+
+    .search-box h1 {
+        font-size: 2.5rem;
+    }
+
+    .form-group {
+        margin-top: 50px;
+        width: 630px;
+    }
+
+    input.form-control {
+        width: 550px;
+        font-size: 1.6rem;
+    }
+
+    .results-wrapper,
+    .no-results-wrapper {
+        max-width: 900px;
+        padding: 0 20px;
+    }
+
+    .results-wrapper h2,
+    .no-results-wrapper h2 {
+        font-size: 1.8rem;
+    }
+
+    h2.course-title {
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+    }
+
+    #subject-course-code,
+    .instructor,
+    .professor {
+        font-size: 1.1rem;
+    }
+
+}

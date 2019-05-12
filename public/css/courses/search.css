@@ -49,6 +49,26 @@ option {
 }
 
 /*
+ * RESET BUTTON
+ */
+#reset a {
+    color: #fff;
+    padding: 5px 10px;
+    margin: 0;
+    width: auto;
+    height: auto;
+    background-color: #a3a3a3;
+    font-size: 1.4rem;
+    text-decoration: none;
+    border-radius: 8px;
+    float: right;
+}
+
+#reset a:hover {
+    background-color: #b7b7b7;
+}
+
+/*
  * RESULTS WRAPPER
  */
 .results-wrapper {

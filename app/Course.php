@@ -54,14 +54,8 @@ class Course extends Model
      */
     public static function getCourseCodes($searchResults)
     {
-        $courseCodesArray = [];
-
-        foreach ($searchResults as $course) {
-            if (!in_array($course->subject_and_course_code, $courseCodesArray)) {
-                $courseCodesArray[] = $course->subject_and_course_code;
-            }
-        }
-
+        $courseCodesArray = $searchResults->pluck('subject_and_course_code')->toArray();
+        $courseCodesArray = array_unique($courseCodesArray);
         asort($courseCodesArray);
 
         return $courseCodesArray;
@@ -72,13 +66,8 @@ class Course extends Model
      */
     public static function getCourseTitles($searchResults)
     {
-        $courseTitlesArray = [];
-
-        foreach ($searchResults as $course) {
-            if (!in_array($course->title, $courseTitlesArray)) {
-                $courseTitlesArray[$course->id] = $course->title;
-            }
-        }
+        $courseTitlesArray = $searchResults->pluck('title')->toArray();
+        $courseTitlesArray = array_unique($courseTitlesArray);
 
         return $courseTitlesArray;
     }

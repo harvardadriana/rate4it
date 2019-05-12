@@ -19,10 +19,11 @@ class Subject extends Model
         $subjectsArray = [];
 
         foreach ($searchResults as $course) {
-            if (!in_array($course->subject_id, $subjectsArray)) {
-                $subjectsArray[$course->subject_id] = $course['subject']['name'];
-            }
+            $subjectsArray[$course->subject_id] = $course['subject']['name'];
         }
+
+        # Eliminate duplicated subjects
+        $subjectsArray = array_unique($subjectsArray);
 
         # Sort array in alphabetic order
         asort($subjectsArray);
