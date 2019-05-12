@@ -22,20 +22,26 @@
 
             {{-- COURSE TITLE COL --}}
             <div class='col-9 course'>
+
                 <div class='title'>
                     <p class='subject-course-code'>{{ $course->subject_and_course_code }}</p>
                     <h1>{{ $course->title }}</h1>
                 </div>
+
                 <div class=' d-flex d-inline'>
+
                     <img class='professor-icon' src='/svg/review/professor-white.svg' alt='Person reading a book'>
                     <p class='professor'>Professor(s): </p>
+
                     <div class='instructor'>
                         {{-- LOOP THROUGH ALL INSTRUCTORS OF THE COURSE --}}
                         @foreach($course->instructors as $instructor)
                             <p>{{ $instructor->first_name . ' ' . $instructor->last_name }}</p>
                         @endforeach
                     </div>
+
                 </div>
+
             </div>
 
         </div>
@@ -53,7 +59,9 @@
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingOne'>
+
                                 <div class='col-8 box1'>
+
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -67,6 +75,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'overall_rating'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-4 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
@@ -87,6 +96,7 @@
                                     @endfor
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseOne'
                                  class='collapse'
@@ -98,11 +108,11 @@
                             </div>
                         </div>
 
-
                         {{-- QUESTION TWO --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingTwo'>
+
                                 <div class='col-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -117,6 +127,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'difficulty'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-4 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
@@ -138,6 +149,7 @@
                                     @endfor
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseTwo'
                                  class='collapse'
@@ -154,6 +166,7 @@
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingThree'>
+
                                 <div class='col-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -168,6 +181,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'clear_objectives'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-4 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
@@ -189,6 +203,7 @@
                                     @endfor
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseThree'
                                  class='collapse'
@@ -200,11 +215,11 @@
                             </div>
                         </div>
 
-
                         {{-- QUESTION FOUR --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingFour'>
+
                                 <div class='col-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -219,6 +234,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'organized'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-4 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
@@ -240,6 +256,7 @@
                                     @endfor
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseFour'
                                  class='collapse'
@@ -251,11 +268,11 @@
                             </div>
                         </div>
 
-
                         {{-- QUESTION FIVE --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingFive'>
+
                                 <div class='col-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -270,6 +287,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'gain_deeper_insight'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-4 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
@@ -291,6 +309,7 @@
                                     @endfor
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseFive'
                                  class='collapse'
@@ -302,7 +321,6 @@
                                 </div>
                             </div>
                         </div>
-
 
                         {{-- QUESTION SIX --}}
                         <div class='card'>
@@ -322,6 +340,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'workload'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-4 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
@@ -343,6 +362,7 @@
                                     @endfor
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseSix'
                                  class='collapse'
@@ -354,11 +374,11 @@
                             </div>
                         </div>
 
-
                         {{-- QUESTION SEVEN --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingSeven'>
+
                                 <div class='col-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -373,6 +393,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'clear_assignment_instructions'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-4 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
@@ -395,6 +416,7 @@
                                     @endfor
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseSeven'
                                  class='collapse'
@@ -406,11 +428,11 @@
                             </div>
                         </div>
 
-
                         {{-- QUESTION EIGHT --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingEight'>
+
                                 <div class='col-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -425,6 +447,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'grading'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-4 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
@@ -446,6 +469,7 @@
                                     @endfor
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseEight'
                                  class='collapse'
@@ -457,11 +481,11 @@
                             </div>
                         </div>
 
-
                         {{-- QUESTION NINE --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingNine'>
+
                                 <div class='col-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -476,6 +500,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'material'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-4 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
@@ -497,6 +522,7 @@
                                     @endfor
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseNine'
                                  class='collapse'
@@ -508,11 +534,11 @@
                             </div>
                         </div>
 
-
                         {{-- QUESTION TEN --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingTen'>
+
                                 <div class='col-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -527,6 +553,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'clarity'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-4 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
@@ -548,6 +575,7 @@
                                     @endfor
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseTen'
                                  class='collapse'
@@ -560,11 +588,11 @@
                             </div>
                         </div>
 
-
                         {{-- QUESTION ELEVEN --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingEleven'>
+
                                 <div class='col-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -579,6 +607,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'knowledge'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-4 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
@@ -600,6 +629,7 @@
                                     @endfor
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseEleven'
                                  class='collapse'
@@ -611,11 +641,11 @@
                             </div>
                         </div>
 
-
                         {{-- QUESTION TWELVE --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingTwelve'>
+
                                 <div class='col-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -630,6 +660,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'feedback'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-4 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
@@ -651,6 +682,7 @@
                                     @endfor
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseTwelve'
                                  class='collapse'
@@ -662,11 +694,11 @@
                             </div>
                         </div>
 
-
                         {{-- QUESTION THIRTEEN --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingThirteen'>
+
                                 <div class='col-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -681,6 +713,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'performance'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-4 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
@@ -702,6 +735,7 @@
                                     @endfor
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseThirteen'
                                  class='collapse'
@@ -713,11 +747,11 @@
                             </div>
                         </div>
 
-
                         {{-- FOURTEEN QUESTION --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingFourteen'>
+
                                 <div class='col-6 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -732,26 +766,30 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'take_course_again'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-6 form-group box2 text-box'>
                                     <div class='btn-group btn-group-toggle' data-toggle='buttons'>
-                                        <label class='btn btn-warning'>
+                                        <label class='btn btn-warning take_course {{ old("take_course_again") == "1" ? "active" : "not_active" }}'>
                                             <input type='radio'
                                                    name='take_course_again'
                                                    id='take_course_again_yes'
                                                    value='1'
-                                                   autocomplete='off'>Yes
+                                                   autocomplete='off'
+                                                    {{ old('take_course_again') == '1' ? 'checked' : '' }}>Yes
                                         </label>
-                                        <label class='btn btn-warning'>
+                                        <label class='btn btn-warning take_course {{ old("take_course_again") == "0" ? "active" : "not_active" }}'>
                                             <input type='radio'
                                                    name='take_course_again'
                                                    id='take_course_again_no'
                                                    value='0'
-                                                   autocomplete='off'>No
+                                                   autocomplete='off'
+                                                   {{ old('take_course_again') == '0' ? 'checked' : '' }}>No
                                         </label>
                                     </div>
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseFourteen'
                                  class='collapse'
@@ -763,11 +801,11 @@
                             </div>
                         </div>
 
-
                         {{-- FIFTEENTH QUESTION --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingFifteenth'>
+
                                 <div class='col-6 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -782,6 +820,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'grade'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-6 form-group box2 text-box'>
                                     <input id='grade'
@@ -793,6 +832,7 @@
                                            placeholder='A, B+, B, ... or n/a'>
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseFifteenth'
                                  class='collapse'
@@ -804,11 +844,11 @@
                             </div>
                         </div>
 
-
                         {{-- SIXTEENTH QUESTION --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingSixteenth'>
+
                                 <div class='col-6 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -823,6 +863,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'survival_tips'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-6 form-group box2 text-box'>
                                     <textarea id='survival_tips'
@@ -833,6 +874,7 @@
                                               placeholder='Leave your tips here...'>{{ old('survival_tips') }}</textarea>
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseSixteenth'
                                  class='collapse'
@@ -844,11 +886,11 @@
                             </div>
                         </div>
 
-
                         {{-- SEVENTEENTH QUESTION --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingSeventeenth'>
+
                                 <div class='col-6 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -863,6 +905,7 @@
                                     {{-- ALERT MESSAGE --}}
                                     @include('includes.error', ['errorField' => 'comments'])
                                 </div>
+
                                 {{-- FORM --}}
                                 <div class='col-6 form-group box2 text-box'>
                                 <textarea id='comments'
@@ -873,6 +916,7 @@
                                           placeholder='Leave your comments here...'>{{ old('comments') }}</textarea>
                                 </div>
                             </div>
+
                             {{-- CARD-BODY --}}
                             <div id='collapseSeventeenth'
                                  class='collapse'
@@ -885,7 +929,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <input type='hidden' name='course_id' value='{{ $course->id }}'>
@@ -900,3 +943,7 @@
     </div>  {{-- end content --}}
 
 @endsection
+
+@push('scripts')
+    <script src='/js/create.js'></script>
+@endpush

@@ -6,11 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Course;
 use App\Instructor;
-use App\Subject;
-use App\Degree;
 use App\Review;
-use App\User;
-use Carbon\Carbon;
 
 class ReviewController extends Controller
 {
@@ -30,13 +26,13 @@ class ReviewController extends Controller
         # Get all courses with instructors from DB
         $searchResults = Course::with('instructors')->orderBy('title')->get();
 
-        # Get titles of the courses
+        # Get titles of all courses
         $courseTitlesArray = Course::getCourseTitles($searchResults);
 
         # Get all instructors
         $instructorsArray = Instructor::getInstructors($searchResults);
 
-        return view ('reviews.search')->with([
+        return view('reviews.search')->with([
             'courseTitlesArray' => $courseTitlesArray,
             'instructorsArray' => $instructorsArray,
             'searchTerm' => $request->session()->get('searchTerm', ''),
@@ -83,12 +79,11 @@ class ReviewController extends Controller
         $course = Course::with('instructors')->where('crn', '=', $crn)->first();
 
         # If the course is not found, redirects to reviews page
-        if(!$course) {
+        if (!$course) {
             return redirect('/reviews')->with([
                 'alert' => 'Course ' . $title_for_url . ' not found.'
             ]);
         } else {
-
             # Check if user has rated the course before
             $previousReview = Review::where('user_id', '=', Auth::user()->id)->where('course_id', '=', $course->id)->first();
 
@@ -100,7 +95,6 @@ class ReviewController extends Controller
                     'crn' => $crn
                 ]);
             } else {
-
                 # Otherwise redirect user to reviews page
                 return redirect('/reviews')->with([
                     'searchResults' => [],
@@ -168,11 +162,10 @@ class ReviewController extends Controller
         $newReview->save();
 
         # Update the course overall rating
-         Course::calculateOverallRating($course, $newReview);
+        Course::calculateOverallRating($course, $newReview);
 
         return redirect('/course/' . $course->title_for_url . '/' . $course->crn)->with([
             'alert' => 'Your review for ' . $course->title . ' has been posted.'
         ]);
     }
-
 }
