@@ -1,7 +1,7 @@
 /* email.css */
 
 html {
-    background-image: url('/images/login-background-blue-2500x1429.jpg');
+    background-image: url('/images/auth/login-background-blue-2500x1429.jpg');
     background-color: var(--main-blue);
     background-position: 0 100%;
     background-repeat: no-repeat;

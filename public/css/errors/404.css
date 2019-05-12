@@ -1,0 +1,113 @@
+/* 404.css */
+
+html {
+    background-image: url('/images/errors/404.jpg');
+    background-color: #0b3554;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    min-width: 320px;
+}
+
+body, main {
+    background: none;
+    width: 100%;
+    height: 100%;
+}
+
+.page-not-found {
+    margin: 0 auto;
+    margin-top: 150px;
+    color: #fff;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#uh-oh-message {
+    margin-bottom: 30px;
+    font-size: 4rem;
+    line-height: 100%;
+}
+
+.user-message {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+#error-404 h1 {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+}
+
+/*
+ * BUTTON
+ */
+#home {
+    margin-top: 20px;
+    padding: 10px 50px;
+    font-size: 1.5rem;
+    border: 2px solid #fff;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#home a:link {
+    text-decoration: none;
+}
+
+/*
+ * NAVBAR
+ */
+nav.navbar.navbar-expand-md.navbar-light,
+#navbarSupportedContent.collapse.navbar-collapse ul.navbar-nav.ml-auto {
+    background-color: transparent;
+}
+
+nav ul.navbar-nav.ml-auto {
+    background-color: rgba(11, 53, 84, 0.8);
+}
+
+/*
+ *  @MEDIA QUERIES
+ */
+@media (min-width: 576px) and (max-width: 991px) {
+
+    #uh-oh-message {
+        font-size: 6rem;
+    }
+
+    .user-message {
+        font-size: 1.6rem;
+    }
+
+    #error-404 h1 {
+        font-size: 1.7rem;
+    }
+
+    #home {
+        font-size: 1.7rem;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    #uh-oh-message {
+        font-size: 7rem;
+    }
+
+    .user-message {
+        font-size: 2rem;
+    }
+
+    #error-404 h1 {
+        font-size: 1.7rem;
+    }
+
+    #home {
+        padding: 15px 70px;
+        font-size: 2rem;
+    }
+
+}

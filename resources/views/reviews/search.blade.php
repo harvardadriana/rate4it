@@ -43,7 +43,7 @@
 
                     <button type='submit' class='btn btn-default left' value='Search'>
 
-                        <img src='/images/search.png' alt='Magnifying glass'>
+                        <img src='/images/reviews/search.png' alt='Magnifying glass'>
 
                     </button>
 

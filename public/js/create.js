@@ -48,16 +48,16 @@ $(document).ready(function () {
 
     // Set back the configuration of button that was not selected to idle state
     $(takeCourseNotActive).css({
-        'background-color' : 'var(--main-orange)',
-        'border' : 'none',
-        'box-shadow' : '#fff'
+        'background-color': 'var(--main-orange)',
+        'border': 'none',
+        'box-shadow': '#fff'
     });
 
     // set configuration as active button if the button was selected previously
     $(takeCourseActive).css({
-        'border' : '2px solid #fff',
-        'background-color' : '#ffc107',
-        'box-shadow' : '0 0 7px #fff2cd'
+        'border': '2px solid #fff',
+        'background-color': '#ffc107',
+        'box-shadow': '0 0 7px #fff2cd'
     });
 
     // On clicking in take course again button
@@ -68,16 +68,16 @@ $(document).ready(function () {
 
         // Reset the configuration of both buttons to idle state
         $(allButtons).css({
-            'background-color' : 'var(--main-orange)',
-            'border' : 'none',
-            'box-shadow' : '#fff'
+            'background-color': 'var(--main-orange)',
+            'border': 'none',
+            'box-shadow': '#fff'
         });
 
         // set configuration as active to the selected button
         $(this).removeClass('not_active').css({
-            'border' : '2px solid #fff',
-            'background-color' : '#ffc107',
-            'box-shadow' : '0 0 7px #fff2cd'
+            'border': '2px solid #fff',
+            'background-color': '#ffc107',
+            'box-shadow': '0 0 7px #fff2cd'
         });
 
     });
