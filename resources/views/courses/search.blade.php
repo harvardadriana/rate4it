@@ -28,7 +28,7 @@
 
                     <div class='row reset'>
                         <button id='reset' type='button' class='btn btn-outline-light btn-lg'>
-                            <a href='/search/test'>Reset Filters</a>
+                            <a href='/search'>Reset Filters</a>
                         </button>
                     </div>
 
