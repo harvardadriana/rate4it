@@ -23,8 +23,8 @@ class Instructor extends Model
             # Loop through all instructors in each course
             foreach ($course['instructors'] as $eachInstructor) {
                 # Avoid entering the same instructor twice in the DB
-                if (!in_array($eachInstructor->id, $instructorsArray)) {
-                    $instructorsArray[$eachInstructor->id] = [$eachInstructor->last_name, $eachInstructor->first_name];
+                if (!in_array($eachInstructor['id'], $instructorsArray)) {
+                    $instructorsArray[$eachInstructor['id']] = [$eachInstructor['last_name'], $eachInstructor['first_name']];
                 }
             }
         }

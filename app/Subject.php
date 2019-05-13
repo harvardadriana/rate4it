@@ -19,7 +19,7 @@ class Subject extends Model
         $subjectsArray = [];
 
         foreach ($searchResults as $course) {
-            $subjectsArray[$course->subject_id] = $course['subject']['name'];
+            $subjectsArray[$course['subject_id']] = $course['subject']['name'];
         }
 
         # Eliminate duplicated subjects

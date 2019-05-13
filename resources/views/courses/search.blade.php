@@ -26,6 +26,12 @@
                       action='/search-process'
                       method='GET'>
 
+                    <div class='row reset'>
+                        <button id='reset' type='button' class='btn btn-outline-light btn-lg'>
+                            <a href='/search/test'>Reset Filters</a>
+                        </button>
+                    </div>
+
                     <div class='row'>
 
                         <div class='col-12 col-sm-6 col-lg-3'>
@@ -56,7 +62,7 @@
                             <select id='searchSubject' name='searchSubject'>
                                 <option value=''>Subject...</option>
                                 @foreach($subjectsArray as $key => $subject)
-                                    <option value='{{ $subject }}' {{ $searchSubject == $subject ? 'selected' : '' }}>{{ $subject }}</option>
+                                    <option value='{{ $key }}' {{ $searchSubject == $subject ? 'selected' : '' }}>{{ $subject }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -73,10 +79,6 @@
                         </div>
 
                     </div>
-
-                    {{--<button type='submit' class='btn btn-default left' value='Search'>--}}
-                    {{--<img src='/images/search.png' alt='Magnifying glass'>--}}
-                    {{--</button>--}}
 
                 </form>
 
