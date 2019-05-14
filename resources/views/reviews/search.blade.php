@@ -2,6 +2,7 @@
 
 @push('styles')
     <link rel='stylesheet' type='text/css' href='/css/modules/nav.css'>
+    <link rel='stylesheet' type='text/css' href='/css/search-main.css'>
     <link rel='stylesheet' type='text/css' href='/css/reviews/search.css'>
 @endpush
 
@@ -16,40 +17,46 @@
         {{-- SEARCH BOX --}}
         <div class='blue-banner'>
 
-            <div class='search-box'>
+            <h1>Search course for rating:</h1>
 
-                <h1>Search course for rating:</h1>
+            <form class='form-group'
+                  role='search'
+                  aria-label='Search for a course'
+                  action='/reviews-process'
+                  method='GET'>
 
-                <form class='form-group'
-                      role='search'
-                      aria-label='Search for a course'
-                      action='/reviews-process'
-                      method='GET'>
+                <div class='row padding'>
 
-                    <input list='courses'
-                           class='form-control left'
-                           type='text'
-                           name='searchTerm'
-                           size='60'
-                           value='{{ $searchTerm ? $searchTerm : '' }}'
-                           placeholder='Enter course title...'>
-                    <datalist id='courses'>
+                    <div class='col-10 col-sm-11 search-box'>
 
-                        @foreach($courseTitlesArray as $courseTitle)
-                            <option value='{{ $courseTitle }}'></option>
-                        @endforeach
+                        <input list='courses'
+                               class='form-control left'
+                               type='text'
+                               name='searchTerm'
+                               size='60'
+                               value='{{ $searchTerm ? $searchTerm : '' }}'
+                               placeholder='Enter course title...'>
+                        <datalist id='courses'>
 
-                    </datalist>
+                            @foreach($courseTitlesArray as $courseTitle)
+                                <option value='{{ $courseTitle }}'></option>
+                            @endforeach
 
-                    <button type='submit' class='btn btn-default left' value='Search'>
+                        </datalist>
 
-                        <img src='/images/reviews/search.png' alt='Magnifying glass'>
+                    </div>
 
-                    </button>
+                    <div class='col-2 col-sm-1 search-button'>
 
-                </form>
+                        <button type='submit' class='btn btn-default left' value='Search'>
+                            <img src='/images/reviews/search.png' alt='Magnifying glass'>
+                        </button>
 
-            </div>
+                    </div>
+
+                </div>
+
+            </form>
 
         </div>
 
@@ -69,7 +76,7 @@
                 {{-- IF THERE ARE ANY COURSES FOUND --}}
                 <div class='results-wrapper'>
 
-                    <h2>{{ $numberCourses }} courses(s) found:</h2>
+                    <h2>{{ $numberCourses }} {{ $numberCourses > 1 ? ' courses' : ' course' }} found:</h2>
 
                     <div class='list-group list-group-flush'>
 

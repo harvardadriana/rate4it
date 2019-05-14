@@ -140,9 +140,9 @@ class CourseController extends Controller
         ]);
     }
 
-//    /**
-//     *  GET  '/courses/list'
-//     */
+    /**
+     *  GET  '/courses/list'
+     */
 //    public function showList(Request $request)
 //    {
 //        return view('courses.showlist')->with([

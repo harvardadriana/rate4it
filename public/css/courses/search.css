@@ -6,11 +6,6 @@ html,
     background-color: var(--main-blue);
 }
 
-.content {
-    width: 100%;
-    min-width: 320px;
-}
-
 .blue-banner {
     width: 100%;
 }
@@ -87,126 +82,7 @@ button#reset:hover {
  * RESULTS WRAPPER
  */
 .results-wrapper {
-    margin: 0 auto;
-    max-width: 600px;
-    height: 100%;
-    padding: 30px 5px 10px;
     background-color: #fff;
-}
-
-.list-group.list-group-flush,
-.review-item {
-    padding: 0;
-}
-
-.results-wrapper h2 {
-    margin-bottom: 10px;
-    color: #555e6a;
-}
-
-/*
- * RESULTS COLUMNS
- */
-.results-sidebar-col {
-    width: 23%;
-    padding: 2% 0;
-}
-
-.course-details-col {
-    width: 75%;
-    padding: 2% 0 2% 2%;
-}
-
-/*
- * RESULTS LEFT COL
- */
-.subject-container {
-    padding-top: 2%;
-}
-
-.subject-container p {
-    font-size: 1rem;
-    line-height: 100%;
-    text-align: center;
-}
-
-.subject-icon img {
-    margin: 0 auto;
-    max-width: 40px;
-    height: auto;
-    display: block;
-}
-
-/*
- * RESULTS RIGHT COL
- */
-h2.course-title {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-    color: #555e6a;
-}
-
-.review-course {
-    margin-left: 15px;
-    margin-bottom: 15px;
-}
-
-img#hand-rating {
-    width: 30px;
-    height: auto;
-    margin-left: 10px;
-}
-
-.user-overall-rating.d-inline-block,
-.rate {
-    max-height: 30px;
-}
-
-/*
- *  STARS
- */
-.user-overall-rating img {
-    width: 120px;
-    height: auto;
-    margin-top: 3px;
-    margin-right: 10px;
-}
-
-.rate.d-flex {
-    margin-bottom: 15px;
-}
-
-.number-reviews p {
-    margin-top: 3px;
-}
-
-.professor-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-}
-
-.professor {
-    margin: 0 15px 5px 0;
-}
-
-.instructor {
-    margin-bottom: 3px;
-}
-
-/*
- *  ERROR MESSAGES
- */
-#user-message {
-    height: 110px;
-    font-size: 1.6rem;
-    text-align: center;
-}
-
-nav ul.navbar-nav.ml-auto {
-    background-color: rgb(252, 252, 252);
-    box-shadow: 1px 1px 10px 1px #DEDEDD;
 }
 
 /*
@@ -222,17 +98,6 @@ nav ul.navbar-nav.ml-auto {
         padding-bottom: 15px;
     }
 
-    h2.course-title {
-        font-size: 1.3rem;
-        margin-bottom: 10px;
-    }
-
-    #subject-course-code,
-    .instructor,
-    .professor {
-        font-size: 1.1rem;
-    }
-
 }
 
 @media (min-width: 768px) {
@@ -243,31 +108,6 @@ nav ul.navbar-nav.ml-auto {
 
     .blue-banner {
         padding-bottom: 15px;
-    }
-
-    h2.course-title {
-        font-size: 1.3rem;
-        margin-bottom: 10px;
-    }
-
-    #subject-course-code,
-    .instructor,
-    .professor {
-        font-size: 1.1rem;
-    }
-
-    .professor-icon {
-        width: 30px;
-        height: 30px;
-    }
-
-    .subject-icon img {
-        max-width: 65px;
-    }
-
-    nav ul.navbar-nav.ml-auto {
-        background-color: #fff;
-        box-shadow: none;
     }
 
 }

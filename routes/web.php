@@ -78,31 +78,3 @@ Route::get('/reviews/{review}/edit', 'ReviewController@edit');  //reviews.edit
 
 //Route::get('/courses/list', 'CourseController@showList');
 //Route::get('/show', 'CourseController@show');
-
-
-
-
-
-//
-///*
-//|--------------------------------------------------------------------------
-//| TESTING - MAIL
-//|--------------------------------------------------------------------------
-//|
-//*/
-//Route::get('/mail', function () {
-//
-//    $data = [
-//        'title' => 'hi',
-//        'content' => 'content here'
-//    ];
-//
-//
-//    Mail::send('emails.test', $data, function ($message) {
-//
-//        $message->to('adrianarossettisugih@g.harvard.edu', 'Adriana')->subject('hello');
-//
-//    });
-//
-//
-//});
