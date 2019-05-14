@@ -8,8 +8,7 @@ nav.navbar.navbar-expand-md.navbar-light {
     top: 0;
     width: 100%;
     height: 87px;
-    padding: 0;
-    padding-right: 5px;
+    padding: 0 5px 0 0;
     z-index: 3;
     background-color: #fff;
     font-size: 1.4rem;
@@ -22,8 +21,7 @@ a.navbar-brand {
     width: 218px;
     height: 87px;
     padding: 0;
-    margin: 0;
-    margin-left: 5px;
+    margin: 0 0 0 5px;
 }
 
 #logo {
@@ -59,7 +57,7 @@ nav.navbar.navbar-expand-md.navbar-light .nav-link {
     }
 
     nav ul.navbar-nav.ml-auto {
-        background-color: rgba(252, 252, 252);
+        background-color: rgb(252, 252, 252);
         box-shadow: 1px 1px 10px 1px #DEDEDD;
     }
 
@@ -70,8 +68,12 @@ nav.navbar.navbar-expand-md.navbar-light .nav-link {
  */
 @media (min-width: 576px) and (max-width: 767px) {
 
+    button#navbar-toggler.navbar-toggler {
+        margin-right: 25px;
+    }
+
     nav ul.navbar-nav.ml-auto {
-        background-color: rgba(252, 252, 252);
+        background-color: rgb(252, 252, 252);
         box-shadow: 1px 1px 10px 1px #DEDEDD;
     }
 

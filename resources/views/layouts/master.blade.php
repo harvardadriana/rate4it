@@ -3,9 +3,9 @@
 <html lang='en'>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 
-    {{--<meta charset='UTF-8'>--}}
+    <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta name='csrf-token' content='{{ csrf_token() }}'>
 
@@ -47,11 +47,11 @@
 
     <div id="app">
 
-        <header role='banner'>
+        <header>
             @include('modules.nav')
         </header>
 
-        <main role='main'>
+        <main>
             @yield('content')
         </main>
 

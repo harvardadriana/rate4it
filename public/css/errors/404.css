@@ -36,7 +36,7 @@ body, main {
     margin-bottom: 20px;
 }
 
-#error-404 h1 {
+.container h1 {
     font-size: 1.7rem;
     margin-bottom: 20px;
 }
@@ -46,14 +46,22 @@ body, main {
  */
 #home {
     margin-top: 20px;
-    padding: 10px 50px;
-    font-size: 1.5rem;
-    border: 2px solid #fff;
+    padding: 10px 15px;
+    font-size: 1.2rem;
     font-family: 'Quicksand', sans-serif;
+    text-decoration: none;
+    background-color: var(--main-orange);
+    border: 2px solid var(--main-orange);
 }
 
-#home a:link {
+a:link {
     text-decoration: none;
+    color: #fff;
+}
+
+a#home.btn:hover {
+    color: #fff;
+    border: 2px solid #fff;
 }
 
 /*
@@ -81,12 +89,13 @@ nav ul.navbar-nav.ml-auto {
         font-size: 1.6rem;
     }
 
-    #error-404 h1 {
+    .container h1 {
         font-size: 1.7rem;
     }
 
     #home {
-        font-size: 1.7rem;
+        padding: 10px 45px;
+        font-size: 1.5rem;
     }
 
 }
@@ -101,13 +110,13 @@ nav ul.navbar-nav.ml-auto {
         font-size: 2rem;
     }
 
-    #error-404 h1 {
+    .container h1 {
         font-size: 1.7rem;
     }
 
     #home {
-        padding: 15px 70px;
-        font-size: 2rem;
+        padding: 10px 45px;
+        font-size: 1.5rem;
     }
 
 }

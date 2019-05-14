@@ -13,9 +13,8 @@
 
     <div class='container-fluid'>
 
-        <div class='login-box'>
+        <div class='register-box'>
 
-            {{-- HEADING --}}
             <h1>Register</h1>
 
             <form method='POST' action='{{ route('register') }}'>
@@ -27,7 +26,6 @@
                         <small>* A Harvard email account is required for registration</small>
                     </div>
                 </div>
-
 
                 {{-- NAME --}}
                 <div class='row form-group'>
@@ -96,7 +94,7 @@
                 </div>
 
                 {{-- CONFIRM PASSWORD --}}
-                <div class='row form-group'>
+                <div class='row form-group confirm'>
                     <label for='password-confirm'
                            class='col-10 col-md-5 col-form-label'>{{ __('Confirm Password') }}</label>
                     <input id='password-confirm'
@@ -107,8 +105,8 @@
                 </div>
 
                 {{-- REGISTER BUTTON --}}
-                <div class='row form-group mb-0'>
-                    <div class='col-md-6 offset-md-5'>
+                <div class='row form-group mb-0 submit'>
+                    <div class='col-md-6 offset-md-5 submit'>
                         <button type='submit' class='btn btn-primary'>
                             {{ __('Register') }}
                         </button>

@@ -28,9 +28,7 @@
                       method='GET'>
 
                     <div class='row reset'>
-                        <button id='reset' type='button' class='btn btn-outline-light btn-lg'>
-                            <a href='/search'>Reset Filters</a>
-                        </button>
+                        <a id='reset' class='btn btn-outline-light btn-lg' href='/search'>Reset Filters</a>
                     </div>
 
                     <div class='row'>
@@ -63,7 +61,7 @@
                             <select id='searchSubject' name='searchSubject'>
                                 <option value=''>Subject...</option>
                                 @foreach($subjectsArray as $key => $subject)
-                                    <option value='{{ $key }}' {{ $searchSubject == $subject ? 'selected' : '' }}>{{ $subject }}</option>
+                                    <option value='{{ $key }}' {{ $searchSubject == $key ? 'selected' : '' }}>{{ $subject }}</option>
                                 @endforeach
                             </select>
                         </div>

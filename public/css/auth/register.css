@@ -1,69 +1,82 @@
-/* login.css */
+/* register.css */
 
 html {
-    background-image: url('/images/auth/login-background-blue-2500x1429.jpg');
-    background-color: var(--main-blue);
-    background-position: 0 100%;
-    background-repeat: no-repeat;
+    background: var(--main-blue) url('/images/auth/login-background-blue-2500x1429.jpg') no-repeat 0 100%;
     background-size: cover;
     width: 100%;
     height: 100%;
-    min-width: 570px;
+    min-width: 320px;
 }
 
 body, main {
     background: none;
 }
 
-.login-box {
+.container-fluid {
+    padding: 20px 10px 10px;
+}
+
+.register-box {
+    margin: 0 auto;
+    width: auto;
+    max-width: 400px;
     font-family: 'Quicksand', sans-serif;
-    margin-top: 180px;
-    margin-left: 45%;
-    width: 700px;
     background-color: rgba(196, 199, 222, 0.9);
     border-radius: 10px;
 }
 
-.login-box h1 {
+.register-box h1 {
+    width: auto;
+    height: 60px;
+    margin-bottom: 0;
+    line-height: 60px;
     background-color: #2f3874;
     color: #fff;
     font-weight: 200;
-    width: auto;
-    line-height: 75px;
-    height: 75px;
     border: 1px solid #2f3874;
     border-radius: 10px 10px 0 0;
-    margin-bottom: 15px;
     text-align: center;
-}
-
-.row.form-group.email-requirement {
-    max-height: 40px;
-}
-
-.email-requirement {
-    margin-bottom: 15px;
-    font-style: italic;
+    font-size: 1.6rem;
 }
 
 /*
  * FORM
  */
 form {
-    padding-bottom: 45px;
+    padding: 10px 5px 0 10px;
+}
+
+.row.form-group.email-requirement {
+    font-style: italic;
+    font-size: 0.8rem;
+    height: auto;
 }
 
 .row.form-group {
-    height: 55px;
+    height: 80px;
     padding: 0;
     margin: 0;
-    font-size: 1.1rem;
     color: #2f3874;
+    font-size: 0.9rem;
+}
+
+label,
+input.form-control,
+input.form-control:focus {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+input.form-control {
+    height: 30px;
 }
 
 label {
-    text-align: right;
     color: #2f3874;
+    margin: 0 0 0 7px;
+    padding: 0;
+    display: block;
+    text-align: left;
 }
 
 input.form-control,
@@ -74,15 +87,19 @@ input.form-control:focus {
     border-radius: 0;
     border-bottom: 2px solid #fff;
     color: #2f3874;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+}
+
+.confirm {
+    margin-top: 10px;
 }
 
 /*
- * ERROR MESSAGES
- */
+* ERROR MESSAGES
+*/
 span#error-messages {
     margin-top: 0;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     font-weight: lighter;
 }
 
@@ -90,7 +107,7 @@ span#error-messages {
  * BUTTON
  */
 button.btn.btn-primary {
-    margin-top: 15px;
+    margin-top: 10px;
     margin-left: 10px;
     width: 160px;
     background-color: var(--main-blue);
@@ -106,72 +123,58 @@ button.btn.btn-primary:hover {
     background-color: var(--main-orange);
 }
 
+.submit,
+.row.form-group.mb-0.submit {
+    height: 65px;
+}
+
 /*
  *  @MEDIA QUERIES
  */
-@media (max-width: 767px) {
+@media (min-width: 768px) {
 
-    .login-box {
-        margin: 0 auto;
-        margin-top: 115px;
-        width: 500px;
+    .container-fluid {
+        padding: 80px 10px 10px;
     }
 
-    .login-box h1 {
-        margin-bottom: 0;
-    }
-
-    form {
-        padding: 10px 20px 20px;
+    .register-box {
+        max-width: 700px;
+        margin-right: 10%;
     }
 
     .row.form-group.email-requirement {
-        max-height: 20px;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
     }
 
-    label.col-10.col-md-5.col-form-label {
-        margin-top: 25px;
-        padding: 0 15px;
-        display: block;
-        color: #404040;
-        text-align: left;
+    .register-box h1 {
+        font-size: 2.25rem;
+        margin-bottom: 15px;
+        line-height: 75px;
+        height: 75px;
     }
 
-    label,
-    input.form-control,
-    input.form-control:focus {
-        padding: 0;
-    }
-
-    input.form-control,
-    input.form-control:focus {
-        margin-left: 15px;
+    form {
+        padding: 0 0 20px 45px;
     }
 
     .row.form-group {
-        height: 90px;
+        font-size: 1.1rem;
+        height: 45px;
+    }
+
+    label {
+        text-align: right;
+    }
+
+    input.form-control,
+    input.form-control:focus {
+        margin-left: 20px;
+        font-size: 1.1rem;
     }
 
     button.btn.btn-primary {
-        margin-top: 35px;
-    }
-
-}
-
-@media (min-width: 768px) and (max-width: 1230px) {
-
-    .login-box {
-        margin: 0 auto;
-        margin-top: 180px;
-    }
-
-}
-
-@media (min-width: 1231px) and (max-width: 1350px) {
-
-    .login-box {
-        margin-top: 180px;
-        margin-left: 41%;
+        margin-top: 15px;
     }
 
 }

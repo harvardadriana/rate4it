@@ -11,7 +11,7 @@
 
 @section('content')
 
-    <div id='error-404' class='container'>
+    <div class='container'>
 
         <div class='row page-not-found'>
 
@@ -20,10 +20,7 @@
                 <p class='user-message'>You have reached the edge of the universe.</p>
                 <h1>(404 ERROR)</h1>
                 <p class='user-message'>Stay calm and return to the previous page.</p>
-
-                <button id='home' type='button' class='btn btn-outline-light btn-lg'>
-                    <a href='/'>Home</a>
-                </button>
+                <a id='home' class='btn btn-link' href='/'>Home</a>
             </div>
 
         </div>

@@ -44,24 +44,17 @@ body, main, .content, .app {
 /*
  * BUTTON
  */
-#search-course {
+#search {
     width: auto;
     background-color: var(--main-orange);
     border-radius: 10px;
-}
-
-#content-column #search-course a#search {
-    font-size: 1.1rem;
-    line-height: 100%;
-    padding: 7px;
     color: #fff;
     text-decoration: none;
-    border-radius: 10px;
-    float: left;
+    font-size: 1.1rem;
+    padding: 10px 15px;
 }
 
-#search-course:hover,
-#search-course a#search:hover {
+a#search:hover {
     background-color: var(--main-blue);
     color: #fff;
 }
@@ -117,7 +110,7 @@ svg {
         height: 25px;
     }
 
-    #content-column #search-course a#search {
+    a#search {
         font-size: 1.4rem;
     }
 
@@ -144,11 +137,11 @@ svg {
         height: 25px;
     }
 
-    #search-course {
+    #search {
         margin: 0 auto;
     }
 
-    #content-column #search-course a#search {
+    a#search {
         font-size: 1.4rem;
     }
 
@@ -161,7 +154,7 @@ svg {
     }
 
     #gif {
-        margin-top: 17.5px;
+        margin-top: 18px;
     }
 
     .gif, img.gif {
@@ -189,11 +182,11 @@ svg {
         height: 25px;
     }
 
-    #search-course {
+    #search {
         float: right;
     }
 
-    #content-column #search-course a#search {
+    a#search {
         font-size: 1.4rem;
     }
 
@@ -216,7 +209,7 @@ svg {
     }
 
     #gif {
-        margin-top: 17.5px;
+        margin-top: 18px;
     }
 
     .gif {
@@ -244,11 +237,11 @@ svg {
         height: 25px;
     }
 
-    #search-course {
+    #search {
         float: right;
     }
 
-    #content-column #search-course a#search {
+    a#search {
         font-size: 1.4rem;
     }
 

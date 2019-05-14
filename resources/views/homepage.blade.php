@@ -27,11 +27,7 @@
                 <h1>Choosing your next course?</h1>
                 <p>It&#39;s important to choose a course that will help you achieve
                    your goals. Search for your next course and check other students' reviews.</p>
-
-                <button id='search-course' type='button' class='btn btn-link'>
-                    <a id='search' href='/search'>Search for courses</a>
-                </button>
-
+                <a id='search' class='btn btn-link btn-lg' href='/search'>Search for courses</a>
             </div>
 
         </div>
