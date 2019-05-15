@@ -5,20 +5,22 @@
  */
 .content {
     width: 100%;
-    min-width: 576px;
+    min-width: 320px;
+    margin: 0;
     padding: 25px 0;
     color: #555e6a;
 }
 
 .course-wrapper,
 .course-statistics,
-.row.rate {
-    max-width: 900px;
+.row.rate-btn {
+    width: 100%;
+    max-width: 500px;
 }
 
 .additional-statistics,
 .reviews-wrapper {
-    max-width: 750px;
+    max-width: 500px;
 }
 
 /*
@@ -26,8 +28,8 @@
  */
 .course-wrapper {
     margin: 0 auto;
-    margin-bottom: 30px;
-    padding: 0;
+    margin-bottom: 5px;
+    padding: 2%;
 }
 
 /*
@@ -35,70 +37,56 @@
  */
 .subject-course-code {
     border-right: 1px solid lightgrey;
+    padding: 2% 1% 0 0;
 }
 
-#subject.row {
-    height: 50px;
-}
-
-#icon.row {
-    height: 75px;
-}
-
-#subject p {
-    width: 100%;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-align: center;
+.subject-container p {
+    font-size: 1rem;
     line-height: 100%;
-    margin-top: 5px;
-    margin-bottom: 0;
+    text-align: center;
 }
 
-#icon img {
+.subject-icon img {
     margin: 0 auto;
-    margin-top: 5px;
-    max-width: 55px;
-    max-height: 55px;
+    max-width: 40px;
+    height: auto;
+    display: block;
 }
 
 /*
  * COURSE TITLE COL
  */
 .course h1 {
-    margin: 0 0 10px;
-    font-size: 1.4rem;
-}
-
-.subject-name {
+    margin: 2% 0 2%;
     font-size: 1.2rem;
 }
 
+.subject-name {
+    margin-bottom: 5px;
+}
+
 .professor-icon {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     margin-right: 10px;
     margin-top: 5px;
 }
 
 .professor {
     margin-right: 15px;
-    font-size: 1.2rem;
 }
 
 .instructor p {
     margin-bottom: 5px;
-    margin-top: 3px;
-    font-size: 1.2rem;
 }
 
 /*
  * OVERALL RATING
  */
 .overall-rating span {
-    margin-top: 5px;
+    margin-top: 2%;
     margin-left: 5px;
-    font-size: 3.9rem;
+    font-size: 2rem;
     color: #ffad01;
     line-height: 100%;
     vertical-align: top;
@@ -144,12 +132,12 @@
 }
 
 .box {
-    padding: 10px 25px;
+    padding: 0 5px;
 }
 
 .box img {
-    width: 65px;
-    height: 65px;
+    width: 40px;
+    height: 40px;
     display: block;
     margin: 0 auto;
     margin-bottom: 15px;
@@ -157,45 +145,44 @@
 
 .box h2 {
     margin-bottom: 15px;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 }
 
 .box p {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     margin-bottom: 0;
 }
 
 /*
  * RATE BUTTON
  */
-.row.rate {
+.row.rate-btn {
     margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
-.col-2.offset-9.rate-btn {
+.rate-btn-col {
     padding: 0;
 }
 
 #rate-button {
     padding: 10px 15px;
     margin: 0;
-    width: 150px;
+    width: auto;
     height: 56px;
     background-color: var(--main-orange);
     border-radius: 10px;
 }
 
-#rate-button a#rate {
-    font-size: 1.4rem;
+a#rate-button {
+    font-size: 1rem;
     color: #fff;
     text-decoration: none;
     border-radius: 10px;
 }
 
-#rate-button:hover,
-#rate-button a#rate:hover {
+a#rate-button:hover {
     background-color: var(--main-blue);
     color: #fff;
 }
@@ -203,23 +190,24 @@
 /*
  * ADDITIONAL STATISTICS
  */
-.additional-statistics-banner {
-    height: auto;
-}
-
 .additional-statistics {
+    width: 100%;
+    height: auto;
     margin: 0 auto;
-    padding: 10px 25px;
+    padding: 0;
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
     background-color: #fafafa;
 }
 
-.rating-row {
+.rating-col {
+    width: 100%;
     height: 45px;
+    margin: 0;
+    padding: 10px;
 }
 
-.additional-statistics-banner button {
+.additional-statistics button {
     width: auto;
     height: 30px;
     border-radius: 25px;
@@ -227,22 +215,26 @@
     border: none;
 }
 
-.additional-statistics-banner button:hover {
+.additional-statistics button:hover {
     background-color: #bdbdbd;
 }
 
-.additional-statistics-banner p {
-    margin-left: 20px;
+.additional-statistics p {
+    margin-left: 5px;
     margin-bottom: 0;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 45px;
 }
 
-.additional-statistics-banner img {
+.additional-statistics img {
     width: 96px;
     height: auto;
-    margin-top: 10px;
     background-color: transparent;
+}
+
+.break {
+    display: block;
+    line-height: 15px;
 }
 
 /*
@@ -250,8 +242,8 @@
  */
 .reviews-wrapper {
     margin: 0 auto;
-    margin-top: 15px;
-    padding: 10px 30px;
+    margin-top: 5px;
+    padding: 10px;
 }
 
 .reviews-wrapper h2 {
@@ -273,22 +265,23 @@
 }
 
 .review {
-    width: 80%;
-    padding: 2%;
+    width: 72%;
+    padding: 1% 2%;
 }
 
 /*
  * REVIEW SIDEBAR
  */
 img.user-avatar {
-    width: 55px;
+    width: 40px;
     height: auto;
 }
 
 #username, #date {
+    width: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
-    font-size: .9rem;
+    font-size: 0.6rem;
     text-align: center;
 }
 
@@ -296,13 +289,13 @@ img.user-avatar {
  * REVIEW
  */
 .user-overall-rating img {
-    width: 96px;
+    width: 86px;
     height: auto;
 }
 
 .review p {
     margin: 5px 0;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .comment-tips {
@@ -366,87 +359,12 @@ img#hand-rating {
 /*
 *  @MEDIA QUERIES
 */
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 576px) {
 
-    #subject p {
-        font-size: 1.3rem;
-    }
-
-    #icon img {
-        max-width: 75px;
-        max-height: 75px;
-    }
-
-    .course h1 {
-        font-size: 1.7rem;
-    }
-
-    .additional-statistics {
-        padding: 20px 5px;
-    }
-
-    .additional-statistics-banner img {
-        width: auto;
-        height: auto;
-    }
-
-    .box-border {
-        border-right: 1px solid lightgrey;
-    }
-
-    .break {
-        display: block;
-        line-height: 20px;
-    }
-
-    .reviews-wrapper {
-        margin-top: 30px;
-    }
-
-    .reviews-wrapper h2 {
-        font-size: 1.6rem;
-    }
-
-}
-
-@media (min-width: 992px) {
-
-    #subject p {
-        font-size: 1.3rem;
-    }
-
-    #icon img {
-        max-width: 75px;
-        max-height: 75px;
-    }
-
-    .course h1 {
-        font-size: 1.7rem;
-    }
-
-    .professor {
-        font-size: 1.4rem;
-    }
-
-    .instructor {
-        font-size: 1.2rem;
-    }
-
-    .additional-statistics {
-        padding: 20px 5px;
-    }
-
-    .box-border {
-        border-right: 1px solid lightgrey;
-    }
-
-    .break {
-        display: block;
-        line-height: 20px;
-    }
-
-    .box p {
-        font-size: 1.2rem;
+    .course-wrapper,
+    .course-statistics,
+    .row.rate-btn {
+        max-width: 900px;
     }
 
     .additional-statistics,
@@ -454,27 +372,131 @@ img#hand-rating {
         max-width: 850px;
     }
 
-    .additional-statistics-banner img {
-        width: auto;
-        height: auto;
+    .course-wrapper {
+        margin-bottom: 30px;
     }
 
-    .row.rate {
+    .subject-course-code {
+        padding: 1%;
+    }
+
+    .subject-container p {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    .subject-icon img {
+        max-width: 75px;
+        max-height: 75px;
+    }
+
+    .course h1 {
+        font-size: 1.7rem;
+        margin: 0 0 10px;
+    }
+
+    .subject-name {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .professor-icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .professor {
+        font-size: 1.4rem;
+    }
+
+    .instructor p {
+        font-size: 1.2rem;
+        margin-top: 4px;
+    }
+
+    .overall-rating span {
+        margin: 0 0 5px;
+        font-size: 3.9rem;
+    }
+
+    .box-border {
+        border-right: 1px solid lightgrey;
+    }
+
+    .box {
+        padding: 10px 25px;
+    }
+
+    .box img {
+        width: 65px;
+        height: 65px;
+        margin-bottom: 15px;
+    }
+
+    .box h2 {
+        margin-bottom: 15px;
+        font-size: 1.6rem;
+    }
+
+    .box p {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+    }
+
+    .row.rate-btn {
         margin-top: 30px;
         margin-bottom: 30px;
+    }
+
+    a#rate-button {
+        font-size: 1.6rem;
+    }
+
+    .additional-statistics {
+        padding: 10px 25px;
+    }
+
+    .additional-statistics p {
+        font-size: 1.2rem;
+        margin-left: 20px;
+        line-height: 55px;
+    }
+
+    .additional-statistics img {
+        width: auto;
+        height: auto;
+        margin-top: 0;
     }
 
     .reviews-wrapper {
         margin-top: 30px;
     }
 
-    .user-overall-rating img {
-        width: 109.1px;
-        height: auto;
-    }
-
     .reviews-wrapper h2 {
         font-size: 1.6rem;
+        margin-top: 15px;
+        padding: 10px 30px;
+    }
+
+    .rating-col {
+        height: 55px;
+    }
+
+    .break {
+        line-height: 20px;
+    }
+
+    img.user-avatar {
+        width: 55px;
+    }
+
+    #username, #date {
+        font-size: .9rem;
+    }
+
+    .user-overall-rating img {
+        width: 109px;
+        height: auto;
     }
 
     .review p {

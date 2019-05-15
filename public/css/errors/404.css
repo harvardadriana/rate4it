@@ -1,7 +1,7 @@
 /* 404.css */
 
 html {
-    background-image: url('/images/errors/404.jpg');
+    background-image: url('/svg/errors/404.svg');
     background-color: #0b3554;
     background-position: 0 100%;
     background-repeat: no-repeat;
@@ -52,6 +52,7 @@ body, main {
     text-decoration: none;
     background-color: var(--main-orange);
     border: 2px solid var(--main-orange);
+    color: #fff;
 }
 
 a:link {

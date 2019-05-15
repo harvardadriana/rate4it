@@ -23,16 +23,16 @@
 
                 {{-- SUBJECT-COURSE-CODE COL --}}
                 <div class='col-2 subject-course-code'>
-                    <div id='subject' class='row'>
+                    <div class='subject-container'>
                         <p>{{ $course->subject_and_course_code }}</p>
                     </div>
-                    <div id='icon' class='row align-items-top'>
+                    <div class='subject-icon'>
                         <img src='/svg/subjects/{{ $course->subject->code }}.svg' alt='Course subject icon'>
                     </div>
                 </div>
 
                 {{-- COURSE TITLE COL --}}
-                <div class='col-7 course'>
+                <div class='col-8 course'>
                     <h1>{{ $course->title }}</h1>
                     <p class='subject-name'>{{ $course->subject->name }}</p>
                     <div class=' d-flex d-inline'>
@@ -77,17 +77,17 @@
                 {{-- COURSE STATISTICS --}}
                 <div class='blue-banner'>
                     <div class='row course-statistics'>
-                        <div class='box col'>
+                        <div class='col box'>
                             <img src='/svg/show/exam.svg' alt='Overall rating icon'>
                             <h2>{{ number_format($course->rate->overall_rating, 1, '.', '') }}</h2>
                             <p>is the overall rating of the course</p>
                         </div>
-                        <div class='box col'>
+                        <div class='col box'>
                             <img src='/svg/show/deep-insight.svg' alt='Deeper insight icon'>
                             <h2>{{ $course->rate->gain_deeper_insight }} %</h2>
                             <p>of the students gained deeper insight after taking this course</p>
                         </div>
-                        <div class='box col'>
+                        <div class='col box'>
                             <img src='/svg/show/replay.svg' alt='Take the course again icon'>
                             <h2>{{ (round((($course->rate->take_course_again * 100) / $course->rate->number_of_reviews))) }} %</h2>
                             <p>of the students would take this course again</p>
@@ -96,22 +96,21 @@
                 </div>
 
                 {{-- RATE BUTTON --}}
-                <div class='row rate'>
-                    <div class='col-2 offset-8 col-md-2 offset-md-9 rate-btn'>
-                        <div id='rate-button'>
-                            <a id='rate'
-                               href='/reviews/create/{{ $course->title_for_url }}/{{ $course->crn }}'>Rate course</a>
-                        </div>
+                <div class='row rate-btn'>
+                    <div class='col-5 offset-7 col-md-3 offset-md-9 rate-btn-col'>
+                        <a id='rate-button'
+                           href='/reviews/create/{{ $course->title_for_url }}/{{ $course->crn }}'>Rate course</a>
                     </div>
                 </div>
 
                 {{--ADDITIONAL STATISTICS --}}
-                <div class='additional-statistics-banner'>
+                <div class='row additional-statistics'>
                     @include('modules.rating-explanation')
                 </div>
 
                 <div class='reviews-wrapper'>
-                    <h2>{{ $numberReviews }} review(s) found:</h2>
+                    <h2>{{ $numberReviews }} {{ $numberReviews > 1 ? ' reviews' : ' review' }} found:</h2>
+
                     <ul class='list-group list-group-flush'>
                         {{-- LOOP THROUGH ALL REVIEWS FOUND --}}
                         @foreach($reviewsListArray as $reviews => $review)

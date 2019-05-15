@@ -62,8 +62,7 @@
  * RESULTS RIGHT COL
  */
 h2.course-title {
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin: 0 0 10px;
     font-size: 1.1rem;
     color: #555e6a;
 }
