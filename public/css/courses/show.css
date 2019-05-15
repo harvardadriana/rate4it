@@ -92,11 +92,14 @@
     vertical-align: top;
 }
 
+.row.review-stars {
+    max-width: 100%;
+}
+
 .review-stars img {
-    width: auto;
+    width: 100%;
     height: auto;
-    max-width: 150px;
-    max-height: 30px;
+    max-width: 120px;
     margin-top: 7px;
 }
 
@@ -417,6 +420,11 @@ img#hand-rating {
     .overall-rating span {
         margin: 0 0 5px;
         font-size: 3.9rem;
+    }
+
+    .review-stars img {
+        max-width: 150px;
+        max-height: 30px;
     }
 
     .box-border {
