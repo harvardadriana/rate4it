@@ -49,7 +49,7 @@
 
                 {{-- OVERALL RATING COL --}}
                 @if($course->rate->overall_rating)
-                    <div class='col-2'>
+                    <div class='col-2 score'>
                         <div class='row overall-rating'>
                             <span>{{ number_format($course->rate->overall_rating, 1, '.', '') }}</span>
                         </div>

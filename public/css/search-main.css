@@ -119,8 +119,8 @@ img#hand-rating {
  *  ERROR MESSAGES
  */
 #user-message {
-    height: 110px;
-    font-size: 1.6rem;
+    height: 90px;
+    font-size: 1.2rem;
     text-align: center;
 }
 
@@ -147,6 +147,11 @@ img#hand-rating {
     .instructor,
     .professor {
         font-size: 1.1rem;
+    }
+
+    #user-message {
+        height: 110px;
+        font-size: 1.6rem;
     }
 
     nav ul.navbar-nav.ml-auto {
@@ -176,6 +181,11 @@ img#hand-rating {
 
     .subject-icon img {
         max-width: 65px;
+    }
+
+    #user-message {
+        height: 110px;
+        font-size: 1.6rem;
     }
 
 }

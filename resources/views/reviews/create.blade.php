@@ -15,17 +15,16 @@
 
         <div class='row course-title-banner'>
 
-            {{-- LEFT COL --}}
-            <div class='col-2 rating-col'>
+            <div class='col-sm-2 rating-col'>
                 <h1>Rating </h1>
             </div>
 
             {{-- COURSE TITLE COL --}}
-            <div class='col-9 course'>
+            <div class='col-sm-9 course'>
 
                 <div class='title'>
                     <p class='subject-course-code'>{{ $course->subject_and_course_code }}</p>
-                    <h1>{{ $course->title }}</h1>
+                    <h2>{{ $course->title }}</h2>
                 </div>
 
                 <div class=' d-flex d-inline'>
@@ -60,7 +59,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingOne'>
 
-                                <div class='col-8 box1'>
+                                <div class='col-12 col-sm-8 box1'>
 
                                     <h2>
                                         <button class='btn btn-link collapsed'
@@ -77,7 +76,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-4 form-group box2'>
+                                <div class='col-10 offset-2 col-sm-4 offset-sm-0 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
                                         <div class='form-check form-check-inline stars'>
                                             <input id='overall_rating_{{ $i }}'
@@ -113,7 +112,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingTwo'>
 
-                                <div class='col-8 box1'>
+                                <div class='col-12 col-sm-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -129,7 +128,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-4 form-group box2'>
+                                <div class='col-10 offset-2 col-sm-4 offset-sm-0 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
                                         <div class='form-check form-check-inline stars'>
                                             <input id='difficulty_{{ $i }}'
@@ -161,13 +160,12 @@
                             </div>
                         </div>
 
-
                         {{-- QUESTION THREE --}}
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingThree'>
 
-                                <div class='col-8 box1'>
+                                <div class='col-12 col-sm-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -183,7 +181,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-4 form-group box2'>
+                                <div class='col-10 offset-2 col-sm-4 offset-sm-0 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
                                         <div class='form-check form-check-inline stars'>
                                             <input id='clear_objectives_{{ $i }}'
@@ -220,7 +218,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingFour'>
 
-                                <div class='col-8 box1'>
+                                <div class='col-12 col-sm-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -236,7 +234,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-4 form-group box2'>
+                                <div class='col-10 offset-2 col-sm-4 offset-sm-0 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
                                         <div class='form-check form-check-inline stars'>
                                             <input id='organized_{{ $i }}'
@@ -273,7 +271,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingFive'>
 
-                                <div class='col-8 box1'>
+                                <div class='col-12 col-sm-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -289,7 +287,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-4 form-group box2'>
+                                <div class='col-10 offset-2 col-sm-4 offset-sm-0 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
                                         <div class='form-check form-check-inline stars'>
                                             <input id='gain_deeper_insight_{{ $i }}'
@@ -326,7 +324,7 @@
                         <div class='card'>
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingSix'>
-                                <div class='col-8 box1'>
+                                <div class='col-12 col-sm-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -342,7 +340,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-4 form-group box2'>
+                                <div class='col-10 offset-2 col-sm-4 offset-sm-0 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
                                         <div class='form-check form-check-inline stars'>
                                             <input id='workload_{{ $i }}'
@@ -379,7 +377,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingSeven'>
 
-                                <div class='col-8 box1'>
+                                <div class='col-12 col-sm-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -387,7 +385,7 @@
                                                 data-target='#collapseSeven'
                                                 aria-expanded='false'
                                                 aria-controls='collapseSeven'>
-                                            Question 7. Clear assignment instructions
+                                            Question 7. Clear assignment <span class='break'>instructions</span>
                                         </button>
                                     </h2>
                                     {{-- ALERT MESSAGE --}}
@@ -395,7 +393,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-4 form-group box2'>
+                                <div class='col-10 offset-2 col-sm-4 offset-sm-0 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
                                         <div class='form-check form-check-inline stars'>
                                             <input id='clear_assignment_instructions_{{ $i }}'
@@ -433,7 +431,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingEight'>
 
-                                <div class='col-8 box1'>
+                                <div class='col-12 col-sm-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -449,7 +447,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-4 form-group box2'>
+                                <div class='col-10 offset-2 col-sm-4 offset-sm-0 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
                                         <div class='form-check form-check-inline stars'>
                                             <input id='grading_{{ $i }}'
@@ -486,7 +484,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingNine'>
 
-                                <div class='col-8 box1'>
+                                <div class='col-12 col-sm-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -502,7 +500,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-4 form-group box2'>
+                                <div class='col-10 offset-2 col-sm-4 offset-sm-0 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
                                         <div class='form-check form-check-inline stars'>
                                             <input id='material_{{ $i }}'
@@ -539,7 +537,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingTen'>
 
-                                <div class='col-8 box1'>
+                                <div class='col-12 col-sm-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -555,7 +553,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-4 form-group box2'>
+                                <div class='col-10 offset-2 col-sm-4 offset-sm-0 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
                                         <div class='form-check form-check-inline stars'>
                                             <input id='clarity_{{ $i }}'
@@ -593,7 +591,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingEleven'>
 
-                                <div class='col-8 box1'>
+                                <div class='col-12 col-sm-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -609,7 +607,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-4 form-group box2'>
+                                <div class='col-10 offset-2 col-sm-4 offset-sm-0 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
                                         <div class='form-check form-check-inline stars'>
                                             <input id='knowledge_{{ $i }}'
@@ -646,7 +644,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingTwelve'>
 
-                                <div class='col-8 box1'>
+                                <div class='col-12 col-sm-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -662,7 +660,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-4 form-group box2'>
+                                <div class='col-10 offset-2 col-sm-4 offset-sm-0 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
                                         <div class='form-check form-check-inline stars'>
                                             <input id='feedback_{{ $i }}'
@@ -699,7 +697,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingThirteen'>
 
-                                <div class='col-8 box1'>
+                                <div class='col-12 col-sm-8 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -715,7 +713,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-4 form-group box2'>
+                                <div class='col-10 offset-2 col-sm-4 offset-sm-0 form-group box2'>
                                     @for ($i = 1; $i < 6; $i++)
                                         <div class='form-check form-check-inline stars'>
                                             <input id='performance_{{ $i }}'
@@ -752,7 +750,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingFourteen'>
 
-                                <div class='col-6 box1'>
+                                <div class='col-12 col-sm-6 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -768,7 +766,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-6 form-group box2 text-box'>
+                                <div class='col-11 offset-1 col-sm-6 offset-sm-0 form-group box2 text-box'>
                                     <div class='btn-group btn-group-toggle' data-toggle='buttons'>
                                         <label class='btn btn-warning take_course {{ old("take_course_again") == "1" ? "active" : "not_active" }}'>
                                             <input type='radio'
@@ -806,7 +804,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingFifteenth'>
 
-                                <div class='col-6 box1'>
+                                <div class='col-12 col-sm-6 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -822,7 +820,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-6 form-group box2 text-box'>
+                                <div class='col-11 offset-1 col-sm-6 offset-sm-0 form-group box2 text-box'>
                                     <input id='grade'
                                            class='form-control'
                                            type='text'
@@ -849,7 +847,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingSixteenth'>
 
-                                <div class='col-6 box1'>
+                                <div class='col-12 col-sm-6 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -865,7 +863,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-6 form-group box2 text-box'>
+                                <div class='col-11 offset-1 col-sm-6 offset-sm-0 form-group box2 text-box'>
                                     <textarea id='survival_tips'
                                               class='form-control'
                                               name='survival_tips'
@@ -891,7 +889,7 @@
                             {{-- CARD-HEADER --}}
                             <div class='row card-header' id='headingSeventeenth'>
 
-                                <div class='col-6 box1'>
+                                <div class='col-12 col-sm-6 box1'>
                                     <h2>
                                         <button class='btn btn-link collapsed'
                                                 type='button'
@@ -907,7 +905,7 @@
                                 </div>
 
                                 {{-- FORM --}}
-                                <div class='col-6 form-group box2 text-box'>
+                                <div class='col-11 offset-1 col-sm-6 offset-sm-0 form-group box2 text-box'>
                                 <textarea id='comments'
                                           class='form-control'
                                           name='comments'

@@ -2,7 +2,7 @@
 
 .content {
     width: 100%;
-    min-width: 576px;
+    min-width: 320px;
     padding: 20px 0 0;
     background-color: var(--main-blue);
 }
@@ -13,44 +13,36 @@
     margin-bottom: 10px;
     padding: 10px;
     color: #fff;
-    text-shadow: 3px 2px rgba(0, 0, 0, .5);
 }
 
-/*
- * LEFT COL
- */
 .rating-col h1 {
     font-size: 1.7rem;
-    text-align: right;
+    margin-bottom: 15px;
+    text-shadow: 3px 2px rgba(0, 0, 0, .5);
 }
 
 /*
  * COURSE TITLE COL
  */
-.title {
-    border-left: 2px solid lightgrey;
-}
-
 .subject-course-code {
     padding-left: 20px;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     margin-bottom: 5px;
 }
 
-.course h1 {
-    margin: 5px 0;
-    font-size: 1.4rem;
+.course h2 {
+    margin: 5px 0 10px;
+    font-size: 1.2rem;
     padding-left: 20px;
-    margin-bottom: 10px;
 }
 
 .professor {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .professor-icon {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     margin-left: 22px;
     margin-right: 10px;
 }
@@ -61,7 +53,7 @@
 
 .instructor p {
     margin-bottom: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 /*
@@ -109,6 +101,10 @@
 
 .box1 h2 {
     margin: 15px 0 5px 15px;
+}
+
+.break {
+    display: block;
 }
 
 .btn.btn-link.collapsed {
@@ -166,16 +162,13 @@ span.selected {
 /*
  * BUTTON - YES / NO
  */
-.btn-group.btn-group-toggle label.btn.btn-warning,
-.btn-group.btn-group-toggle label.btn.btn-warning:hover {
+/* Btn Idle state */
+.btn-group.btn-group-toggle label.btn.btn-warning
+ {
     width: 100px;
     height: 45px;
     font-size: 1.3rem;
     border-radius: .30rem;
-}
-
-/* Btn Idle state */
-.btn-group.btn-group-toggle label.btn.btn-warning {
     background-color: var(--main-orange);
     border: none;
     color: #fff;
@@ -226,6 +219,15 @@ label.btn.btn-warning:not(:last-child):not(.dropdown-toggle) {
  */
 @media (min-width: 768px) {
 
+    .rating-col h1 {
+        text-align: right;
+        margin-bottom: 0;
+    }
+
+    .title {
+        border-left: 2px solid lightgrey;
+    }
+
     /* Font-sizes */
     .rating-col h1 {
         font-size: 1.9rem;
@@ -235,8 +237,21 @@ label.btn.btn-warning:not(:last-child):not(.dropdown-toggle) {
         font-size: 1.2rem;
     }
 
-    .course h1 {
+    .course h2 {
         font-size: 1.6rem;
+    }
+
+    .professor {
+        font-size: 1.2rem;
+    }
+
+    .professor-icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .instructor p {
+        font-size: 1.2rem;
     }
 
     .btn.btn-link {
@@ -262,9 +277,12 @@ label.btn.btn-warning:not(:last-child):not(.dropdown-toggle) {
     }
 
     /* BUTTON - YES / NO */
-    .btn-group.btn-group-toggle label.btn.btn-warning,
-    .btn-group.btn-group-toggle label.btn.btn-warning:hover {
+    .btn-group.btn-group-toggle label.btn.btn-warning {
         width: 120px;
+    }
+
+    .break {
+        display: inline;
     }
 
 }
