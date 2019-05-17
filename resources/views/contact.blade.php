@@ -26,13 +26,13 @@
                     <div class='form-group'>
                         <label for='email'>Email:</label>
                         @include('includes.error', ['errorField' => 'email'])
-                        <input id='email' name='email' class='form-control' value={{ old('email') }}>
+                        <input id='email' name='email' class='form-control' value='{{ old('email') }}'>
                     </div>
 
                     <div class='form-group'>
                         <label for='subject'>Subject:</label>
                         @include('includes.error', ['errorField' => 'subject'])
-                        <input id='subject' name='subject' class='form-control' value={{ old('subject') }}>
+                        <input id='subject' name='subject' class='form-control' value='{{ old('subject') }}'>
                     </div>
 
                     <div class='form-group'>
