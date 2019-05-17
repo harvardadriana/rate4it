@@ -4,7 +4,7 @@
     width: 100%;
     min-width: 320px;
     padding: 20px 0 0;
-    background-color: var(--main-blue);
+    background-color: #3B4691;
     font-family: 'Quicksand', sans-serif;
     font-weight: lighter;
 }
@@ -64,7 +64,7 @@
 .blue-wrapper {
     width: 100%;
     height: auto;
-    background-color: var(--main-blue);
+    background-color: #3B4691;
 }
 
 .content-wrapper {
@@ -80,7 +80,7 @@
 }
 
 .card-header {
-    background-color: var(--main-blue);
+    background-color: #3B4691;
 }
 
 .card-header,
@@ -170,7 +170,7 @@ span.selected {
     height: 45px;
     font-size: 1.3rem;
     border-radius: .30rem;
-    background-color: var(--main-orange);
+    background-color: #FA7308;
     border: none;
     color: #fff;
 }
@@ -207,7 +207,7 @@ label.btn.btn-warning:not(:last-child):not(.dropdown-toggle) {
 .submit-review {
     margin: 20px 0 50px;
     width: 215px;
-    background-color: var(--main-orange);
+    background-color: #FA7308;
     border: none;
     height: auto;
     border-radius: 10px;

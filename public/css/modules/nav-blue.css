@@ -1,7 +1,7 @@
 /* nav-blue.css */
 
 nav.navbar.navbar-expand-lg.navbar-light {
-    background-color: var(--main-blue);
+    background-color: #3B4691;
 }
 
 nav.navbar.navbar-expand-lg.navbar-light .nav-link {

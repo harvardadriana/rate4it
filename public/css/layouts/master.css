@@ -1,11 +1,5 @@
 /* master.css */
 
-:root {
-    --main-blue: #3B4691;
-    --main-orange: #FA7308;
-    --main-dark-blue: #3B4691;
-}
-
 html, body {
     width: 100%;
     background-color: #fff;

@@ -18,7 +18,7 @@ class CourseController extends Controller
         # Get all courses with instructors and subject from the DB
         $allCourses = Course::with('instructors')->with('subject')->orderBy('title')->get();
 
-        # Get all course codes, course titles, subjects, and instructors for dropdown
+        # Get all course codes, course titles, subjects, and instructors for drop-down
         $courseCodesArray = Course::getCourseCodes($allCourses);
         $courseTitlesArray = Course::getCourseTitles($allCourses);
         $subjectsArray = Subject::getSubjects($allCourses);
@@ -86,7 +86,7 @@ class CourseController extends Controller
         $searchResultsArray = $searchResults->toArray();
         $numberCourses = count($searchResultsArray);
 
-        # Get all course codes, course titles, subjects, and instructors for dropdown
+        # Get all course codes, course titles, subjects, and instructors for drop-down
         $courseCodesArray = Course::getCourseCodes($searchResults);
         $courseTitlesArray = Course::getCourseTitles($searchResults);
         $subjectsArray = Subject::getSubjects($searchResults);

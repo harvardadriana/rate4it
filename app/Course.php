@@ -56,6 +56,8 @@ class Course extends Model
     {
         $courseCodesArray = $searchResults->pluck('subject_and_course_code')->toArray();
         $courseCodesArray = array_unique($courseCodesArray);
+
+        # sort array by alphabetical order
         asort($courseCodesArray);
 
         return $courseCodesArray;

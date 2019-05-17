@@ -50,8 +50,8 @@ body, main {
     font-size: 1.2rem;
     font-family: 'Quicksand', sans-serif;
     text-decoration: none;
-    background-color: var(--main-orange);
-    border: 2px solid var(--main-orange);
+    background-color: #FA7308;
+    border: 2px solid #FA7308;
     color: #fff;
 }
 
