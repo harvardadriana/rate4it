@@ -52,7 +52,7 @@ $(document).ready(function () {
 
         // Set back the configuration of button that was not selected to idle state
         $(takeCourseNotActive).css({
-            'background-color': 'var(--main-orange)',
+            'background-color': '#FA7308',
             'border': 'none',
             'box-shadow': '#fff'
         });
@@ -80,7 +80,7 @@ $(document).ready(function () {
 
         // Change button color
         $($this).css({
-            'background-color': 'var(--main-orange)',
+            'background-color': '#FA7308',
             'border': 'none',
             'box-shadow': '#fff',
             'color': 'purple'
