@@ -2,7 +2,7 @@
 
 .about {
     font-family: 'Quicksand', sans-serif;
-    padding: 40px 15px 15px;
+    padding: 20px 15px 15px;
 }
 
 .recommendations-header {
@@ -14,7 +14,7 @@
 
 img#bulb {
     width: 80px;
-    height: auto;
+    height: 80px;
 }
 
 .recommendations-header h1 {
@@ -87,7 +87,7 @@ ul img {
 @media (min-width: 576px) and (max-width: 767px) {
 
     .about {
-        padding: 40px 15px 40px;
+        padding: 30px 15px 40px;
     }
 
     .recommendations-header {
@@ -97,6 +97,7 @@ ul img {
 
     img#bulb {
         width: 150px;
+        height: 150px;
     }
 
     .recommendations-header h1 {
@@ -158,7 +159,7 @@ ul img {
 @media (min-width: 768px) {
 
     .about {
-        padding: 60px 15px 60px;
+        padding: 30px 15px 60px;
     }
 
     .recommendations-header {
@@ -168,6 +169,7 @@ ul img {
 
     img#bulb {
         width: 150px;
+        height: 150px;
     }
 
     .recommendations-header h1 {
