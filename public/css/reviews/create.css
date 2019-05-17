@@ -5,6 +5,8 @@
     min-width: 320px;
     padding: 20px 0 0;
     background-color: var(--main-blue);
+    font-family: 'Quicksand', sans-serif;
+    font-weight: lighter;
 }
 
 .course-title-banner {

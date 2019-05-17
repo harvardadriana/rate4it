@@ -14,7 +14,6 @@ body, main, .content, .app {
 .layout-hero {
     width: 100%;
     margin: 0;
-    font-family: 'Quicksand', sans-serif;
 }
 
 .gif, img.gif {
@@ -32,15 +31,13 @@ body, main, .content, .app {
 
 #content-column h1 {
     margin-bottom: 15px;
-    font-weight: 300;
-    color: #000;
+    color: #666666;
     font-size: 1.7rem;
 }
 
 #content-column p {
     margin-bottom: 25px;
-    font-weight: 300;
-    color: #000;
+    color: #595959;
     font-size: 1.1rem;
 }
 
@@ -55,7 +52,6 @@ body, main, .content, .app {
     text-decoration: none;
     font-size: 1.1rem;
     padding: 10px 15px;
-    font-family: 'Quicksand', sans-serif;
 }
 
 a#search:hover {

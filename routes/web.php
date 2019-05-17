@@ -45,6 +45,12 @@ Route::get('/search-processtest', 'TestController@searchProcesstest');
 
 Route::get('/test2', 'TestController@test2');
 Route::get('/findCourseTitle', 'TestController@findCourseTitle');
+Route::get('/aboutus', 'TestController@aboutus');
+Route::get('/about', 'TestController@about');
+
+Route::get('/contact', 'HomeController@sendEmail');
+Route::post('/contact', 'HomeController@postEmail');
+
 
 
 /*

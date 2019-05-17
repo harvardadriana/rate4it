@@ -15,6 +15,7 @@ return [
         'reviews' => 'rate',
         'login' => 'login',
         'register' => 'register',
+        'contact' => 'contact us'
     ],
 
     /*
@@ -28,6 +29,7 @@ return [
         '/' => 'home',
         'search' => 'search',
         'reviews' => 'rate',
+        'contact' => 'contact us'
     ],
 
     /*

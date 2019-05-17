@@ -9,6 +9,8 @@
     margin: 0;
     padding: 25px 0;
     color: #555e6a;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
 }
 
 .course-wrapper,
@@ -168,6 +170,8 @@
     margin: 0 auto;
     margin-top: 15px;
     margin-bottom: 15px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
 }
 
 .rate-btn-col {
@@ -344,6 +348,8 @@ a#first-review {
     text-decoration: none;
     text-align: center;
     padding: 30px 30px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
 }
 
 a#first-review:hover {

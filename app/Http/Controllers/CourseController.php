@@ -149,5 +149,6 @@ class CourseController extends Controller
 //            'searchResults' => $request->session()->get('searchResults', []),
 //        ]);
 //    }
+
 }
 

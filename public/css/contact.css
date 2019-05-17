@@ -1,0 +1,72 @@
+/* contact.css */
+
+html, main, .wrapper {
+    background-color: var(--main-blue);
+    width: 100%;
+    height: 100%;
+}
+
+.contact-wrapper {
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+}
+
+.row {
+    width: 100%;
+    height: 80vh;
+}
+
+.contact-wrapper h1 {
+    margin-bottom: 2.5rem;
+}
+
+#submit-message {
+    width: auto;
+    background-color: transparent;
+    border-radius: 8px;
+    color: lightgrey;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#submit-message:hover {
+    background-color: #fff;
+    color: grey;
+}
+
+.alert {
+    margin-top: 0;
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+}
+
+/*
+ *  @MEDIA QUERIES
+ */
+@media (min-width: 576px) and (max-width: 767px) {
+
+    .contact-col {
+        max-width: 497px;
+    }
+
+    #submit-message {
+        margin-top: 15px;
+    }
+
+}
+
+@media (min-width: 768px) {
+
+    .contact-col {
+        max-width: 700px;
+    }
+
+    #submit-message {
+        margin-top: 15px;
+    }
+
+}
