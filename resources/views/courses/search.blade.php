@@ -2,7 +2,7 @@
 
 @push('styles')
     <link rel='stylesheet' type='text/css' href='/css/modules/nav.css'>
-    <link rel='stylesheet' type='text/css' href='/css/search-main.css'>
+    <link rel='stylesheet' type='text/css' href='/css/courses/search-main.css'>
     <link rel='stylesheet' type='text/css' href='/css/courses/search.css'>
 @endpush
 

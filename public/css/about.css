@@ -1,0 +1,227 @@
+/* about.css */
+
+.about {
+    font-family: 'Quicksand', sans-serif;
+    padding: 40px 15px 15px;
+}
+
+.recommendations-header {
+    margin: 0 auto;
+    width: auto;
+    max-width: 500px;
+    padding: 10px 10px;
+}
+
+img#bulb {
+    width: 80px;
+    height: auto;
+}
+
+.recommendations-header h1 {
+    font-weight: 300;
+    text-align: center;
+    font-size: 2.2rem;
+    line-height: 40px;
+    margin: 20px 0 15px;
+}
+
+p.about-us {
+    font-weight: 300;
+    text-align: center;
+    font-size: 1rem;
+    margin: 15px 10px 10px;
+    max-width: 500px;
+}
+
+.tips {
+    margin-top: 25px;
+}
+
+.tips img.check-list {
+    width: 75px;
+    height: auto;
+    margin: 30px 20px 0 0;
+}
+
+.tips h2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.tips p.considerations {
+    font-weight: 300;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.suggestions {
+    margin-top: 15px;
+}
+
+.suggestions-col {
+    max-width: 750px;
+}
+
+.suggestions h2 {
+    font-weight: 300;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+ul img {
+    width: 20px;
+    height: auto;
+    margin-right: 10px;
+    float: left;
+}
+
+.no-wrap {
+    overflow: hidden;
+}
+
+.suggestions li {
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+
+    .about {
+        padding: 40px 15px 40px;
+    }
+
+    .recommendations-header {
+        max-width: 900px;
+        padding: 30px 0;
+    }
+
+    img#bulb {
+        width: 150px;
+    }
+
+    .recommendations-header h1 {
+        font-size: 3rem;
+        line-height: 80px;
+        margin: 30px 0 10px;
+    }
+
+    p.about-us {
+        font-size: 1.2rem;
+        margin: 20px 30px 30px;
+        max-width: 850px;
+    }
+
+    .tips {
+        margin-top: 30px;
+    }
+
+    .tips img.check-list {
+        width: 120px;
+        height: auto;
+        margin: 45px 50px 0 0;
+    }
+
+    .tips h2 {
+        font-size: 2.1rem;
+        margin: 0 0 15px;
+    }
+
+    .tips p.considerations {
+        font-size: 1.2rem;
+        margin: 30px 0 20px;
+        max-width: 500px;
+    }
+
+    .suggestions {
+        margin-top: 15px;
+    }
+
+    .suggestions h2 {
+        font-size: 1.6rem;
+    }
+
+    .suggestions li {
+        font-size: 1.1rem;
+    }
+
+    ul img {
+        width: 25px;
+        margin-right: 10px;
+    }
+
+    .no-wrap {
+        overflow: hidden;
+    }
+
+}
+
+@media (min-width: 768px) {
+
+    .about {
+        padding: 60px 15px 60px;
+    }
+
+    .recommendations-header {
+        max-width: 900px;
+        padding: 30px 0;
+    }
+
+    img#bulb {
+        width: 150px;
+    }
+
+    .recommendations-header h1 {
+        font-size: 3.75rem;
+        line-height: 100px;
+        margin: 30px 0 20px;
+    }
+
+    p.about-us {
+        font-size: 1.4rem;
+        margin: 30px;
+        max-width: 850px;
+    }
+
+    .tips {
+        margin-top: 30px;
+    }
+
+    .tips img.check-list {
+        width: 150px;
+        height: auto;
+        margin: 25px 50px 0 0;
+    }
+
+    .tips h2 {
+        font-size: 2.3rem;
+        margin: 0 0 15px;
+    }
+
+    .tips p.considerations {
+        font-size: 1.2rem;
+        margin: 30px 0;
+        max-width: 500px;
+    }
+
+    .suggestions {
+        margin-top: 30px;
+    }
+
+    .suggestions h2 {
+        font-size: 1.6rem;
+    }
+
+    .suggestions li {
+        font-size: 1.1rem;
+    }
+
+    ul img {
+        width: 25px;
+        margin-right: 10px;
+    }
+
+    .no-wrap {
+        overflow: hidden;
+    }
+
+}

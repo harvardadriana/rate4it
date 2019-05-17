@@ -13,9 +13,10 @@ return [
         '/' => 'home',
         'search' => 'search',
         'reviews' => 'rate',
+        'contact' => 'contact',
+        'about' => 'about us',
         'login' => 'login',
-        'register' => 'register',
-        'contact' => 'contact us'
+        'register' => 'register'
     ],
 
     /*
@@ -29,7 +30,8 @@ return [
         '/' => 'home',
         'search' => 'search',
         'reviews' => 'rate',
-        'contact' => 'contact us'
+        'contact' => 'contact',
+        'about' => 'about us'
     ],
 
     /*

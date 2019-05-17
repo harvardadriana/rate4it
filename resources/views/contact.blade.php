@@ -11,7 +11,7 @@
 
 @section('content')
 
-    <div class='contact-wrapper'>
+    <div class='contact'>
 
         <div class='row justify-content-center'>
 
@@ -42,8 +42,7 @@
                                   name='message'
                                   class='form-control'
                                   maxlength='300'
-                                  rows='5'
-                                  placeholder='Leave your message here...'>{{ old('message') }}</textarea>
+                                  rows='5'>{{ old('message') }}</textarea>
                     </div>
 
                     <input id='submit-message' type='submit' value='Send message'>

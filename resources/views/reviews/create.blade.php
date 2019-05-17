@@ -782,7 +782,7 @@
                                                    id='take_course_again_no'
                                                    value='0'
                                                    autocomplete='off'
-                                                   {{ old('take_course_again') == '0' ? 'checked' : '' }}>No
+                                                    {{ old('take_course_again') == '0' ? 'checked' : '' }}>No
                                         </label>
                                     </div>
                                 </div>

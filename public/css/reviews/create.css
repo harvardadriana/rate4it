@@ -165,8 +165,7 @@ span.selected {
  * BUTTON - YES / NO
  */
 /* Btn Idle state */
-.btn-group.btn-group-toggle label.btn.btn-warning
- {
+.btn-group.btn-group-toggle label.btn.btn-warning {
     width: 100px;
     height: 45px;
     font-size: 1.3rem;

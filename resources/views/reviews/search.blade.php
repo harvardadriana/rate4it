@@ -2,7 +2,7 @@
 
 @push('styles')
     <link rel='stylesheet' type='text/css' href='/css/modules/nav.css'>
-    <link rel='stylesheet' type='text/css' href='/css/search-main.css'>
+    <link rel='stylesheet' type='text/css' href='/css/courses/search-main.css'>
     <link rel='stylesheet' type='text/css' href='/css/reviews/search.css'>
 @endpush
 
@@ -66,9 +66,7 @@
             @if(count($searchResults) == 0)
 
                 @if(session('alert'))
-
-                    @include('modules.alert-messages', ['message' => session('alert')])
-
+                    @include('includes.alert-messages', ['message' => session('alert')])
                 @endif
 
             @else
@@ -145,7 +143,9 @@
 
                                     <div class=' d-flex d-inline'>
 
-                                        <img class='professor-icon' src='/svg/show/professor.svg' alt='Person reading a book'>
+                                        <img class='professor-icon'
+                                             src='/svg/show/professor.svg'
+                                             alt='Person reading a book'>
                                         <p class='professor'>Professor(s): </p>
                                         <div class='instructor'>
 

@@ -1,0 +1,101 @@
+/* confirmation.css */
+
+html, main, .wrapper {
+    background-color: var(--main-blue);
+    width: 100%;
+    height: 100%;
+}
+
+.confirmation {
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+    padding: 10% 5%;
+    margin: 0;
+}
+
+.confirmation-row {
+    width: 100%;
+    height: 70vh;
+}
+
+.confirmation-col {
+    max-width: 430px;
+}
+
+.confirmation img {
+    width: 110px;
+    height: auto;
+    margin-bottom: 2.5rem;
+}
+
+.confirmation h1 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.confirmation p {
+    margin-bottom: 1.1rem;
+}
+
+.no-pad {
+    padding: 0;
+}
+
+.box {
+    border: 1px solid #fff;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/*
+ *  @MEDIA QUERIES
+ */
+@media (min-width: 576px) and (max-width: 767px) {
+
+    .confirmation-col {
+        max-width: 500px;
+    }
+
+    .confirmation img {
+        width: 150px;
+        height: auto;
+        margin-bottom: 2.1rem;
+    }
+
+    .confirmation h1 {
+        margin-bottom: 2.5rem;
+        font-size: 2.5rem;
+    }
+
+    .confirmation p {
+        margin-bottom: 1.5rem;
+    }
+
+}
+
+@media (min-width: 768px) {
+
+    .confirmation {
+        padding: 5% 2%;
+    }
+
+    .confirmation-col {
+        max-width: 500px;
+    }
+
+    .confirmation img {
+        width: 150px;
+        height: auto;
+        margin-bottom: 2.5rem;
+    }
+
+    .confirmation h1 {
+        margin-bottom: 2.4rem;
+        font-size: 2.4rem;
+    }
+
+    .confirmation p {
+        margin-bottom: 1.5rem;
+    }
+
+}

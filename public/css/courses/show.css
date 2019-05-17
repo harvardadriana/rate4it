@@ -1,4 +1,4 @@
-/* showcourse.css */
+/* show.css */
 
 /*
  * LAYOUT
@@ -107,23 +107,6 @@
     height: auto;
     max-width: 120px;
     margin-top: 7px;
-}
-
-/*
- *  CONFIRMATION MESSAGE
- */
-.alert {
-    height: auto;
-    text-align: center;
-}
-
-.alert h3 {
-    margin-top: 0.5rem;
-    font-size: 1.2rem;
-}
-
-.alert p {
-    font-size: 0.9rem;
 }
 
 /*
@@ -315,17 +298,6 @@ img.user-avatar {
 }
 
 /*
- * VOTING FEEDBACK
- */
-.thumbs-up img,
-.thumbs-down img {
-    width: 25px;
-    height: 25px;
-    margin-right: 15px;
-    margin-left: 15px;
-}
-
-/*
  * IF NO REVIEWS
  */
 .no-reviews-wrapper {
@@ -363,12 +335,25 @@ img#hand-rating {
 }
 
 /*
- *  ERROR MESSAGE
+ *  ALERT / SUCCESS MESSAGES
  */
-#user-message {
+#success-messages,
+#alert-messages {
+    margin-top: 1rem;
     height: auto;
+    min-height: 90px;
+}
+
+#success-messages h3#alert-heading {
     font-size: 1.2rem;
-    text-align: center;
+}
+
+#success-messages p#alert-text {
+    font-size: 0.9rem;
+}
+
+#alert-messages {
+    font-size: 1.2rem;
 }
 
 /*
@@ -523,25 +508,6 @@ img#hand-rating {
         font-size: 1.1rem;
     }
 
-    /* ERROR MESSAGE */
-    #user-message {
-        height: auto;
-        font-size: 1.6rem;
-    }
-
-    /* CONFIRMATION MESSAGE */
-    .alert {
-        height: auto;
-    }
-
-    .alert h3 {
-        font-size: 1.6rem;
-    }
-
-    .alert p {
-        font-size: 1.3rem;
-    }
-
     a#first-review {
         font-size: 1.2rem;
     }
@@ -549,6 +515,24 @@ img#hand-rating {
     img#hand-rating {
         width: 50px;
         height: 50px;
+    }
+
+    #success-messages,
+    #alert-messages {
+        height: auto;
+        min-height: 100px;
+    }
+
+    h3#alert-heading {
+        font-size: 1.6rem;
+    }
+
+    p#alert-text {
+        font-size: 1.3rem;
+    }
+
+    #alert-messages {
+        font-size: 1.6rem;
     }
 
 }

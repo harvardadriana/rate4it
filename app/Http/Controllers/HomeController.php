@@ -17,6 +17,14 @@ class HomeController extends Controller
     }
 
     /**
+     *  GET  '/about'
+     */
+    public function about()
+    {
+        return view('about');
+    }
+
+    /**
      *  GET  '/contact'
      */
     public function sendEmail()
@@ -54,6 +62,7 @@ class HomeController extends Controller
             'bodyMessage' => $request->message
         ]);
     }
+
 }
 
 

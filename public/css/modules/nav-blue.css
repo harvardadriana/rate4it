@@ -1,10 +1,10 @@
 /* nav-blue.css */
 
-nav.navbar.navbar-expand-md.navbar-light {
+nav.navbar.navbar-expand-lg.navbar-light {
     background-color: var(--main-blue);
 }
 
-nav.navbar.navbar-expand-md.navbar-light .nav-link {
+nav.navbar.navbar-expand-lg.navbar-light .nav-link {
     color: #ccccdf;
 }
 

@@ -6,7 +6,7 @@ html, main, .wrapper {
     height: 100%;
 }
 
-.contact-wrapper {
+.contact {
     font-family: 'Quicksand', sans-serif;
     color: #fff;
     padding: 20px;
@@ -18,7 +18,7 @@ html, main, .wrapper {
     height: 80vh;
 }
 
-.contact-wrapper h1 {
+.contact h1 {
     margin-bottom: 2.5rem;
 }
 

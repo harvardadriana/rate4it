@@ -63,13 +63,7 @@
 
             {{-- CONFIRMATION OF SUBMISSION OF REVIEW, IF ANY --}}
             @if(session('alert'))
-                <div class='alert alert-success alert-dismissible fade show' role='alert'>
-                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                        <span aria-hidden='true'>&times;</span>
-                    </button>
-                    <h3 class='alert-heading'>Well done!</h3>
-                    <p>{{ session('alert') }}</p>
-                </div>
+                @include('includes.success-messages', ['message' => session('alert')])
             @endif
 
             @if($course->rate->number_of_reviews)

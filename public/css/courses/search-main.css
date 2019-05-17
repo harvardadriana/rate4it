@@ -116,12 +116,25 @@ img#hand-rating {
 }
 
 /*
- *  ERROR MESSAGES
+ *  ALERT / SUCCESS MESSAGES
  */
-#user-message {
-    height: 90px;
+#success-messages,
+#alert-messages {
+    margin-top: 1rem;
+    height: auto;
+    min-height: 90px;
+}
+
+#success-messages h3#alert-heading {
     font-size: 1.2rem;
-    text-align: center;
+}
+
+#success-messages p#alert-text {
+    font-size: 0.9rem;
+}
+
+#alert-messages {
+    font-size: 1.2rem;
 }
 
 /*
@@ -149,14 +162,27 @@ img#hand-rating {
         font-size: 1.1rem;
     }
 
-    #user-message {
-        height: 110px;
-        font-size: 1.6rem;
-    }
-
     nav ul.navbar-nav.ml-auto {
         background-color: rgb(252, 252, 252);
         box-shadow: 1px 1px 10px 1px #DEDEDD;
+    }
+
+    #success-messages,
+    #alert-messages {
+        height: auto;
+        min-height: 100px;
+    }
+
+    h3#alert-heading {
+        font-size: 1.6rem;
+    }
+
+    p#alert-text {
+        font-size: 1.3rem;
+    }
+
+    #alert-messages {
+        font-size: 1.6rem;
     }
 
 }
@@ -183,8 +209,21 @@ img#hand-rating {
         max-width: 65px;
     }
 
-    #user-message {
-        height: 110px;
+    #success-messages,
+    #alert-messages {
+        height: auto;
+        min-height: 100px;
+    }
+
+    h3#alert-heading {
+        font-size: 1.6rem;
+    }
+
+    p#alert-text {
+        font-size: 1.3rem;
+    }
+
+    #alert-messages {
         font-size: 1.6rem;
     }
 
